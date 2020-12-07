@@ -1,23 +1,22 @@
 package br.com.esign.qualidadearsmac;
 
-import java.util.Date;
 import java.util.List;
 
 public class Medicao {
     
-    private Date datahora;
+    private String data;
     private String estacao;
     private String qualidadeAr;
     private String indice;
     private String poluente;
     private List<MedicaoPoluente> medicaoPoluentes;
 
-    public Date getDatahora() {
-        return datahora;
+    public String getData() {
+        return data;
     }
 
-    public void setDatahora(Date datahora) {
-        this.datahora = datahora;
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getEstacao() {

@@ -3,7 +3,7 @@ package br.com.esign.qualidadearsmac;
 public class MedicaoPoluente {
     
     private String poluente;
-    private String indice;
+    private String concentracao;
 
     public String getPoluente() {
         return poluente;
@@ -13,12 +13,12 @@ public class MedicaoPoluente {
         this.poluente = poluente;
     }
 
-    public String getIndice() {
-        return indice;
+    public String getConcentracao() {
+        return concentracao;
     }
 
-    public void setIndice(String indice) {
-        this.indice = indice;
+    public void setConcentracao(String concentracao) {
+        this.concentracao = concentracao;
     }
 
 }

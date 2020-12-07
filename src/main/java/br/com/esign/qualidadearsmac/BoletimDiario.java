@@ -5,13 +5,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.URI;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -34,25 +29,15 @@ public class BoletimDiario {
         doc = Jsoup.parse(response.body());
     }
 
-    private Date obterDatahoraMedicao() {
-        Date datahoraMedicao = null;
-        String regex = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
-        Pattern pattern = Pattern.compile(regex);
+    private String obterDataMedicao() {
         Element div = doc.getElementById("titulo");
-        Matcher matcher = pattern.matcher(div.html());
-        if (matcher.find()) {
-            SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                datahoraMedicao = parser.parse(matcher.group());
-            } catch (ParseException e) {
-                throw new RuntimeException("Erro na obtenção da data/hora da medição da qualidade do ar.");
-            }
-        }
-        return datahoraMedicao;
+        Elements h4s = div.getElementsByTag("h4");
+        Element h4 = h4s.first();
+        return (h4 == null) ? null : h4.html();
     }
 
     public List<Medicao> listarMedicoes() {
-        Date datahora = obterDatahoraMedicao();
+        String data = obterDataMedicao();
         List<Medicao> listaMedicoes = new ArrayList<>();
         Element div = doc.getElementById("dados_estacoes");
         Elements trs = div.getElementsByTag("tr");
@@ -70,14 +55,22 @@ public class BoletimDiario {
                 Elements tds = tr.getElementsByTag("td");
                 if (tds.size() == size + 3) {
                     Medicao medicao = new Medicao();
-                    medicao.setDatahora(datahora);
+                    medicao.setData(data);
                     medicao.setEstacao(tds.get(0).text());
+                    List<MedicaoPoluente> medicaoPoluentes = new ArrayList<>();
+                    String poluentePrincipal = null;
                     for (int k = 0, l = 1; k < size; k++, l++) {
-                        if (tds.get(l).attr("class").equals("td_value_bold")) {
-                            medicao.setPoluente(poluentes.get(k));
-                            break;
+                        Element td = tds.get(l);
+                        MedicaoPoluente medicaoPoluente = new MedicaoPoluente();
+                        medicaoPoluente.setPoluente(poluentes.get(k));
+                        medicaoPoluente.setConcentracao(td.text());
+                        medicaoPoluentes.add(medicaoPoluente);
+                        if (td.attr("class").equals("td_value_bold")) {
+                            poluentePrincipal = poluentes.get(k);
                         }
                     }
+                    medicao.setPoluente(poluentePrincipal);
+                    medicao.setMedicaoPoluentes(medicaoPoluentes);
                     medicao.setIndice(tds.get(size + 1).text());
                     medicao.setQualidadeAr(tds.get(size + 2).text());
                     listaMedicoes.add(medicao);

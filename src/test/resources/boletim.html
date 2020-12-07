@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Boletim de Qualidade do Ar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="resources/css/boletim.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="resources/css/boletimPrint.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/jquery-ui.css" />
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
+    <script src="resources/js/jquery/1.4/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> -->
+    <script src="resources/js/jqueryui/1.8/jquery-ui.min.js"></script>
+    <!-- <script src="js/jquery-ui.js"></script> -->
+
+    <script type="text/javascript">
+        function hide() {
+            var o = document.getElementById('msgLog');
+            o.style.display = 'none';
+        }
+        function timedHide() {
+            setTimeout("hide()", 5000); // 5 seconds after user (re)load the page
+        };
+        window.onload = timedHide();
+        function reload() {
+
+            /*
+                    dh=DAY/MONTH/YEAR
+            */
+
+            var selDate = $("#datepicker").datepicker("getDate");
+            var GETParamStr = "?data=";
+            GETParamStr += selDate.getDate() + "/" + (selDate.getMonth() + 1) + "/" + selDate.getFullYear();
+            //	alert(window.location.pathname + GETParamStr); 
+            window.location.assign(window.location.pathname + GETParamStr);
+        }
+
+
+        var mindate = new Date(2010, 04, 06);
+        //onReady?!
+        $(function () {
+            //Datepicker
+            $("#datepicker").datepicker({
+                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+                    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                maxDate: new Date(),
+                minDate: mindate,
+                dateFormat: "dd/mm/yy"
+            });
+            //Button
+            $("button").button();
+            $("button").click(function () {
+                reload();
+            });
+        }); 
+    </script>
+
+    <style type="text/css">
+        .ui-timepicker-div .ui-widget-header {
+            margin-bottom: 8px;
+        }
+
+        .ui-timepicker-div dl {
+            text-align: left;
+        }
+
+        .ui-timepicker-div dl dt {
+            height: 25px;
+            margin-bottom: -25px;
+        }
+
+        .ui-timepicker-div dl dd {
+            margin: 0 10px 10px 65px;
+        }
+
+        .ui-timepicker-div td {
+            font-size: 90%;
+        }
+
+        .ui-tpicker-grid-label {
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ui-widget {
+            font-size: small;
+        }
+    </style>
+</head>
+
+<!-- Validated by W3C as XHTML 1.0 Strict on 31/03/2010 -->
+
+<body>
+    <div id="central">
+        <div id="header">
+            <div id="logo_monitorar">
+                <img src="institucional/img/logo_monitorar.png" width="200px" alt="Programa MonitorAR Rio"></img>
+            </div>
+            <div id="titulo">
+                <h1>Prefeitura da Cidade do Rio de Janeiro</h1>
+                <h2>Secretaria Municipal de Meio Ambiente</h2>
+                <h3>Boletim de Qualidade do Ar</h3>
+
+                <h4>02/12/2020</h4>
+
+                <h5>Quarta-feira</h5>
+            </div>
+            <div id="logo_prefeitura">
+                <img src="institucional/img/logo_prefeitura_smac.png"
+                    alt="Prefeitura do RJ - Secretaria Municipal de Meio Ambiente (SMAC)"></img>
+            </div>
+        </div>
+
+        <div id="history_div">
+            <p>Exibir Boletim Anterior:</p>
+            <div id="history_dp_div">
+                <label for="datepicker">Data:</label>
+                <input id="datepicker" type="text" style="width:80px" />
+            </div>
+            <button>Exibir</button>
+        </div>
+
+        <div id="msgLog">
+            <p class="msg">Exibindo o último boletim.</p>
+        </div>
+
+        <div id="dados_estacoes">
+            <table>
+                <tr>
+                    <th rowspan="2" style="text-align:center; width: 185px">Estação</th>
+
+                    <th colspan="6" style="text-align:center; ">Concentração Máxima <br /> Poluentes Monitorados</th>
+
+                    <th rowspan="2" style="text-align:center; width: 75px">Índice de<br />Qualidade<br />do Ar
+                        <br />
+
+                        (IQAr)
+
+                    </th>
+                    <th rowspan="2" style="text-align:center; width: 90px">Classificação</th>
+                    <th class="quadro" rowspan="13" style="vertical-align: top; padding-top: 15px;">
+                        Condições Meteorológicas observadas no período:
+                        <p class="textoSinotico">Esta quarta-feira foi de nebulosidade variada na capital fluminense,
+                            com predomínio de céu nublado e registros de chuva fraca isolada durante a madrugada,
+                            resultando no suave declínio das concentrações dos poluentes. Assim, a qualidade do ar ficou
+                            classificada como BOA nos locais monitorados.</p>
+                        <p>&nbsp;</p>
+
+
+                        Tendência da Qualidade do Ar para as Próximas 24h:
+                        <p class="textoSinotico">O tempo na Cidade será influenciado pela recirculação dos ventos úmidos
+                            que favorecerá predomínio céu parcialmente nublado e possibilidade de chuva fraca isolada ao
+                            longo do período. Assim, espera-se a suave elevação das concentrações dos poluentes, o que
+                            deverá deixar a qualidade do ar nas próximas 24h classificada entre BOA a MODERADA nas
+                            localidades monitoradas.</p>
+
+
+                        <p>&nbsp;</p>
+
+
+                    </th>
+                </tr>
+                <tr>
+                    <th class="poluentes_header">
+                        Material Particulado
+                        <span class="sigla">(MP<sub>10</sub>)</span>
+                        <br />[µg/m³]
+                    </th>
+
+                    <th class="poluentes_header">
+                        Material Particulado
+                        <span class="sigla">(MP<sub>2,5</sub>)</span>
+                        <br />[µg/m³]
+                    </th>
+
+                    <th class="poluentes_header">
+                        Ozônio <br />
+                        <span class="sigla">(O<sub>3</sub>)</span>
+                        <br />[µg/m³]
+                    </th>
+                    <th class="poluentes_header">
+                        Monóxido de Carbono<br />
+                        <span class="sigla">(CO)</span>
+                        <br />[ppm]
+                    </th>
+                    <th class="poluentes_header">
+                        Dióxido de Nitrogênio <br />
+                        <span> (NO<sub>2</sub>)</span>
+                        <br />[µg/m³]
+                    </th>
+                    <th class="poluentes_header">
+                        Dióxido de Enxofre <br />
+                        <span>(SO<sub>2</sub>)</span>
+                        <br />[µg/m³]
+                    </th>
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Centro</td>
+
+                    <td class="td_value" colspan="7"> Temporariamente indisponível </td>
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Copacabana</td>
+
+                    <td class="td_value" colspan="7"> Temporariamente indisponível </td>
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">São Cristóvão</td>
+
+                    <td class="td_value_bold"> 32,8 </td>
+
+                    <td class="td_value">NM</td>
+
+                    <td class="td_value"> 54,3 </td>
+                    <td class="td_value"> 0,1 </td>
+                    <td class="td_value"> NM </td>
+                    <td class="td_value"> 3,5 </td>
+                    <td class="td_value">26</td>
+                    <td class="td_value" style="background-color:#00ED00">Boa</td>
+
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Tijuca</td>
+
+                    <td class="td_value_bold"> 35,9 </td>
+
+                    <td class="td_value">NM</td>
+
+                    <td class="td_value"> 40,9 </td>
+                    <td class="td_value"> 0,4 </td>
+                    <td class="td_value"> 43,3 </td>
+                    <td class="td_value"> 2,5 </td>
+                    <td class="td_value">29</td>
+                    <td class="td_value" style="background-color:#00ED00">Boa</td>
+
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Irajá</td>
+
+                    <td class="td_value_bold"> 30,5 </td>
+
+                    <td class="td_value">ND</td>
+
+                    <td class="td_value"> 56,3 </td>
+                    <td class="td_value"> 0,4 </td>
+                    <td class="td_value"> 29,4 </td>
+                    <td class="td_value"> 4,6 </td>
+                    <td class="td_value">25</td>
+                    <td class="td_value" style="background-color:#00ED00">Boa</td>
+
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Bangu</td>
+
+                    <td class="td_value_bold"> 29,0 </td>
+
+                    <td class="td_value">NM</td>
+
+                    <td class="td_value"> 57,4 </td>
+                    <td class="td_value"> 0,3 </td>
+                    <td class="td_value"> 23,0 </td>
+                    <td class="td_value"> 4,2 </td>
+                    <td class="td_value">23</td>
+                    <td class="td_value" style="background-color:#00ED00">Boa</td>
+
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Campo Grande</td>
+
+                    <td class="td_value_bold"> 25,4 </td>
+
+                    <td class="td_value">NM</td>
+
+                    <td class="td_value"> 51,1 </td>
+                    <td class="td_value"> 0,2 </td>
+                    <td class="td_value"> 31,8 </td>
+                    <td class="td_value"> 2,9 </td>
+                    <td class="td_value">20</td>
+                    <td class="td_value" style="background-color:#00ED00">Boa</td>
+
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Pedra de Guaratiba</td>
+
+                    <td class="td_value"> 24,1 </td>
+
+                    <td class="td_value">NM</td>
+
+                    <td class="td_value_bold"> 50,8 </td>
+                    <td class="td_value"> NM </td>
+                    <td class="td_value"> NM </td>
+                    <td class="td_value"> NM </td>
+                    <td class="td_value">20</td>
+                    <td class="td_value" style="background-color:#00ED00">Boa</td>
+
+
+                </tr>
+
+                <tr>
+                    <td class="td_st_name">Unidade Móvel Campo Grande </td>
+
+                    <td class="td_value_bold"> 24,8 </td>
+
+                    <td class="td_value">ND</td>
+
+                    <td class="td_value"> 27,9 </td>
+                    <td class="td_value"> 0,5 </td>
+                    <td class="td_value"> NM </td>
+                    <td class="td_value"> ND </td>
+                    <td class="td_value">20</td>
+                    <td class="td_value" style="background-color:#00ED00">Boa</td>
+
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <div id="faixas_concentracao" class="faixas_concentracao">
+            <table>
+                <tr>
+                    <th rowspan="7" style="text-align:center; width:185px">
+                        Faixas de concentração dos poluentes para cálculo do IQA
+                        <br />
+                        <br />
+                        * Faixas de concentração definidas pela Resolução CONAMA nº 491/2018
+                        e no Guia Técnico para o Monitoramento e Avaliação da Qualidade do Ar,
+                        do Ministério do Meio Ambiente.
+                    </th>
+                </tr>
+                <tr>
+                    <th class="poluentes_header">
+                        MP<sub>10</sub> <br />(µg/m³)<br />24h
+                    </th>
+                    <th class="poluentes_header">
+                        MP<sub>2,5</sub> <br />(µg/m³)<br />24h
+                    </th>
+                    <th class="poluentes_header">
+                        O<sub>3</sub> <br />(µg/m³)<br />8h
+                    </th>
+                    <th class="poluentes_header">
+                        CO <br />(ppm)<br />8h
+                    </th>
+                    <th class="poluentes_header">
+                        NO<sub>2</sub><br />(µg/m³)<br />1h
+                    </th>
+                    <th class="poluentes_header">
+                        SO<sub>2</sub><br />(µg/m³)<br />24h
+                    </th>
+                    <th style="text-align:center; width: 75px">Índice</th>
+                    <th style="text-align:center; width: 90px">Qualidade do Ar</th>
+                    <th class="concentra_classificacao" style="text-align:center">Efeitos</th>
+                </tr>
+                <tr>
+                    <td>0 - 50</td>
+                    <td>0 - 25</td>
+                    <td>0 - 100</td>
+                    <td>0 - 9</td>
+                    <td>0 - 200</td>
+                    <td>0 - 20</td>
+                    <td>0 - 40</td>
+                    <td class="concentracao_legenda_n1" style="background-color:#00EE00">N1 - Boa</td>
+                    <td class="concentracao_descricao">-</td>
+                </tr>
+                <tr>
+                    <td>>50 - 100</td>
+                    <td>>25 – 50</td>
+                    <td>>100 – 130</td>
+                    <td>>9 – 11</td>
+                    <td>>200 – 240</td>
+                    <td>>20 – 40</td>
+                    <td>41 – 80</td>
+                    <td class="concentracao_legenda_n2" style="background-color:yellow">N2 - Moderada</td>
+                    <td class="concentracao_descricao">
+                        Pessoas de grupos sensíveis (crianças, idosos e pessoas com doenças respiratórias e cardíacas)
+                        podem
+                        apresentar sintomas como tosse seca e cansaço. A população em geral não é afetada.
+                    </td>
+                </tr>
+                <tr>
+                    <td>>100 - 150</td>
+                    <td>>50 – 75</td>
+                    <td>>130 – 160</td>
+                    <td>>11 – 13</td>
+                    <td>>240 – 320</td>
+                    <td>>40 – 365</td>
+                    <td>81 – 120</td>
+                    <td class="concentracao_legenda_n3" style="background-color:orange">N3 - Ruim</td>
+                    <td class="concentracao_descricao">
+                        Toda a população pode apresentar sintomas como tosse seca, cansaço, ardor nos olhos, nariz e
+                        garganta.
+                        Pessoas de grupos sensíveis (crianças, idosos e pessoas com doenças respiratórias e cardíacas)
+                        podem apresentar efeitos mais sérios na saúde.
+                    </td>
+                </tr>
+                <tr>
+                    <td>>150 - 250</td>
+                    <td>>75 – 125</td>
+                    <td>>160 – 200</td>
+                    <td>>13 – 15</td>
+                    <td>>320 – 1130</td>
+                    <td>>365 – 800</td>
+                    <td>>121 – 200</td>
+                    <td class="concentracao_legenda_n4" style="background-color:red">N4 - Muito Ruim</td>
+                    <td class="concentracao_descricao">
+                        Toda a população pode apresentar agravamento dos sintomas como tosse seca, cansaço, ardor nos
+                        olhos, nariz e garganta e ainda falta de ar e respiração ofegante. Efeitos ainda mais graves à
+                        saúde de
+                        grupos sensíveis (crianças, idosos e pessoas com doenças respiratórias e cardíacas).
+                    </td>
+                </tr>
+                <tr>
+                    <td>>250 - 600</td>
+                    <td>>125 - 300</td>
+                    <td>>200 - 800</td>
+                    <td>>15 - 50</td>
+                    <td>>1130 - 3750</td>
+                    <td>>800 - 2620</td>
+                    <td>201 - 400</td>
+                    <td class="concentracao_legenda_n5" style="background-color:#68228B">N5 - Péssima</td>
+                    <td class="concentracao_descricao">
+                        Toda a população pode apresentar sérios riscos de manifestações de doenças respiratórias e
+                        cardiovasculares.
+                        Aumento de mortes prematuras em pessoas de grupos sensíveis.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="footer">
+            <ul class="nota_rodape">
+
+                <li>ND – Não Disponível</li>
+                <li>NM – Não Monitorado pela estação</li>
+            </ul>
+            <p></p>
+            <div id="entenda">
+
+                <p><a hre="">Guia Técnico da Qualidade do Ar</a></p>
+                <p><a hre="">Entenda melhor sobre o Boletim de Qualidade do Ar</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

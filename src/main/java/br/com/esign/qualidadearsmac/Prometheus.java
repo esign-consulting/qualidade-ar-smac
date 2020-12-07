@@ -25,7 +25,7 @@ public class Prometheus {
         for (Medicao medicao : medicoes) {
             SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy");
             try {
-                iqarLines.add(String.format("iqar{estacao=%s} %s %ts",
+                iqarLines.add(String.format("iqar{estacao=%s} %s %tQ",
                 medicao.getEstacao(),
                 medicao.getIndice(),
                 parser.parse(medicao.getData())));

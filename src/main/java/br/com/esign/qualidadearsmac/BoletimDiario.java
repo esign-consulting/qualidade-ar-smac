@@ -71,7 +71,7 @@ public class BoletimDiario {
                     medicao.setPoluente(poluentePrincipal);
                     medicao.setMedicaoPoluentes(medicaoPoluentes);
                     medicao.setIndice(tds.get(size + 1).text());
-                    medicao.setQualidadeAr(tds.get(size + 2).text());
+                    medicao.setClassificacao(tds.get(size + 2).text());
                     listaMedicoes.add(medicao);
                 }
             }

@@ -6,7 +6,7 @@ public class Medicao {
     
     private String data;
     private String estacao;
-    private String qualidadeAr;
+    private String classificacao;
     private String indice;
     private String poluente;
     private List<MedicaoPoluente> medicaoPoluentes;
@@ -27,12 +27,12 @@ public class Medicao {
         this.estacao = estacao;
     }
 
-    public String getQualidadeAr() {
-        return qualidadeAr;
+    public String getClassificacao() {
+        return classificacao;
     }
 
-    public void setQualidadeAr(String qualidadeAr) {
-        this.qualidadeAr = qualidadeAr;
+    public void setClassificacao(String classificacao) {
+        this.classificacao = classificacao;
     }
 
     public String getIndice() {

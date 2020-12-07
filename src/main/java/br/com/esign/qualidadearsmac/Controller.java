@@ -4,24 +4,31 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/boletim")
 public class Controller {
 
     @Autowired
     private BoletimDiario boletimDiario;
 
-    @GetMapping("/medicoes")
+    @GetMapping("/boletim")
     @ResponseBody
     public ResponseEntity<List<Medicao>> listarMedicoes() {
         List<Medicao> medicoes = boletimDiario.listarMedicoes();
         return new ResponseEntity<>(medicoes, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/prometheus", produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public String prometheusMetrics() {
+        List<Medicao> medicoes = boletimDiario.listarMedicoes();
+        Prometheus prometheus = new Prometheus(medicoes);
+        return prometheus.getMetrics();
     }
 
 }

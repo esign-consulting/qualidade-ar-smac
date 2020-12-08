@@ -10,13 +10,25 @@ public class HtmlRequestor {
 
     public static final String URL_BOLETIM = "http://jeap.rio.rj.gov.br/je-metinfosmac/boletim";
 
-    public String request() throws IOException, InterruptedException {
-        return request(URL_BOLETIM);
+    private String url;
+    private String data;
+
+    public HtmlRequestor() {
+        this(URL_BOLETIM, null);
     }
 
-    public String request(String url) throws IOException, InterruptedException {
+    public HtmlRequestor(String data) {
+        this(URL_BOLETIM, data);
+    }
+
+    public HtmlRequestor(String url, String data) {
+        this.url = url;
+        this.data = data;
+    }
+
+    public String request() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create((data == null) ? url : url.concat(String.format("?data=%s", data)))).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
     }

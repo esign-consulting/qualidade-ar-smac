@@ -1,0 +1,9 @@
+CREATE DATABASE iqar;
+CREATE RETENTION POLICY endless ON iqar DURATION INF REPLICATION 1;
+INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="Centro",poluente="Material Particulado (MP10)",classificacao="Boa" value=22 1607212800000
+INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="São Cristóvão",poluente="Material Particulado (MP10)",classificacao="Boa" value=31 1607212800000
+INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material Particulado (MP10)",classificacao="Boa" value=30 1607212800000
+INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material Particulado (MP10)",classificacao="Boa" value=22 1607212800000
+INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio (O3)",classificacao="Boa" value=17 1607212800000
+INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="Campo Grande",poluente="Material Particulado (MP10)",classificacao="Boa" value=18 1607212800000
+INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="Pedra de Guaratiba",poluente="Ozônio (O3)",classificacao="Boa" value=20 1607212800000

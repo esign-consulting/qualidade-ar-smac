@@ -68,7 +68,7 @@ public class BoletimDiario {
                             poluentePrincipal = poluentes.get(k);
                         }
                     }
-                    medicao.setPoluente(poluentePrincipal);
+                    medicao.setPoluente(poluentePrincipal.replace(" [µg/m³]", ""));
                     medicao.setMedicaoPoluentes(medicaoPoluentes);
                     medicao.setIndice(tds.get(size + 1).text());
                     medicao.setClassificacao(tds.get(size + 2).text());

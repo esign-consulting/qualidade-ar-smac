@@ -18,7 +18,7 @@ if not client.images.list(name=image):
     print("Building %s..." % image)
     client.images.build(tag=image, path=".")
 
-containers = client.containers.list(filters={"name":image})
+containers = client.containers.list(filters={"ancestor":image})
 if not containers:
     print("Running %s..." % image)
     container = client.containers.run(image=image, name="smac", remove=True, detach=True, ports={"8080/tcp":"8080"})

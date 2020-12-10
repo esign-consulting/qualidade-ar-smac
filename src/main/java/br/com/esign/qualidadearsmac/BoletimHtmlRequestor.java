@@ -6,22 +6,22 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.URI;
 
-public class HtmlRequestor {
+public class BoletimHtmlRequestor {
 
     public static final String URL_BOLETIM = "http://jeap.rio.rj.gov.br/je-metinfosmac/boletim";
 
     private String url;
     private String data;
 
-    public HtmlRequestor() {
+    public BoletimHtmlRequestor() {
         this(URL_BOLETIM, null);
     }
 
-    public HtmlRequestor(String data) {
+    public BoletimHtmlRequestor(String data) {
         this(URL_BOLETIM, data);
     }
 
-    public HtmlRequestor(String url, String data) {
+    public BoletimHtmlRequestor(String url, String data) {
         this.url = url;
         this.data = data;
     }

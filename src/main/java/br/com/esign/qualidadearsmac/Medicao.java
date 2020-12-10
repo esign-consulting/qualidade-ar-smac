@@ -11,14 +11,6 @@ public class Medicao {
     private String poluente;
     private List<MedicaoPoluente> medicaoPoluentes;
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
     public String getEstacao() {
         return estacao;
     }

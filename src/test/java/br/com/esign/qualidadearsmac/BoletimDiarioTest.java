@@ -25,10 +25,9 @@ public class BoletimDiarioTest {
     public void listarMedicoesTest() throws IOException {
         Resource resource = resourceLoader.getResource("classpath:boletim.html");
         String html = new String(Files.readAllBytes(resource.getFile().toPath()));
-        BoletimDiario boletimDiario = new BoletimDiario(html);
-        List<Medicao> medicoes = boletimDiario.listarMedicoes();
-        Medicao medicao = medicoes.get(0);
-        assertThat(medicao.getData()).isEqualTo("02/12/2020");
+        BoletimHtmlParser parser = new BoletimHtmlParser(html);
+        Boletim boletim = parser.obterBoletim();
+        assertThat(boletim.getData()).isEqualTo("02/12/2020");
     }
 
 }

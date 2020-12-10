@@ -12,32 +12,33 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BoletimDiario {
+public class BoletimHtmlParser {
 
     private final Document doc;
 
-    public BoletimDiario() throws IOException, InterruptedException {
-        this(new HtmlRequestor());
+    public BoletimHtmlParser() throws IOException, InterruptedException {
+        this(new BoletimHtmlRequestor());
     }
 
-    public BoletimDiario(HtmlRequestor requestor) throws IOException, InterruptedException {
+    public BoletimHtmlParser(BoletimHtmlRequestor requestor) throws IOException, InterruptedException {
         this(requestor.request());
     }
 
-    public BoletimDiario(String html) {
+    public BoletimHtmlParser(String html) {
         doc = Jsoup.parse(html);
     }
 
-    private String obterDataMedicao() {
+    private String obterData() {
         Element div = doc.getElementById("titulo");
         Elements h4s = div.getElementsByTag("h4");
         Element h4 = h4s.first();
         return (h4 == null) ? null : h4.html();
     }
 
-    public List<Medicao> listarMedicoes() {
-        String data = obterDataMedicao();
-        List<Medicao> listaMedicoes = new ArrayList<>();
+    public Boletim obterBoletim() {
+        Boletim boletim = new Boletim();
+        boletim.setData(obterData());
+        List<Medicao> medicoes = new ArrayList<>();
         Element div = doc.getElementById("dados_estacoes");
         Elements trs = div.getElementsByTag("tr");
         List<String> poluentes = new ArrayList<>();
@@ -54,7 +55,6 @@ public class BoletimDiario {
                 Elements tds = tr.getElementsByTag("td");
                 if (tds.size() == size + 3) {
                     Medicao medicao = new Medicao();
-                    medicao.setData(data);
                     medicao.setEstacao(tds.get(0).text());
                     List<MedicaoPoluente> medicaoPoluentes = new ArrayList<>();
                     String poluentePrincipal = null;
@@ -72,11 +72,12 @@ public class BoletimDiario {
                     medicao.setMedicaoPoluentes(medicaoPoluentes);
                     medicao.setIndice(tds.get(size + 1).text());
                     medicao.setClassificacao(tds.get(size + 2).text());
-                    listaMedicoes.add(medicao);
+                    medicoes.add(medicao);
                 }
             }
         }
-        return listaMedicoes;
+        boletim.setMedicoes(medicoes);
+        return boletim;
     }
 
 }

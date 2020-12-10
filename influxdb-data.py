@@ -22,8 +22,10 @@ containers = client.containers.list(filters={"ancestor":image})
 if not containers:
     print("Running %s..." % image)
     container = client.containers.run(image=image, name="smac", remove=True, detach=True, ports={"8080/tcp":"8080"})
+    stop = True
 else:
     container = containers[0]
+    stop = False
 
 i = 1
 while not healthy():
@@ -34,5 +36,6 @@ while not healthy():
     time.sleep(2)
     i += 1
 
-print("Stopping %s..." % image)
-container.stop()
+if stop:
+    print("Stopping %s..." % image)
+    container.stop()

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import datetime
 import docker
 import requests
 import socket
@@ -50,6 +51,24 @@ while not healthy(port):
     print("SMAC is not ready. Waiting 2s...")
     time.sleep(2)
     i += 1
+
+iql_file = open("influxdb/iqar-last30d.iql", "w")
+
+today = datetime.date.today()
+for x in range(30):
+    days = datetime.timedelta(x)
+    date = today - days
+    ts = int(datetime.datetime.timestamp(datetime.datetime.combine(date, datetime.datetime.min.time())) * 1000)
+    d_string = date.strftime("%d/%m/%Y")
+
+    url = "http://localhost:%s/boletim?data=%s" % (port, d_string)
+    r = requests.get(url)
+    if r.status_code == 200:
+        boletim = r.json()
+        for medicao in boletim["medicoes"]:
+            iql_file.write('INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="%s",poluente="%s",classificacao="%s" value=%s %s\n' % (medicao["estacao"], medicao["poluente"], medicao["classificacao"], medicao["indice"], ts))
+
+iql_file.close()
 
 if stop:
     print("Stopping %s..." % image)

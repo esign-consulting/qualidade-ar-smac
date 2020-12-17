@@ -1,8 +1,9 @@
 package br.com.esign.qualidadearsmac;
 
+import br.com.esign.qualidadearsmac.model.*;
+
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,10 +1,9 @@
-package br.com.esign.qualidadearsmac;
+package br.com.esign.qualidadearsmac.model;
 
 import java.util.List;
 
 public class Medicao {
     
-    private String data;
     private String estacao;
     private String classificacao;
     private String indice;

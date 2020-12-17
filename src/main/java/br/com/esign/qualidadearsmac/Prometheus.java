@@ -1,5 +1,7 @@
 package br.com.esign.qualidadearsmac;
 
+import br.com.esign.qualidadearsmac.model.*;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

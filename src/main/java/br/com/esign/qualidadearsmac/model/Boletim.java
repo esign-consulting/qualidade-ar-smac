@@ -1,4 +1,4 @@
-package br.com.esign.qualidadearsmac;
+package br.com.esign.qualidadearsmac.model;
 
 import java.util.List;
 

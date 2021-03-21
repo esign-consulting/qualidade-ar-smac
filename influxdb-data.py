@@ -25,6 +25,9 @@ def healthy(port):
     except requests.exceptions.ConnectionError:
         return False
 
+def escape_tag_value(value):
+    return value.replace(' ', '\ ').replace(',', '\,')
+
 client = docker.from_env()
 image = "esignbr/qualidade-ar-smac"
 
@@ -52,7 +55,9 @@ while not healthy(port):
     time.sleep(2)
     i += 1
 
+print("Creating the iqar-last30d.iql file...")
 iql_file = open("influxdb/iqar-last30d.iql", "w")
+iql_file.write('USE iqar;\n')
 
 today = datetime.date.today()
 for x in range(30):
@@ -66,7 +71,10 @@ for x in range(30):
     if r.status_code == 200:
         boletim = r.json()
         for medicao in boletim["medicoes"]:
-            iql_file.write('INSERT iqar,estado="RJ",cidade="Rio de Janeiro",orgao="SMAC",estacao="%s",poluente="%s",classificacao="%s" value=%s %s\n' % (medicao["estacao"], medicao["poluente"], medicao["classificacao"], medicao["indice"], ts))
+            estacao = escape_tag_value(medicao["estacao"])
+            poluente = escape_tag_value(medicao["poluente"])
+            classificacao = escape_tag_value(medicao["classificacao"])
+            iql_file.write('INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="%s",poluente="%s",classificacao="%s" value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
 
 iql_file.close()
 

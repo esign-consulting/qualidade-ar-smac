@@ -6,10 +6,17 @@ Dados de qualidade do ar coletados da [Prefeitura do RJ - Secretaria Municipal d
 
 ## Execução
 
-A API é uma aplicação [Spring Boot](https://spring.io/projects/spring-boot) e para ser inicializada execute:
+A API é uma aplicação [Spring Boot](https://spring.io/projects/spring-boot) e para ser inicializada execute (requer [Maven](https://maven.apache.org)):
 
 `mvn spring-boot:run`
 
+A API também pode ser inicializada como [contâiner](https://en.wikipedia.org/wiki/Container_Linux). Isso traz praticidade para implantá-la em sistemas operacionais diversos. Para inicializar a API deste modo, execute (requer [Docker](https://www.docker.com)):
+
+`docker run -d -p 8080:8080 esignbr/qualidade-ar-smac`
+
+Após inicializar, abra o browser e entre em <http://localhost:8080/boletim>. Os dados mais recentes de qualidade do ar publicados pela SMAC serão apresentados em formato JSON.
+
+Se quiser obter os dados publicados numa data específica, informe o campo `data`. Por exemplo, para obter os dados de `24/03/2021`, entre em <http://localhost:8080/boletim?data=24/03/2021>.
 
 ## InfluxDB
 

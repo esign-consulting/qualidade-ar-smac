@@ -1,211 +1,211 @@
 USE iqar;
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616972400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=39 1616972400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616972400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=35 1616972400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616972400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1616972400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616972400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616889600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=39 1616889600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616889600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=35 1616889600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616889600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1616889600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616889600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616803200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=39 1616803200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616803200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=35 1616803200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616803200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1616803200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616803200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616716800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=39 1616716800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616716800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=35 1616716800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616716800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1616716800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616716800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616630400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=39 1616630400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616630400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=35 1616630400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616630400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1616630400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1616630400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Moderada" value=48 1616544000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Ruim" value=81 1616544000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Moderada" value=52 1616544000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Moderada" value=42 1616544000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=36 1616544000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=35 1616544000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Moderada" value=63 1616544000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=27 1616457600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=34 1616457600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616457600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=33 1616457600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=28 1616457600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=23 1616457600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=24 1616457600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=30 1616371200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=36 1616371200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=28 1616371200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=27 1616371200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=21 1616371200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Dióxido\ de\ Enxofre\ (SO2)",classificacao="Boa" value=18 1616371200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=23 1616371200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=20 1616284800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=23 1616284800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616284800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=30 1616284800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616284800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Dióxido\ de\ Enxofre\ (SO2)",classificacao="Boa" value=22 1616284800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=24 1616284800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616198400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=33 1616198400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=28 1616198400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=39 1616198400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=38 1616198400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=33 1616198400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=39 1616198400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=35 1616112000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=40 1616112000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=32 1616112000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP2\,5)",classificacao="Moderada" value=45 1616112000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=35 1616112000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=30 1616112000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1616112000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1616025600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=34 1616025600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=33 1616025600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=38 1616025600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=30 1616025600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=23 1616025600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=34 1616025600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=25 1615939200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1615939200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=23 1615939200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=36 1615939200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=32 1615939200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Dióxido\ de\ Enxofre\ (SO2)",classificacao="Boa" value=36 1615939200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1615939200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=28 1615852800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=39 1615852800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=35 1615852800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=39 1615852800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=30 1615852800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=24 1615852800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=27 1615852800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1615766400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Moderada" value=44 1615766400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=32 1615766400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Moderada" value=59 1615766400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=34 1615766400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=22 1615766400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=34 1615766400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=30 1615680000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=32 1615680000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Moderada" value=43 1615680000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Ruim" value=81 1615680000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=31 1615680000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=24 1615680000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=28 1615680000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1615593600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=30 1615593600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=28 1615593600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=38 1615593600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=30 1615593600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=25 1615593600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=29 1615593600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=24 1615507200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=34 1615507200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=27 1615507200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=36 1615507200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=25 1615507200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=21 1615507200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1615507200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=21 1615420800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=26 1615420800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=22 1615420800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Moderada" value=48 1615420800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=36 1615420800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=33 1615420800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1615420800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=18 1615334400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1615334400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=21 1615334400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=29 1615334400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=26 1615334400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1615334400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1615334400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=13 1615248000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=17 1615248000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=14 1615248000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1615248000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=26 1615248000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=37 1615248000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=18 1615248000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=14 1615161600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=16 1615161600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=14 1615161600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=25 1615161600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=30 1615161600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=23 1615161600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=18 1615161600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=21 1615075200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=16 1615075200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=14 1615075200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=24 1615075200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=21 1615075200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1615075200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=19 1615075200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1614988800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=26 1614988800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=19 1614988800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=23 1614988800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=20 1614988800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1614988800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=19 1614988800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=26 1614902400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=33 1614902400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=21 1614902400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=34 1614902400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=26 1614902400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=28 1614902400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Ozônio\ (O3)",classificacao="Boa" value=28 1614902400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=26 1614816000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=30 1614816000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=24 1614816000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=40 1614816000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=34 1614816000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=32 1614816000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=30 1614816000000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1614729600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=35 1614729600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1614729600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=31 1614729600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=32 1614729600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=30 1614729600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=32 1614729600000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=17 1614643200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=21 1614643200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Ozônio\ (O3)",classificacao="Boa" value=21 1614643200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Ozônio\ (O3)",classificacao="Boa" value=38 1614643200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=40 1614643200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=25 1614643200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=23 1614643200000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=14 1614556800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=22 1614556800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=14 1614556800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=22 1614556800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Ozônio\ (O3)",classificacao="Boa" value=25 1614556800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=33 1614556800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=19 1614556800000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Centro",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=15 1614470400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="São\ Cristóvão",poluente="Ozônio\ (O3)",classificacao="Boa" value=24 1614470400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Tijuca",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=14 1614470400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Irajá",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=25 1614470400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Bangu",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=22 1614470400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Campo\ Grande",poluente="Ozônio\ (O3)",classificacao="Boa" value=27 1614470400000
-INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="Pedra\ de\ Guaratiba",poluente="Material\ Particulado\ (MP10)",classificacao="Boa" value=20 1614470400000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616972400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=39 1616972400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616972400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=35 1616972400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616972400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=22 1616972400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616972400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616889600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=39 1616889600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616889600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=35 1616889600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616889600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=22 1616889600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616889600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616803200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=39 1616803200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616803200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=35 1616803200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616803200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=22 1616803200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616803200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616716800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=39 1616716800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616716800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=35 1616716800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616716800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=22 1616716800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616716800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616630400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=39 1616630400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616630400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=35 1616630400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616630400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=22 1616630400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1616630400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Moderada value=48 1616544000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Ruim value=81 1616544000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Moderada value=52 1616544000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Moderada value=42 1616544000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=36 1616544000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=35 1616544000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Moderada value=63 1616544000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=27 1616457600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=34 1616457600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616457600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=33 1616457600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=28 1616457600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=23 1616457600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=24 1616457600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=30 1616371200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=36 1616371200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=28 1616371200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=27 1616371200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1616371200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Dióxido\ de\ Enxofre\ (SO2),classificacao=Boa value=18 1616371200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=23 1616371200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=20 1616284800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=23 1616284800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616284800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=30 1616284800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616284800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Dióxido\ de\ Enxofre\ (SO2),classificacao=Boa value=22 1616284800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=24 1616284800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616198400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=33 1616198400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=28 1616198400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=39 1616198400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=38 1616198400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=33 1616198400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=39 1616198400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=35 1616112000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=40 1616112000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=32 1616112000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP2\,5),classificacao=Moderada value=45 1616112000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=35 1616112000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=30 1616112000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=31 1616112000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1616025600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=34 1616025600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=33 1616025600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=38 1616025600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1616025600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=23 1616025600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=34 1616025600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=25 1615939200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=31 1615939200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=23 1615939200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=36 1615939200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=32 1615939200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Dióxido\ de\ Enxofre\ (SO2),classificacao=Boa value=36 1615939200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=31 1615939200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=28 1615852800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=39 1615852800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=35 1615852800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=39 1615852800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=30 1615852800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=24 1615852800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=27 1615852800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=31 1615766400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Moderada value=44 1615766400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=32 1615766400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Moderada value=59 1615766400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=34 1615766400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1615766400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=34 1615766400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=30 1615680000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=32 1615680000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Moderada value=43 1615680000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Ruim value=81 1615680000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=31 1615680000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=24 1615680000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1615680000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=26 1615593600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1615593600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=28 1615593600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=38 1615593600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1615593600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=25 1615593600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=29 1615593600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=24 1615507200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=34 1615507200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=27 1615507200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=36 1615507200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=25 1615507200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1615507200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=22 1615507200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=21 1615420800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1615420800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1615420800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Moderada value=48 1615420800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=36 1615420800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=33 1615420800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=26 1615420800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=18 1615334400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=26 1615334400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=21 1615334400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=29 1615334400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1615334400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=31 1615334400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=22 1615334400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=13 1615248000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=17 1615248000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=14 1615248000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=26 1615248000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1615248000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=37 1615248000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=18 1615248000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=14 1615161600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=16 1615161600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=14 1615161600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=25 1615161600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1615161600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=23 1615161600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=18 1615161600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=21 1615075200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=16 1615075200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=14 1615075200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=24 1615075200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1615075200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=22 1615075200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=19 1615075200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=22 1614988800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=26 1614988800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=19 1614988800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=23 1614988800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=20 1614988800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=22 1614988800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=19 1614988800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1614902400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=33 1614902400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1614902400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=34 1614902400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1614902400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=28 1614902400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=28 1614902400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1614816000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1614816000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=24 1614816000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=40 1614816000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=34 1614816000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=32 1614816000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1614816000000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=31 1614729600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=35 1614729600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=31 1614729600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=31 1614729600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=32 1614729600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=30 1614729600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=32 1614729600000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=17 1614643200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1614643200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=21 1614643200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=38 1614643200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=40 1614643200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=25 1614643200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=23 1614643200000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=14 1614556800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=22 1614556800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=14 1614556800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1614556800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=25 1614556800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=33 1614556800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=19 1614556800000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=15 1614470400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=São\ Cristóvão,poluente=Ozônio\ (O3),classificacao=Boa value=24 1614470400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=14 1614470400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=25 1614470400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1614470400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=27 1614470400000000000
+INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=20 1614470400000000000

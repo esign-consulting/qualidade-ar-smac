@@ -76,13 +76,14 @@ iqar_iql_file.write('USE iqar;\n')
 mp10_iql_file = open("influxdb/mp10-last30d.iql", "w")
 mp10_iql_file.write('CREATE DATABASE mp10;\n')
 mp10_iql_file.write('CREATE RETENTION POLICY endless ON mp10 DURATION INF REPLICATION 1;\n')
+mp10_iql_file.write('GRANT READ ON mp10 TO grafana;\n')
 mp10_iql_file.write('USE mp10;\n')
 
 today = datetime.date.today()
 for x in range(30):
     days = datetime.timedelta(x)
     date = today - days
-    ts = int(datetime.datetime.timestamp(datetime.datetime.combine(date, datetime.datetime.min.time())) * 1000)
+    ts = int(datetime.datetime.timestamp(datetime.datetime.combine(date, datetime.datetime.min.time())) * 1000000000)
     d_string = date.strftime("%d/%m/%Y")
 
     url = "http://localhost:%s/boletim?data=%s" % (port, d_string)
@@ -93,10 +94,10 @@ for x in range(30):
             estacao = escape_tag_value(medicao["estacao"])
             poluente = escape_tag_value(medicao["poluente"])
             classificacao = escape_tag_value(medicao["classificacao"])
-            iqar_iql_file.write('INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="%s",poluente="%s",classificacao="%s" value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
+            iqar_iql_file.write('INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
             concentracao = get_concentracao(get_medicao_poluente(medicao, "MP10"))
             if concentracao:
-                mp10_iql_file.write('INSERT mp10,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="%s" value=%s %s\n' % (estacao, concentracao, ts))
+                mp10_iql_file.write('INSERT mp10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (estacao, concentracao, ts))
 
 mp10_iql_file.close()
 iqar_iql_file.close()

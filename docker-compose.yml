@@ -23,6 +23,7 @@ services:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources
       - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
     environment:
+      - GF_SECURITY_ADMIN_PASSWORD=S3cr3t
       - INFLUXDB_URL=http://influxdb:8086
       - INFLUXDB_USERNAME=grafana
       - INFLUXDB_PASSWORD=ReaderSecret

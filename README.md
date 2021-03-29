@@ -25,4 +25,4 @@ Os dados de qualidade do ar dos últimos 30 dias podem ser carregados para uma b
 1. Prepare o ambiente Python: `python3 -m venv env && source env/bin/activate && pip3 install -r requirements.txt`
 2. Execute o script Python: `./influxdb-data.py`
 3. Inicialize a base de dados: `docker-compose up -d`
-4. Pesquise os dados: `curl -H 'Authorization: Token grafana:ReaderSecret' -G 'http://localhost:8086/query?db=iqar' --data-urlencode 'q=SELECT * FROM "iqar"'`
+4. Pesquise os dados: `curl -H 'Authorization: Token grafana:ReaderSecret' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT * FROM "iqar"'`

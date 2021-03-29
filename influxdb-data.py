@@ -69,15 +69,9 @@ while not healthy(port):
     time.sleep(2)
     i += 1
 
-print("Creating iql files...")
-iqar_iql_file = open("influxdb/iqar-last30d.iql", "w")
-iqar_iql_file.write('USE iqar;\n')
-
-mp10_iql_file = open("influxdb/mp10-last30d.iql", "w")
-mp10_iql_file.write('CREATE DATABASE mp10;\n')
-mp10_iql_file.write('CREATE RETENTION POLICY endless ON mp10 DURATION INF REPLICATION 1;\n')
-mp10_iql_file.write('GRANT READ ON mp10 TO grafana;\n')
-mp10_iql_file.write('USE mp10;\n')
+print("Creating the last30d.iql file...")
+iqar_iql_file = open("influxdb/last30d.iql", "w")
+iqar_iql_file.write('USE qualidadear;\n')
 
 today = datetime.date.today()
 for x in range(30):
@@ -97,9 +91,8 @@ for x in range(30):
             iqar_iql_file.write('INSERT iqar,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
             concentracao = get_concentracao(get_medicao_poluente(medicao, "MP10"))
             if concentracao:
-                mp10_iql_file.write('INSERT mp10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (estacao, concentracao, ts))
+                iqar_iql_file.write('INSERT mp10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (estacao, concentracao, ts))
 
-mp10_iql_file.close()
 iqar_iql_file.close()
 
 if stop:

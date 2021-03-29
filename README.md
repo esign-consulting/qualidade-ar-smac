@@ -12,7 +12,7 @@ A API é uma aplicação [Spring Boot](https://spring.io/projects/spring-boot) e
 
 A API também pode ser inicializada como [contâiner](https://en.wikipedia.org/wiki/Container_Linux). Isso traz praticidade para implantá-la em sistemas operacionais diversos. Para inicializar a API deste modo, execute (requer [Docker](https://www.docker.com)):
 
-`docker run -d -p 8080:8080 esignbr/qualidade-ar-smac`
+`docker run --name smac -d -p 8080:8080 esignbr/qualidade-ar-smac`
 
 Após inicializar, abra o browser e entre em <http://localhost:8080/boletim>. Os dados mais recentes de qualidade do ar publicados pela SMAC serão apresentados em formato JSON.
 

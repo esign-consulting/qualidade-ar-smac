@@ -28,6 +28,20 @@ def healthy(port):
 def escape_tag_value(value):
     return value.replace(' ', '\ ').replace(',', '\,')
 
+def get_medicao_poluente(medicao, poluente):
+    for medicao_poluente in medicao["medicaoPoluentes"]:
+        if medicao_poluente["poluente"] == poluente or medicao_poluente["poluente"].find(poluente) > -1:
+            return medicao_poluente
+    return None
+
+def get_concentracao(medicao_poluente):
+    if medicao_poluente:
+        try:
+            concentracao = float(medicao_poluente["concentracao"].replace(',', '.'))
+            return concentracao
+        except ValueError:
+            return None
+
 client = docker.from_env()
 image = "esignbr/qualidade-ar-smac"
 
@@ -55,9 +69,14 @@ while not healthy(port):
     time.sleep(2)
     i += 1
 
-print("Creating the iqar-last30d.iql file...")
-iql_file = open("influxdb/iqar-last30d.iql", "w")
-iql_file.write('USE iqar;\n')
+print("Creating iql files...")
+iqar_iql_file = open("influxdb/iqar-last30d.iql", "w")
+iqar_iql_file.write('USE iqar;\n')
+
+mp10_iql_file = open("influxdb/mp10-last30d.iql", "w")
+mp10_iql_file.write('CREATE DATABASE mp10;\n')
+mp10_iql_file.write('CREATE RETENTION POLICY endless ON mp10 DURATION INF REPLICATION 1;\n')
+mp10_iql_file.write('USE mp10;\n')
 
 today = datetime.date.today()
 for x in range(30):
@@ -74,9 +93,13 @@ for x in range(30):
             estacao = escape_tag_value(medicao["estacao"])
             poluente = escape_tag_value(medicao["poluente"])
             classificacao = escape_tag_value(medicao["classificacao"])
-            iql_file.write('INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="%s",poluente="%s",classificacao="%s" value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
+            iqar_iql_file.write('INSERT iqar,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="%s",poluente="%s",classificacao="%s" value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
+            concentracao = get_concentracao(get_medicao_poluente(medicao, "MP10"))
+            if concentracao:
+                mp10_iql_file.write('INSERT mp10,estado="RJ",cidade="Rio\ de\ Janeiro",orgao="SMAC",estacao="%s" value=%s %s\n' % (estacao, concentracao, ts))
 
-iql_file.close()
+mp10_iql_file.close()
+iqar_iql_file.close()
 
 if stop:
     print("Stopping %s..." % image)

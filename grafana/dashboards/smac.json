@@ -15,6 +15,7 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
+    "iteration": 1617098046651,
     "links": [],
     "panels": [
         {
@@ -77,7 +78,7 @@
                             "type": "tag"
                         }
                     ],
-                    "measurement": "iqar",
+                    "measurement": "/^$medicao$/",
                     "orderByTime": "ASC",
                     "policy": "default",
                     "queryType": "randomWalk",
@@ -93,14 +94,20 @@
                             }
                         ]
                     ],
-                    "tags": []
+                    "tags": [
+                        {
+                            "key": "estacao",
+                            "operator": "=~",
+                            "value": "/^$estacao$/"
+                        }
+                    ]
                 }
             ],
             "thresholds": [],
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Índice de Qualidade do Ar",
+            "title": "",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -116,6 +123,7 @@
             },
             "yaxes": [
                 {
+                    "$$hashKey": "object:285",
                     "format": "short",
                     "label": null,
                     "logBase": 1,
@@ -124,124 +132,7 @@
                     "show": true
                 },
                 {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "influxdb",
-            "description": "",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {}
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 0,
-            "gridPos": {
-                "h": 7,
-                "w": 24,
-                "x": 0,
-                "y": 7
-            },
-            "hiddenSeries": false,
-            "id": 4,
-            "legend": {
-                "alignAsTable": true,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "nullPointMode": "null",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.4.1",
-            "pointradius": 2,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "alias": "$tag_estacao",
-                    "groupBy": [
-                        {
-                            "params": [
-                                "estacao"
-                            ],
-                            "type": "tag"
-                        }
-                    ],
-                    "measurement": "mp10",
-                    "orderByTime": "ASC",
-                    "policy": "default",
-                    "queryType": "randomWalk",
-                    "refId": "A",
-                    "resultFormat": "time_series",
-                    "select": [
-                        [
-                            {
-                                "params": [
-                                    "value"
-                                ],
-                                "type": "field"
-                            }
-                        ]
-                    ],
-                    "tags": []
-                }
-            ],
-            "thresholds": [],
-            "timeRegions": [],
-            "title": "Material Particulado (MP10) [µg/m³]",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                },
-                {
+                    "$$hashKey": "object:286",
                     "format": "short",
                     "label": null,
                     "logBase": 1,
@@ -260,7 +151,106 @@
     "style": "dark",
     "tags": [],
     "templating": {
-        "list": []
+        "list": [
+            {
+                "allValue": null,
+                "current": {
+                    "selected": true,
+                    "text": [
+                        "Bangu",
+                        "Centro",
+                        "Irajá",
+                        "São Cristóvão",
+                        "Tijuca",
+                        "Campo Grande",
+                        "Pedra de Guaratiba"
+                    ],
+                    "value": [
+                        "Bangu",
+                        "Centro",
+                        "Irajá",
+                        "São Cristóvão",
+                        "Tijuca",
+                        "Campo Grande",
+                        "Pedra de Guaratiba"
+                    ]
+                },
+                "datasource": "influxdb",
+                "definition": "SHOW TAG VALUES WITH KEY = \"estacao\"",
+                "description": null,
+                "error": null,
+                "hide": 0,
+                "includeAll": false,
+                "label": "Estação",
+                "multi": true,
+                "name": "estacao",
+                "options": [],
+                "query": "SHOW TAG VALUES WITH KEY = \"estacao\"",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "selected": true,
+                    "text": "IQAR",
+                    "value": "IQAR"
+                },
+                "datasource": "influxdb",
+                "definition": "SHOW MEASUREMENTS",
+                "description": null,
+                "error": null,
+                "hide": 0,
+                "includeAll": false,
+                "label": "Medição",
+                "multi": false,
+                "name": "medicao",
+                "options": [
+                    {
+                        "selected": false,
+                        "text": "CO",
+                        "value": "CO"
+                    },
+                    {
+                        "selected": true,
+                        "text": "IQAR",
+                        "value": "IQAR"
+                    },
+                    {
+                        "selected": false,
+                        "text": "MP10",
+                        "value": "MP10"
+                    },
+                    {
+                        "selected": false,
+                        "text": "O3",
+                        "value": "O3"
+                    },
+                    {
+                        "selected": false,
+                        "text": "SO2",
+                        "value": "SO2"
+                    }
+                ],
+                "query": "SHOW MEASUREMENTS",
+                "refresh": 0,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            }
+        ]
     },
     "time": {
         "from": "now-30d",

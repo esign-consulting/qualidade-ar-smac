@@ -25,7 +25,11 @@ Os dados de qualidade do ar dos últimos 30 dias podem ser carregados para uma b
 1. Prepare o ambiente Python: `python3 -m venv env && source env/bin/activate && pip3 install -r requirements.txt`;
 2. Execute o script Python: `./influxdb-data.py`;
 3. Inicialize o ambiente: `docker-compose up -d`;
-4. Pelo browser entre em <http://localhost:3030> e use as credenciais `admin` e `S3cr3t` para fazer o login;
+4. Pelo browser entre em <http://localhost:3000> e use as credenciais `admin` e `S3cr3t` para fazer o login;
 5. Entre no dashboard `SMAC`.
 
 ![SMAC dashboard](last30d.png)
+
+Se preferir, obtenha diretamente os dados:
+
+`curl -H 'Authorization: Token grafana:ReaderSecret' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT * FROM "IQAR"'`

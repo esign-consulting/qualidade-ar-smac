@@ -225,8 +225,18 @@
                     },
                     {
                         "selected": false,
+                        "text": "MP2.5",
+                        "value": "MP2.5"
+                    },
+                    {
+                        "selected": false,
                         "text": "MP10",
                         "value": "MP10"
+                    },
+                    {
+                        "selected": false,
+                        "text": "NO2",
+                        "value": "NO2"
                     },
                     {
                         "selected": false,

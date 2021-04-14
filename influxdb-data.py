@@ -47,7 +47,7 @@ def get_concentracao(medicao_poluente):
 def iql_insert_concentracao_poluente(iql_file, poluente):
     concentracao = get_concentracao(get_medicao_poluente(medicao, poluente))
     if concentracao:
-        iql_file.write('INSERT %s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (poluente, estacao, concentracao, ts))
+        iql_file.write('INSERT %s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (poluente.replace(',', '.'), estacao, concentracao, ts))
 
 client = docker.from_env()
 image = "esignbr/qualidade-ar-smac"
@@ -97,8 +97,10 @@ for x in range(30):
             classificacao = escape_tag_value(medicao["classificacao"])
             iqar_iql_file.write('INSERT IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
             iql_insert_concentracao_poluente(iqar_iql_file, "MP10")
+            iql_insert_concentracao_poluente(iqar_iql_file, "MP2,5")
             iql_insert_concentracao_poluente(iqar_iql_file, "O3")
             iql_insert_concentracao_poluente(iqar_iql_file, "CO")
+            iql_insert_concentracao_poluente(iqar_iql_file, "NO2")
             iql_insert_concentracao_poluente(iqar_iql_file, "SO2")
 
 iqar_iql_file.close()

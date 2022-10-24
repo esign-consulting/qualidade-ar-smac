@@ -49,9 +49,7 @@ public class BoletimHtmlParser {
             Element tr = trs.get(i);
             if (i == 1) {
                 Elements ths = tr.getElementsByTag("th");
-                ths.stream().forEach((th) -> {
-                    poluentes.add(th.text());
-                });
+                ths.stream().forEach(th -> poluentes.add(th.text()));
                 size = poluentes.size();
             } else {
                 Elements tds = tr.getElementsByTag("td");

@@ -70,6 +70,8 @@ public class BoletimHtmlParser {
                             poluentePrincipal = poluentes.get(k);
                         }
                     }
+                    if (poluentePrincipal == null)
+                        poluentePrincipal = "";
                     medicao.setPoluente(poluentePrincipal.replace(" [µg/m³]", ""));
                     medicao.setMedicaoPoluentes(medicaoPoluentes);
                     medicao.setIndice(tds.get(size + 1).text());

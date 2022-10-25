@@ -224,6 +224,38 @@
                     "concentracao": "ND"
                 }
             ]
+        },
+        {
+            "estacao": "Teste",
+            "classificacao": "Boa",
+            "indice": "20",
+            "poluente": "",
+            "medicaoPoluentes": [
+                {
+                    "poluente": "Material Particulado (MP10) [µg/m³]",
+                    "concentracao": "24,8"
+                },
+                {
+                    "poluente": "Material Particulado (MP2,5) [µg/m³]",
+                    "concentracao": "ND"
+                },
+                {
+                    "poluente": "Ozônio (O3) [µg/m³]",
+                    "concentracao": "27,9"
+                },
+                {
+                    "poluente": "Monóxido de Carbono (CO) [ppm]",
+                    "concentracao": "0,5"
+                },
+                {
+                    "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
+                    "concentracao": "NM"
+                },
+                {
+                    "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
+                    "concentracao": "ND"
+                }
+            ]
         }
     ]
 }

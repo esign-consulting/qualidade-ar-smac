@@ -54,32 +54,37 @@ public class BoletimHtmlParser {
             } else {
                 Elements tds = tr.getElementsByTag("td");
                 if (tds.size() == size + 3) {
-                    Medicao medicao = new Medicao();
-                    medicao.setEstacao(tds.get(0).text());
-                    List<MedicaoPoluente> medicaoPoluentes = new ArrayList<>();
-                    String poluentePrincipal = null;
-                    for (int k = 0, l = 1; k < size; k++, l++) {
-                        Element td = tds.get(l);
-                        MedicaoPoluente medicaoPoluente = new MedicaoPoluente();
-                        medicaoPoluente.setPoluente(poluentes.get(k));
-                        medicaoPoluente.setConcentracao(td.text());
-                        medicaoPoluentes.add(medicaoPoluente);
-                        if (td.attr("class").equals("td_value_bold")) {
-                            poluentePrincipal = poluentes.get(k);
-                        }
-                    }
-                    if (poluentePrincipal == null)
-                        poluentePrincipal = "";
-                    medicao.setPoluente(poluentePrincipal.replace(" [µg/m³]", ""));
-                    medicao.setMedicaoPoluentes(medicaoPoluentes);
-                    medicao.setIndice(tds.get(size + 1).text());
-                    medicao.setClassificacao(tds.get(size + 2).text());
+                    Medicao medicao = obterMedicao(tds, size, poluentes);
                     medicoes.add(medicao);
                 }
             }
         }
         boletim.setMedicoes(medicoes);
         return boletim;
+    }
+
+    private Medicao obterMedicao(Elements tds, int size, List<String> poluentes) {
+        Medicao medicao = new Medicao();
+        medicao.setEstacao(tds.get(0).text());
+        List<MedicaoPoluente> medicaoPoluentes = new ArrayList<>();
+        String poluentePrincipal = null;
+        for (int k = 0, l = 1; k < size; k++, l++) {
+            Element td = tds.get(l);
+            MedicaoPoluente medicaoPoluente = new MedicaoPoluente();
+            medicaoPoluente.setPoluente(poluentes.get(k));
+            medicaoPoluente.setConcentracao(td.text());
+            medicaoPoluentes.add(medicaoPoluente);
+            if (td.attr("class").equals("td_value_bold")) {
+                poluentePrincipal = poluentes.get(k);
+            }
+        }
+        if (poluentePrincipal == null)
+            poluentePrincipal = "";
+        medicao.setPoluente(poluentePrincipal.replace(" [µg/m³]", ""));
+        medicao.setMedicaoPoluentes(medicaoPoluentes);
+        medicao.setIndice(tds.get(size + 1).text());
+        medicao.setClassificacao(tds.get(size + 2).text());
+        return medicao;
     }
 
 }

@@ -5,8 +5,9 @@ datasources:
   - name: influxdb
     type: influxdb
     access: proxy
-    database: $INFLUXDB_DB
     url: $INFLUXDB_URL
-    user: $INFLUXDB_USERNAME
+    jsonData:
+      dbName: $INFLUXDB_BUCKET
+      httpHeaderName1: 'Authorization'
     secureJsonData:
-      password: $INFLUXDB_PASSWORD
+      httpHeaderValue1: 'Token $INFLUXDB_TOKEN'

@@ -4,6 +4,7 @@ import datetime
 import docker
 import requests
 import socket
+import sys
 import time
 
 def get_port(port=8080):
@@ -44,10 +45,10 @@ def get_concentracao(medicao_poluente):
     else:
         return None
 
-def iql_insert_concentracao_poluente(iql_file, poluente):
+def iql_insert_concentracao_poluente(line_file, poluente):
     concentracao = get_concentracao(get_medicao_poluente(medicao, poluente))
     if concentracao:
-        iql_file.write('INSERT %s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (poluente.replace(',', '.'), estacao, concentracao, ts))
+        line_file.write('%s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (poluente.replace(',', '.'), estacao, concentracao, ts))
 
 client = docker.from_env()
 image = "esignbr/qualidade-ar-smac"
@@ -76,12 +77,11 @@ while not healthy(port):
     time.sleep(2)
     i += 1
 
-print("Creating the last30d.iql file...")
-iqar_iql_file = open("influxdb/last30d.iql", "w")
-iqar_iql_file.write('USE qualidadear;\n')
+print("Creating the data.line file...")
+iqar_line_file = open("influxdb/data.line", "w")
 
 today = datetime.date.today()
-for x in range(30):
+for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
     days = datetime.timedelta(x)
     date = today - days
     ts = int(datetime.datetime.timestamp(datetime.datetime.combine(date, datetime.datetime.min.time())) * 1000000000)
@@ -95,15 +95,15 @@ for x in range(30):
             estacao = escape_tag_value(medicao["estacao"])
             poluente = escape_tag_value(medicao["poluente"])
             classificacao = escape_tag_value(medicao["classificacao"])
-            iqar_iql_file.write('INSERT IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
-            iql_insert_concentracao_poluente(iqar_iql_file, "MP10")
-            iql_insert_concentracao_poluente(iqar_iql_file, "MP2,5")
-            iql_insert_concentracao_poluente(iqar_iql_file, "O3")
-            iql_insert_concentracao_poluente(iqar_iql_file, "CO")
-            iql_insert_concentracao_poluente(iqar_iql_file, "NO2")
-            iql_insert_concentracao_poluente(iqar_iql_file, "SO2")
+            iqar_line_file.write('IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
+            iql_insert_concentracao_poluente(iqar_line_file, "MP10")
+            iql_insert_concentracao_poluente(iqar_line_file, "MP2,5")
+            iql_insert_concentracao_poluente(iqar_line_file, "O3")
+            iql_insert_concentracao_poluente(iqar_line_file, "CO")
+            iql_insert_concentracao_poluente(iqar_line_file, "NO2")
+            iql_insert_concentracao_poluente(iqar_line_file, "SO2")
 
-iqar_iql_file.close()
+iqar_line_file.close()
 
 if stop:
     print("Stopping %s..." % image)

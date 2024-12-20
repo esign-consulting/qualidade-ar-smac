@@ -32,4 +32,4 @@ Os dados de qualidade do ar dos últimos 365 dias podem ser carregados para uma 
 
 Se preferir, obtenha diretamente os dados:
 
-`curl -H 'Authorization: Token grafana:ReaderSecret' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT * FROM "IQAR"'`
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=smac' --data-urlencode 'q=SELECT * FROM "IQAR"'`

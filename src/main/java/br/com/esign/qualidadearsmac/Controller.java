@@ -32,4 +32,11 @@ public class Controller {
         return prometheus.getMetrics();
     }
 
+    @GetMapping(value = "/estacoes", produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public String listarEstacoes() throws IOException, InterruptedException {
+        EstacoesGeoJsonRequestor reequestor = new EstacoesGeoJsonRequestor();
+        return reequestor.request();
+    }
+
 }

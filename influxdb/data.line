@@ -1,31 +1,164 @@
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1734393600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=26.0 1734393600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=41.0 1734393600000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.5 1734393600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Ozônio\ (O3),classificacao=Boa value=26 1734393600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=23.0 1734393600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=66.0 1734393600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Ozônio\ (O3),classificacao=Boa value=21 1734393600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=23.0 1734393600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=21 1734825600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=53.0 1734825600000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.5 1734825600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Ozônio\ (O3),classificacao=Boa value=26 1734825600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=19.0 1734825600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=65.0 1734825600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=33 1734825600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=41.0 1734825600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=53.0 1734825600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=70.0 1734825600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=32 1734825600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=26.0 1734825600000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=14.0 1734825600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=80.0 1734825600000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.8 1734825600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=53.0 1734825600000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=14.0 1734825600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=29 1734825600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=22.0 1734825600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=73.0 1734825600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=24 1734825600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=27.0 1734825600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=59.0 1734825600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=29.0 1734825600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=32 1734825600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=23.0 1734825600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=80.0 1734825600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=14 1734739200000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=35.0 1734739200000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.6 1734739200000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Ozônio\ (O3),classificacao=Boa value=18 1734739200000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=20.0 1734739200000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=46.0 1734739200000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=32 1734739200000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=40.0 1734739200000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=55.0 1734739200000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=96.0 1734739200000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=30 1734739200000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=26.0 1734739200000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=11.0 1734739200000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=75.0 1734739200000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.7 1734739200000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=62.0 1734739200000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=10.0 1734739200000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=27 1734739200000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=21.0 1734739200000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=67.0 1734739200000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=25 1734739200000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=26.0 1734739200000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=62.0 1734739200000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=28.0 1734739200000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=37 1734739200000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=20.0 1734739200000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=92.0 1734739200000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=5 1734652800000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=13.0 1734652800000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.6 1734652800000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1734652800000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=26.0 1734652800000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=44.0 1734652800000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=25 1734652800000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=31.0 1734652800000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=46.0 1734652800000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=55.0 1734652800000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=23 1734652800000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=21.0 1734652800000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=6.0 1734652800000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=57.0 1734652800000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.6 1734652800000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=61.0 1734652800000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=5.0 1734652800000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=28 1734652800000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=27.0 1734652800000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=70.0 1734652800000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=27 1734652800000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=34.0 1734652800000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=52.0 1734652800000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=29.0 1734652800000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1734652800000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=37.0 1734652800000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=72.0 1734652800000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1734566400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=27.0 1734566400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=55.0 1734566400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=28 1734566400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=35.0 1734566400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=41.0 1734566400000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=31.0 1734566400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=34 1734566400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=20.0 1734566400000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=8.0 1734566400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=86.0 1734566400000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.3 1734566400000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=40.0 1734566400000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=9.0 1734566400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Moderada value=68 1734566400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=27.0 1734566400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=121.0 1734566400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Moderada value=67 1734566400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=38.0 1734566400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=120.0 1734566400000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=30.0 1734566400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=32 1734566400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=30.0 1734566400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=80.0 1734566400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=25 1734480000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=31.0 1734480000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=34.0 1734480000000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.4 1734480000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1734480000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=28.0 1734480000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=52.0 1734480000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=31 1734480000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=39.0 1734480000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=41.0 1734480000000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=37.0 1734480000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=22 1734480000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=19.0 1734480000000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=6.0 1734480000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=55.0 1734480000000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.3 1734480000000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=31.0 1734480000000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=6.0 1734480000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=22 1734480000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=18.0 1734480000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=56.0 1734480000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=20 1734480000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=23.0 1734480000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=49.0 1734480000000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=21.0 1734480000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=22 1734480000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=23.0 1734480000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=55.0 1734480000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1734393600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=33.0 1734393600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=33.0 1734393600000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.6 1734393600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1734393600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=27.0 1734393600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=48.0 1734393600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=25 1734393600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=31.0 1734393600000000000
 O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=52.0 1734393600000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=54.0 1734393600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=26 1734393600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=18.0 1734393600000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=6.0 1734393600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=64.0 1734393600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=46.0 1734393600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=30 1734393600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=26.0 1734393600000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=11.0 1734393600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=76.0 1734393600000000000
 CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.4 1734393600000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=70.0 1734393600000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=8.0 1734393600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=29 1734393600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=17.0 1734393600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=73.0 1734393600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=28 1734393600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=20.0 1734393600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=71.0 1734393600000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=36.0 1734393600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=34 1734393600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=20.0 1734393600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=86.0 1734393600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=49.0 1734393600000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=7.0 1734393600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=30 1734393600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=25.0 1734393600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=76.0 1734393600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=27 1734393600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=30.0 1734393600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=68.0 1734393600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=26.0 1734393600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1734393600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=32.0 1734393600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=44.0 1734393600000000000
 IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=21 1734307200000000000
 MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=26.0 1734307200000000000
 O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=41.0 1734307200000000000
@@ -9734,175 +9867,3 @@ SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=5.0
 IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Muito\ ruim value=143 1703462400000000000
 MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=27.0 1703462400000000000
 O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=172.0 1703462400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Moderada value=52 1703376000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=34.0 1703376000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=109.0 1703376000000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.3 1703376000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=30 1703376000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=38.0 1703376000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=53.0 1703376000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1703376000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=32.0 1703376000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=49.0 1703376000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=55.0 1703376000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=33 1703376000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=27.0 1703376000000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=11.0 1703376000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=82.0 1703376000000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.5 1703376000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=37.0 1703376000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=32 1703376000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=22.0 1703376000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=81.0 1703376000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=22.0 1703376000000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=4.0 1703376000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=34 1703376000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=18.0 1703376000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=84.0 1703376000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=21.0 1703376000000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=3.0 1703376000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Moderada value=50 1703376000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=24.0 1703376000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=108.0 1703376000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Moderada value=45 1703289600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=35.0 1703289600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=104.0 1703289600000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.7 1703289600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=32 1703289600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=40.0 1703289600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=60.0 1703289600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=32 1703289600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=40.0 1703289600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=40.0 1703289600000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=63.0 1703289600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Moderada value=58 1703289600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=37.0 1703289600000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=16.0 1703289600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=114.0 1703289600000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.7 1703289600000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=54.0 1703289600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Moderada value=44 1703289600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=31.0 1703289600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=103.0 1703289600000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=49.0 1703289600000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=6.0 1703289600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=35 1703289600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=26.0 1703289600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=88.0 1703289600000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=38.0 1703289600000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=5.0 1703289600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Moderada value=80 1703289600000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=35.0 1703289600000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=130.0 1703289600000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=38 1703203200000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=32.0 1703203200000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=96.0 1703203200000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.4 1703203200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=29 1703203200000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=36.0 1703203200000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=61.0 1703203200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=31 1703203200000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=39.0 1703203200000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=27.0 1703203200000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=74.0 1703203200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Ruim value=92 1703203200000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=30.0 1703203200000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=14.0 1703203200000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=139.0 1703203200000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.5 1703203200000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=45.0 1703203200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Moderada value=71 1703203200000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=32.0 1703203200000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=123.0 1703203200000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=29.0 1703203200000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=6.0 1703203200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Moderada value=48 1703203200000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=28.0 1703203200000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=106.0 1703203200000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=28.0 1703203200000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=4.0 1703203200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Moderada value=80 1703203200000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=31.0 1703203200000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=130.0 1703203200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=25 1703116800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=28.0 1703116800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=63.0 1703116800000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.3 1703116800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1703116800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=28.0 1703116800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=45.0 1703116800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=23 1703116800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=29.0 1703116800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=53.0 1703116800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=53.0 1703116800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Moderada value=65 1703116800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=28.0 1703116800000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=13.0 1703116800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=119.0 1703116800000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.4 1703116800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=40.0 1703116800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Ruim value=117 1703116800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=33.0 1703116800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=158.0 1703116800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=39.0 1703116800000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=8.0 1703116800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Moderada value=50 1703116800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=31.0 1703116800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=108.0 1703116800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=38.0 1703116800000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=4.0 1703116800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=34 1703116800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=28.0 1703116800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=85.0 1703116800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,poluente=Ozônio\ (O3),classificacao=Boa value=17 1703030400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=42.0 1703030400000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro value=0.2 1703030400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Ozônio\ (O3),classificacao=Boa value=18 1703030400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=45.0 1703030400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=18 1703030400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=22.0 1703030400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=37.0 1703030400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=42.0 1703030400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=29 1703030400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=73.0 1703030400000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.2 1703030400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=26.0 1703030400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Boa value=38 1703030400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=23.0 1703030400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=94.0 1703030400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=34.0 1703030400000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=5.0 1703030400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=32 1703030400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=24.0 1703030400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=79.0 1703030400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=31.0 1703030400000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=6.0 1703030400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=31 1703030400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=23.0 1703030400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=77.0 1703030400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1702944000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=32.0 1702944000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana value=29.0 1702944000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=18 1702944000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=22.0 1702944000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=28.0 1702944000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca value=39.0 1702944000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,poluente=Ozônio\ (O3),classificacao=Boa value=28 1702944000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=16.0 1702944000000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=6.0 1702944000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=71.0 1702944000000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=0.2 1702944000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá value=27.0 1702944000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,poluente=Ozônio\ (O3),classificacao=Moderada value=45 1702944000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=26.0 1702944000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=104.0 1702944000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=18.0 1702944000000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu value=5.0 1702944000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,poluente=Ozônio\ (O3),classificacao=Boa value=33 1702944000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=27.0 1702944000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=82.0 1702944000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=25.0 1702944000000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande value=2.0 1702944000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,poluente=Ozônio\ (O3),classificacao=Boa value=27 1702944000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=26.0 1702944000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba value=68.0 1702944000000000000

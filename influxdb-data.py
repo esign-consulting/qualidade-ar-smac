@@ -45,7 +45,7 @@ def get_concentracao(medicao_poluente):
     else:
         return None
 
-def iql_insert_concentracao_poluente(line_file, poluente):
+def write_line_concentracao_poluente(line_file, poluente):
     concentracao = get_concentracao(get_medicao_poluente(medicao, poluente))
     if concentracao:
         line_file.write('%s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (poluente.replace(',', '.'), estacao, concentracao, ts))
@@ -91,18 +91,21 @@ for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
     r = requests.get(url)
     if r.status_code == 200:
         boletim = r.json()
-        for medicao in boletim["medicoes"]:
-            estacao = escape_tag_value(medicao["estacao"])
-            poluente = escape_tag_value(medicao["poluente"])
-            classificacao = escape_tag_value(medicao["classificacao"])
-            iqar_line_file.write('IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
-            iql_insert_concentracao_poluente(iqar_line_file, "MP10")
-            iql_insert_concentracao_poluente(iqar_line_file, "MP2,5")
-            iql_insert_concentracao_poluente(iqar_line_file, "O3")
-            iql_insert_concentracao_poluente(iqar_line_file, "CO")
-            iql_insert_concentracao_poluente(iqar_line_file, "NO2")
-            iql_insert_concentracao_poluente(iqar_line_file, "SO2")
+        if boletim["data"] == d_string:
+            print(boletim["data"])
+            for medicao in boletim["medicoes"]:
+                estacao = escape_tag_value(medicao["estacao"])
+                poluente = escape_tag_value(medicao["poluente"])
+                classificacao = escape_tag_value(medicao["classificacao"])
+                iqar_line_file.write('IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
+                write_line_concentracao_poluente(iqar_line_file, "MP10")
+                write_line_concentracao_poluente(iqar_line_file, "MP2,5")
+                write_line_concentracao_poluente(iqar_line_file, "O3")
+                write_line_concentracao_poluente(iqar_line_file, "CO")
+                write_line_concentracao_poluente(iqar_line_file, "NO2")
+                write_line_concentracao_poluente(iqar_line_file, "SO2")
 
+print("Done.")
 iqar_line_file.close()
 
 if stop:

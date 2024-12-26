@@ -94,7 +94,7 @@ for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
         if boletim["data"] == d_string:
             print(boletim["data"])
             for medicao in boletim["medicoes"]:
-                estacao = escape_tag_value(medicao["estacao"])
+                estacao = escape_tag_value(medicao["estacao"]["nome"])
                 poluente = escape_tag_value(medicao["poluente"])
                 classificacao = escape_tag_value(medicao["classificacao"])
                 iqar_line_file.write('IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))

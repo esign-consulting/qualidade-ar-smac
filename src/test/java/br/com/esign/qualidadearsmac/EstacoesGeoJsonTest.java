@@ -1,7 +1,5 @@
 package br.com.esign.qualidadearsmac;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.nio.file.Files;
 
@@ -13,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,7 +27,7 @@ public class EstacoesGeoJsonTest {
         String geoJson = new String(Files.readAllBytes(resource.getFile().toPath()));
         EstacoesGeoJsonParser parser = new EstacoesGeoJsonParser(geoJson);
         FeatureCollection featureCollection = parser.getFeatureCollection();
-        assertTrue(featureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").equals("ESTAÇÃO BANGU")).findFirst().isPresent());
+        assertThat(featureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").equals("ESTAÇÃO BANGU")).findFirst().isPresent()).isTrue();
     }
 
 }

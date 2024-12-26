@@ -4,17 +4,17 @@ import java.util.List;
 
 public class Medicao {
     
-    private String estacao;
+    private Estacao estacao;
     private String classificacao;
     private String indice;
     private String poluente;
     private List<MedicaoPoluente> medicaoPoluentes;
 
-    public String getEstacao() {
+    public Estacao getEstacao() {
         return estacao;
     }
 
-    public void setEstacao(String estacao) {
+    public void setEstacao(Estacao estacao) {
         this.estacao = estacao;
     }
 

@@ -65,7 +65,7 @@ public class BoletimHtmlParser {
 
     private Medicao obterMedicao(Elements tds, int size, List<String> poluentes) {
         Medicao medicao = new Medicao();
-        medicao.setEstacao(tds.get(0).text());
+        medicao.setEstacao(obterEstacao(tds.get(0).text()));
         List<MedicaoPoluente> medicaoPoluentes = new ArrayList<>();
         String poluentePrincipal = null;
         for (int k = 0, l = 1; k < size; k++, l++) {
@@ -85,6 +85,12 @@ public class BoletimHtmlParser {
         medicao.setIndice(tds.get(size + 1).text());
         medicao.setClassificacao(tds.get(size + 2).text());
         return medicao;
+    }
+
+    private Estacao obterEstacao(String nome) {
+        Estacao estacao = new Estacao();
+        estacao.setNome(nome);
+        return estacao;
     }
 
 }

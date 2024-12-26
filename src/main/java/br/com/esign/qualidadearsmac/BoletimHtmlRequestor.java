@@ -27,10 +27,11 @@ public class BoletimHtmlRequestor {
     }
 
     public String request() throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create((data == null) ? url : url.concat(String.format("?data=%s", data)))).build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        return response.body();
+        try (HttpClient client = HttpClient.newHttpClient()) {
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create((data == null) ? url : url.concat(String.format("?data=%s", data)))).build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return response.body();
+        }
     }
 
 }

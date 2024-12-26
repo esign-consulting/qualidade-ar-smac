@@ -27,7 +27,7 @@ public class EstacoesGeoJsonTest {
         String geoJson = new String(Files.readAllBytes(resource.getFile().toPath()));
         EstacoesGeoJsonParser parser = new EstacoesGeoJsonParser(geoJson);
         FeatureCollection featureCollection = parser.getFeatureCollection();
-        assertThat(featureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").equals("ESTAÇÃO BANGU")).findFirst().isPresent()).isTrue();
+        assertThat(featureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").equals("ESTAÇÃO BANGU")).findFirst()).isPresent();
     }
 
 }

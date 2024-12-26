@@ -29,7 +29,7 @@ public class BoletimDiarioTest {
         BoletimHtmlParser parser = new BoletimHtmlParser(html);
         Boletim boletim = parser.obterBoletim();
         assertThat(boletim.getData()).isEqualTo("02/12/2020");
-        assertThat(boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("São Cristóvão")).findFirst().isPresent()).isTrue();
+        assertThat(boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("São Cristóvão")).findFirst()).isPresent();
     }
 
 }

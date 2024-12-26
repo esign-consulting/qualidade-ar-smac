@@ -15,7 +15,7 @@
     <description>Dados de Qualidade do Ar do Município do Rio de Janeiro</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>21</java.version>
         <sonar.organization>gustavomcarmo-github</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.projectKey>esign-consulting_qualidade-ar-smac</sonar.projectKey>

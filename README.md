@@ -34,6 +34,10 @@ Se preferir, obtenha diretamente os dados:
 
 `curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=smac' --data-urlencode 'q=SELECT * FROM "IQAR"'`
 
+Índice de qualidade do ar dos últimos 7 dias agrupados por estação de monitoramento:
+
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=smac' --data-urlencode 'q=SELECT value FROM "IQAR" WHERE time > now() - 7d GROUP BY "estacao", "latitude", "longitude"' -s | jq`
+
 ## Dados das estações de monitoramento
 
 `curl 'https://hub.arcgis.com/api/v3/datasets/5b1bf5c3e5114564bbf9b7a372b85e17_0/downloads/data?format=geojson&spatialRefId=4326' -s | jq`

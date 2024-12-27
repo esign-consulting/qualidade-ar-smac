@@ -1,274 +1,399 @@
 {
     "annotations": {
-        "list": [
-            {
-                "builtIn": 1,
-                "datasource": "-- Grafana --",
-                "enable": true,
-                "hide": true,
-                "iconColor": "rgba(0, 211, 255, 1)",
-                "name": "Annotations & Alerts",
-                "type": "dashboard"
-            }
-        ]
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
     },
     "editable": true,
-    "gnetId": null,
+    "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
-    "iteration": 1617098046651,
+    "id": 1,
     "links": [],
     "panels": [
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "influxdb",
-            "description": "",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {}
-                },
-                "overrides": []
+      {
+        "datasource": {
+          "type": "influxdb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "fixed"
             },
-            "fill": 1,
-            "fillGradient": 0,
-            "gridPos": {
-                "h": 7,
-                "w": 24,
-                "x": 0,
-                "y": 0
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
             },
-            "hiddenSeries": false,
-            "id": 2,
-            "legend": {
-                "alignAsTable": true,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "nullPointMode": "null",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.4.1",
-            "pointradius": 2,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
                 {
-                    "alias": "$tag_estacao",
-                    "groupBy": [
-                        {
-                            "params": [
-                                "estacao"
-                            ],
-                            "type": "tag"
-                        }
-                    ],
-                    "measurement": "/^$medicao$/",
-                    "orderByTime": "ASC",
-                    "policy": "default",
-                    "queryType": "randomWalk",
-                    "refId": "A",
-                    "resultFormat": "time_series",
-                    "select": [
-                        [
-                            {
-                                "params": [
-                                    "value"
-                                ],
-                                "type": "field"
-                            }
-                        ]
-                    ],
-                    "tags": [
-                        {
-                            "key": "estacao",
-                            "operator": "=~",
-                            "value": "/^$estacao$/"
-                        }
-                    ]
+                  "color": "green",
+                  "value": null
                 }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "$$hashKey": "object:285",
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                },
-                {
-                    "$$hashKey": "object:286",
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
+              ]
             }
-        }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 0
+        },
+        "id": 3,
+        "options": {
+          "basemap": {
+            "config": {
+              "server": "streets",
+              "showLabels": false,
+              "theme": "auto"
+            },
+            "name": "Layer 0",
+            "type": "carto"
+          },
+          "controls": {
+            "mouseWheelZoom": true,
+            "showAttribution": true,
+            "showDebug": false,
+            "showMeasure": false,
+            "showScale": false,
+            "showZoom": true
+          },
+          "layers": [
+            {
+              "config": {
+                "showLegend": false,
+                "style": {
+                  "color": {
+                    "fixed": "dark-green"
+                  },
+                  "opacity": 0.4,
+                  "rotation": {
+                    "fixed": 0,
+                    "max": 360,
+                    "min": -360,
+                    "mode": "mod"
+                  },
+                  "size": {
+                    "fixed": 5,
+                    "max": 15,
+                    "min": 2
+                  },
+                  "symbol": {
+                    "fixed": "img/icons/marker/circle.svg",
+                    "mode": "fixed"
+                  },
+                  "symbolAlign": {
+                    "horizontal": "center",
+                    "vertical": "center"
+                  },
+                  "text": {
+                    "field": "estacao",
+                    "fixed": "",
+                    "mode": "fixed"
+                  },
+                  "textConfig": {
+                    "fontSize": 12,
+                    "offsetX": 0,
+                    "offsetY": 15,
+                    "textAlign": "center",
+                    "textBaseline": "middle"
+                  }
+                }
+              },
+              "filterData": {
+                "id": "byRefId",
+                "options": "A"
+              },
+              "location": {
+                "mode": "auto"
+              },
+              "name": "Estação de Monitoramento",
+              "tooltip": true,
+              "type": "markers"
+            }
+          ],
+          "tooltip": {
+            "mode": "details"
+          },
+          "view": {
+            "allLayers": true,
+            "id": "fit",
+            "lastOnly": false,
+            "lat": -24.453621,
+            "layer": "Layer 1",
+            "lon": -36.78468,
+            "padding": 30,
+            "zoom": 15
+          }
+        },
+        "pluginVersion": "11.4.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb"
+            },
+            "groupBy": [
+              {
+                "params": [
+                  "estacao::tag"
+                ],
+                "type": "tag"
+              },
+              {
+                "params": [
+                  "latitude::tag"
+                ],
+                "type": "tag"
+              },
+              {
+                "params": [
+                  "longitude::tag"
+                ],
+                "type": "tag"
+              }
+            ],
+            "hide": false,
+            "measurement": "/^$medicao$/",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "table",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "estacao::tag",
+                "operator": "=~",
+                "value": "/^$estacao$/"
+              }
+            ]
+          }
+        ],
+        "title": "",
+        "type": "geomap"
+      },
+      {
+        "datasource": {
+          "type": "influxdb"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 16,
+          "x": 8,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "alertThreshold": true,
+          "legend": {
+            "calcs": [],
+            "displayMode": "table",
+            "placement": "right",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "11.4.0",
+        "targets": [
+          {
+            "alias": "$tag_estacao",
+            "datasource": {
+              "type": "influxdb"
+            },
+            "groupBy": [
+              {
+                "params": [
+                  "estacao"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "/^$medicao$/",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "queryType": "randomWalk",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "estacao",
+                "operator": "=~",
+                "value": "/^$estacao$/"
+              }
+            ]
+          }
+        ],
+        "title": "",
+        "type": "timeseries"
+      }
     ],
-    "schemaVersion": 27,
-    "style": "dark",
+    "preload": false,
+    "schemaVersion": 40,
     "tags": [],
     "templating": {
-        "list": [
-            {
-                "allValue": null,
-                "current": {
-                    "selected": true,
-                    "text": [
-                        "Bangu",
-                        "Centro",
-                        "Irajá",
-                        "São Cristóvão",
-                        "Tijuca",
-                        "Campo Grande",
-                        "Pedra de Guaratiba"
-                    ],
-                    "value": [
-                        "Bangu",
-                        "Centro",
-                        "Irajá",
-                        "São Cristóvão",
-                        "Tijuca",
-                        "Campo Grande",
-                        "Pedra de Guaratiba"
-                    ]
-                },
-                "datasource": "influxdb",
-                "definition": "SHOW TAG VALUES WITH KEY = \"estacao\"",
-                "description": null,
-                "error": null,
-                "hide": 0,
-                "includeAll": false,
-                "label": "Estação",
-                "multi": true,
-                "name": "estacao",
-                "options": [],
-                "query": "SHOW TAG VALUES WITH KEY = \"estacao\"",
-                "refresh": 1,
-                "regex": "",
-                "skipUrlSync": false,
-                "sort": 0,
-                "tagValuesQuery": "",
-                "tags": [],
-                "tagsQuery": "",
-                "type": "query",
-                "useTags": false
-            },
-            {
-                "allValue": null,
-                "current": {
-                    "selected": true,
-                    "text": "IQAR",
-                    "value": "IQAR"
-                },
-                "datasource": "influxdb",
-                "definition": "SHOW MEASUREMENTS",
-                "description": null,
-                "error": null,
-                "hide": 0,
-                "includeAll": false,
-                "label": "Medição",
-                "multi": false,
-                "name": "medicao",
-                "options": [
-                    {
-                        "selected": false,
-                        "text": "CO",
-                        "value": "CO"
-                    },
-                    {
-                        "selected": true,
-                        "text": "IQAR",
-                        "value": "IQAR"
-                    },
-                    {
-                        "selected": false,
-                        "text": "MP2.5",
-                        "value": "MP2.5"
-                    },
-                    {
-                        "selected": false,
-                        "text": "MP10",
-                        "value": "MP10"
-                    },
-                    {
-                        "selected": false,
-                        "text": "NO2",
-                        "value": "NO2"
-                    },
-                    {
-                        "selected": false,
-                        "text": "O3",
-                        "value": "O3"
-                    },
-                    {
-                        "selected": false,
-                        "text": "SO2",
-                        "value": "SO2"
-                    }
-                ],
-                "query": "SHOW MEASUREMENTS",
-                "refresh": 0,
-                "regex": "",
-                "skipUrlSync": false,
-                "sort": 0,
-                "tagValuesQuery": "",
-                "tags": [],
-                "tagsQuery": "",
-                "type": "query",
-                "useTags": false
-            }
-        ]
+      "list": [
+        {
+          "current": {
+            "text": [
+              "Bangu",
+              "Centro",
+              "Irajá",
+              "Tijuca",
+              "Campo Grande",
+              "Copacabana",
+              "Pedra de Guaratiba",
+              "São Cristóvão"
+            ],
+            "value": [
+              "Bangu",
+              "Centro",
+              "Irajá",
+              "Tijuca",
+              "Campo Grande",
+              "Copacabana",
+              "Pedra de Guaratiba",
+              "São Cristóvão"
+            ]
+          },
+          "datasource": "influxdb",
+          "definition": "SHOW TAG VALUES WITH KEY = \"estacao\"",
+          "includeAll": false,
+          "label": "Estação",
+          "multi": true,
+          "name": "estacao",
+          "options": [],
+          "query": {
+            "query": "SHOW TAG VALUES WITH KEY = \"estacao\"",
+            "refId": "InfluxVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 1,
+          "regex": "",
+          "type": "query"
+        },
+        {
+          "current": {
+            "text": "IQAR",
+            "value": "IQAR"
+          },
+          "datasource": "influxdb",
+          "definition": "SHOW MEASUREMENTS",
+          "includeAll": false,
+          "label": "Medição",
+          "name": "medicao",
+          "options": [],
+          "query": "SHOW MEASUREMENTS",
+          "refresh": 1,
+          "regex": "",
+          "type": "query"
+        }
+      ]
     },
     "time": {
-        "from": "now-365d",
-        "to": "now"
+      "from": "now-365d",
+      "to": "now"
     },
     "timepicker": {},
     "timezone": "",
     "title": "SMAC",
-    "uid": "p6fM9z_Mz",
-    "version": 1
-}
+    "version": 1,
+    "weekStart": ""
+  }

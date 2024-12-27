@@ -48,7 +48,7 @@ def get_concentracao(medicao_poluente):
 def write_line_concentracao_poluente(line_file, poluente):
     concentracao = get_concentracao(get_medicao_poluente(medicao, poluente))
     if concentracao:
-        line_file.write('%s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s value=%s %s\n' % (poluente.replace(',', '.'), estacao, concentracao, ts))
+        line_file.write('%s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,latitude=%s,longitude=%s value=%s %s\n' % (poluente.replace(',', '.'), estacao, latitude, longitude, concentracao, ts))
 
 client = docker.from_env()
 image = "esignbr/qualidade-ar-smac"
@@ -95,9 +95,11 @@ for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
             print(boletim["data"])
             for medicao in boletim["medicoes"]:
                 estacao = escape_tag_value(medicao["estacao"]["nome"])
+                latitude = medicao["estacao"]["latitude"]
+                longitude = medicao["estacao"]["longitude"]
                 poluente = escape_tag_value(medicao["poluente"])
                 classificacao = escape_tag_value(medicao["classificacao"])
-                iqar_line_file.write('IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, poluente, classificacao, medicao["indice"], ts))
+                iqar_line_file.write('IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,latitude=%s,longitude=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, latitude, longitude, poluente, classificacao, medicao["indice"], ts))
                 write_line_concentracao_poluente(iqar_line_file, "MP10")
                 write_line_concentracao_poluente(iqar_line_file, "MP2,5")
                 write_line_concentracao_poluente(iqar_line_file, "O3")

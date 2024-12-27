@@ -37,7 +37,9 @@
         },
         {
             "estacao": {
-                "nome": "Tijuca"
+                "nome": "Tijuca",
+                "latitude": -22.9249153429029,
+                "longitude": -43.2326565174968
             },
             "classificacao": "Boa",
             "indice": "29",
@@ -71,7 +73,9 @@
         },
         {
             "estacao": {
-                "nome": "Irajá"
+                "nome": "Irajá",
+                "latitude": -22.831620802504,
+                "longitude": -43.326844698961
             },
             "classificacao": "Boa",
             "indice": "25",
@@ -105,7 +109,9 @@
         },
         {
             "estacao": {
-                "nome": "Bangu"
+                "nome": "Bangu",
+                "latitude": -22.887909592765,
+                "longitude": -43.47107415449
             },
             "classificacao": "Boa",
             "indice": "23",
@@ -139,7 +145,9 @@
         },
         {
             "estacao": {
-                "nome": "Campo Grande"
+                "nome": "Campo Grande",
+                "latitude": -22.8862546758773,
+                "longitude": -43.5565219722468
             },
             "classificacao": "Boa",
             "indice": "20",
@@ -173,7 +181,9 @@
         },
         {
             "estacao": {
-                "nome": "Pedra de Guaratiba"
+                "nome": "Pedra de Guaratiba",
+                "latitude": -23.0043789751932,
+                "longitude": -43.629010366464
             },
             "classificacao": "Boa",
             "indice": "20",

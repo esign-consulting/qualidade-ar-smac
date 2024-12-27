@@ -1,11 +1,7 @@
 package br.com.esign.qualidadearsmac;
 
-import br.com.esign.qualidadearsmac.model.Boletim;
-import br.com.esign.qualidadearsmac.model.Medicao;
-
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,18 +12,20 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import br.com.esign.qualidadearsmac.model.Boletim;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ContextConfiguration(classes = Application.class)
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BoletimDiarioTest {
+public class PrometheusTest {
 
     @Autowired
     ResourceLoader resourceLoader;
 
     @Test
-    public void listarMedicoesTest() throws IOException {
+    public void listMetricsTest() throws IOException {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.html");
         String html = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(html);
@@ -35,14 +33,9 @@ public class BoletimDiarioTest {
         String geoJson = new String(Files.readAllBytes(estacoesResource.getFile().toPath()));
         EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(geoJson);
         Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
-        assertThat(boletim.getData()).isEqualTo("02/12/2020");
-        assertThat(boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("São Cristóvão")).findFirst()).isPresent();
-        
-        Optional<Medicao> optional = boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("Pedra de Guaratiba")).findFirst();
-        assertThat(optional).isPresent();
-        Medicao medicao = optional.get();
-        assertThat(medicao.getEstacao().getLatitude()).isEqualTo(-23.0043789751932);
-        assertThat(medicao.getEstacao().getLongitude()).isEqualTo(-43.629010366464);
+        Prometheus prometheus = new Prometheus(boletim);
+        String metrics = prometheus.getMetrics();
+        assertThat(metrics).contains("iqar{estado=\"RJ\",cidade=\"Rio de Janeiro\",orgao=\"SMAC\",estacao=\"Tijuca\",poluente=\"Material Particulado (MP10)\",classificacao=\"Boa\"} 29 1606867200000");
     }
 
 }

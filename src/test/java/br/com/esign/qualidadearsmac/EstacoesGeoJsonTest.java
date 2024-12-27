@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ContextConfiguration(classes = Application.class)
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class EstacoesGeoJsonTest {
@@ -22,7 +24,7 @@ public class EstacoesGeoJsonTest {
     ResourceLoader resourceLoader;
 
     @Test
-    public void listarMedicoesTest() throws IOException {
+    public void listarEstacoesTest() throws IOException {
         Resource resource = resourceLoader.getResource("classpath:estacoes.json");
         String geoJson = new String(Files.readAllBytes(resource.getFile().toPath()));
         EstacoesGeoJsonParser parser = new EstacoesGeoJsonParser(geoJson);

@@ -37,7 +37,7 @@ public class Prometheus {
                 "RJ",
                 "Rio de Janeiro",
                 "SMAC",
-                medicao.getEstacao(),
+                medicao.getEstacao().getNome(),
                 medicao.getPoluente(),
                 medicao.getClassificacao(),
                 medicao.getIndice(),

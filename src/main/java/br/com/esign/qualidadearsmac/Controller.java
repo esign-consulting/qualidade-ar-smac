@@ -16,15 +16,17 @@ public class Controller {
 
     @GetMapping("/boletim")
     public ResponseEntity<Boletim> listarMedicoes(@RequestParam(required = false) String data) throws IOException, InterruptedException {
-        BoletimHtmlParser parser = new BoletimHtmlParser(new BoletimHtmlRequestor(data));
-        Boletim boletim = parser.obterBoletim();
+        BoletimHtmlParser boletimParser = new BoletimHtmlParser(new BoletimHtmlRequestor(data));
+        EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(new EstacoesGeoJsonRequestor());
+        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
         return new ResponseEntity<>(boletim, HttpStatus.OK);
     }
 
     @GetMapping(value = "/prometheus", produces = MediaType.TEXT_PLAIN_VALUE)
     public String prometheusMetrics() throws IOException, InterruptedException {
-        BoletimHtmlParser parser = new BoletimHtmlParser(new BoletimHtmlRequestor());
-        Boletim boletim = parser.obterBoletim();
+        BoletimHtmlParser boletimParser = new BoletimHtmlParser(new BoletimHtmlRequestor());
+        EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(new EstacoesGeoJsonRequestor());
+        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
         Prometheus prometheus = new Prometheus(boletim);
         return prometheus.getMetrics();
     }

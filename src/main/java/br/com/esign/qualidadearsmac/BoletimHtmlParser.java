@@ -5,7 +5,11 @@ import br.com.esign.qualidadearsmac.model.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.geojson.Feature;
+import org.geojson.FeatureCollection;
+import org.geojson.Point;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -37,7 +41,7 @@ public class BoletimHtmlParser {
         return (h4 == null) ? null : h4.html();
     }
 
-    public Boletim obterBoletim() {
+    public Boletim obterBoletim(FeatureCollection featureCollection) {
         Boletim boletim = new Boletim();
         boletim.setData(obterData());
         List<Medicao> medicoes = new ArrayList<>();
@@ -54,7 +58,7 @@ public class BoletimHtmlParser {
             } else {
                 Elements tds = tr.getElementsByTag("td");
                 if (tds.size() == size + 3) {
-                    Medicao medicao = obterMedicao(tds, size, poluentes);
+                    Medicao medicao = obterMedicao(featureCollection, tds, size, poluentes);
                     medicoes.add(medicao);
                 }
             }
@@ -63,9 +67,9 @@ public class BoletimHtmlParser {
         return boletim;
     }
 
-    private Medicao obterMedicao(Elements tds, int size, List<String> poluentes) {
+    private Medicao obterMedicao(FeatureCollection featureCollection, Elements tds, int size, List<String> poluentes) {
         Medicao medicao = new Medicao();
-        medicao.setEstacao(obterEstacao(tds.get(0).text()));
+        medicao.setEstacao(obterEstacao(tds.get(0).text(), featureCollection));
         List<MedicaoPoluente> medicaoPoluentes = new ArrayList<>();
         String poluentePrincipal = null;
         for (int k = 0, l = 1; k < size; k++, l++) {
@@ -87,9 +91,15 @@ public class BoletimHtmlParser {
         return medicao;
     }
 
-    private Estacao obterEstacao(String nome) {
+    private Estacao obterEstacao(String nome, FeatureCollection featureCollection) {
         Estacao estacao = new Estacao();
         estacao.setNome(nome);
+        Optional<Feature> optional = featureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").toString().substring(8).equals(nome.toUpperCase())).findFirst();
+        if (optional.isPresent()) {
+            Feature feature = optional.get();
+            estacao.setLatitude(((Point) feature.getGeometry()).getCoordinates().getLatitude());
+            estacao.setLongitude(((Point) feature.getGeometry()).getCoordinates().getLongitude());
+        }
         return estacao;
     }
 

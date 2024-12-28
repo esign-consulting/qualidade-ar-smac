@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI/CD with Maven
 
 on: [push]
 
@@ -23,3 +23,15 @@ jobs:
         run: mvn -Dmaven.test.skip=true deploy -s settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create JAR upload folder
+        run: mkdir ./jar-upload
+      - name: Copy JAR file to created folder
+        run: cp qualidadearsmac-0.0.1-SNAPSHOT.jar ./jar-upload
+      - name: Upload JAR
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.ESIGN_HOST }}
+          username: ${{ secrets.ESIGN_USERNAME }}
+          password: ${{ secrets.ESIGN_PASSWORD }}
+          local-dir: ./jar-upload
+          server-dir: ~/appservers/standalone/

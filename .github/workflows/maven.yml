@@ -33,5 +33,5 @@ jobs:
           server: ${{ secrets.ESIGN_HOST }}
           username: ${{ secrets.ESIGN_USERNAME }}
           password: ${{ secrets.ESIGN_PASSWORD }}
-          local-dir: ./jar-upload
+          local-dir: ./jar-upload/
           server-dir: ~/appservers/standalone/

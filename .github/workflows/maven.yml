@@ -35,3 +35,17 @@ jobs:
           password: ${{ secrets.ESIGN_PASSWORD }}
           local-dir: ./jar-upload/
           server-dir: ~/appservers/standalone/
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.ESIGN_HOST }}
+          username: ${{ secrets.ESIGN_USERNAME }}
+          password: ${{ secrets.ESIGN_PASSWORD }}
+          script: appservers/tmp/qualidadearsmac-0.0.1-SNAPSHOT.sh stop
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.ESIGN_HOST }}
+          username: ${{ secrets.ESIGN_USERNAME }}
+          password: ${{ secrets.ESIGN_PASSWORD }}
+          script: appservers/tmp/qualidadearsmac-0.0.1-SNAPSHOT.sh start

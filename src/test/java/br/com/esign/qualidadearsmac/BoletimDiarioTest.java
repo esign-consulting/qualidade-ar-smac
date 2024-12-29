@@ -35,8 +35,8 @@ public class BoletimDiarioTest {
         String geoJson = new String(Files.readAllBytes(estacoesResource.getFile().toPath()));
         EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(geoJson);
         Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
-        assertThat(boletim.getData()).isEqualTo("02/12/2020");
-        assertThat(boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("São Cristóvão")).findFirst()).isPresent();
+        assertThat(boletim.getData()).isEqualTo("26/12/2024");
+        assertThat(boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("Campo Grande")).findFirst()).isPresent();
         
         Optional<Medicao> optional = boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("Pedra de Guaratiba")).findFirst();
         assertThat(optional).isPresent();

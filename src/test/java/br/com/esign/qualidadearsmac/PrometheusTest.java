@@ -35,7 +35,7 @@ public class PrometheusTest {
         Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
         Prometheus prometheus = new Prometheus(boletim);
         String metrics = prometheus.getMetrics();
-        assertThat(metrics).contains("iqar{estado=\"RJ\",cidade=\"Rio de Janeiro\",orgao=\"SMAC\",estacao=\"Tijuca\",poluente=\"Material Particulado (MP10)\",classificacao=\"Boa\"} 29 1606867200000");
+        assertThat(metrics).contains("iqar{estado=\"RJ\",cidade=\"Rio de Janeiro\",orgao=\"SMAC\",estacao=\"Tijuca\",poluente=\"Material Particulado (MP10)\",classificacao=\"Boa\"} 20 1735171200000");
     }
 
 }

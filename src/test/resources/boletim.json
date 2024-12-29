@@ -1,17 +1,19 @@
 {
-    "data": "02/12/2020",
+    "data": "26/12/2024",
     "medicoes": [
         {
             "estacao": {
-                "nome": "São Cristóvão"
+                "nome": "Centro",
+                "latitude": -22.9083442826264,
+                "longitude": -43.178151756386
             },
             "classificacao": "Boa",
-            "indice": "26",
-            "poluente": "Material Particulado (MP10)",
+            "indice": "12",
+            "poluente": "Ozônio (O3)",
             "medicaoPoluentes": [
                 {
                     "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "32,8"
+                    "concentracao": "ND"
                 },
                 {
                     "poluente": "Material Particulado (MP2,5) [µg/m³]",
@@ -19,11 +21,11 @@
                 },
                 {
                     "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "54,3"
+                    "concentracao": "29"
                 },
                 {
                     "poluente": "Monóxido de Carbono (CO) [ppm]",
-                    "concentracao": "0,1"
+                    "concentracao": "0,5"
                 },
                 {
                     "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
@@ -31,7 +33,43 @@
                 },
                 {
                     "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
-                    "concentracao": "3,5"
+                    "concentracao": "NM"
+                }
+            ]
+        },
+        {
+            "estacao": {
+                "nome": "Copacabana",
+                "latitude": -22.9650037338809,
+                "longitude": -43.1804816536037
+            },
+            "classificacao": "Boa",
+            "indice": "14",
+            "poluente": "Material Particulado (MP10)",
+            "medicaoPoluentes": [
+                {
+                    "poluente": "Material Particulado (MP10) [µg/m³]",
+                    "concentracao": "17"
+                },
+                {
+                    "poluente": "Material Particulado (MP2,5) [µg/m³]",
+                    "concentracao": "NM"
+                },
+                {
+                    "poluente": "Ozônio (O3) [µg/m³]",
+                    "concentracao": "24"
+                },
+                {
+                    "poluente": "Monóxido de Carbono (CO) [ppm]",
+                    "concentracao": "NM"
+                },
+                {
+                    "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
+                    "concentracao": "NM"
+                },
+                {
+                    "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
+                    "concentracao": "NM"
                 }
             ]
         },
@@ -42,12 +80,12 @@
                 "longitude": -43.2326565174968
             },
             "classificacao": "Boa",
-            "indice": "29",
+            "indice": "20",
             "poluente": "Material Particulado (MP10)",
             "medicaoPoluentes": [
                 {
                     "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "35,9"
+                    "concentracao": "25"
                 },
                 {
                     "poluente": "Material Particulado (MP2,5) [µg/m³]",
@@ -55,19 +93,19 @@
                 },
                 {
                     "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "40,9"
+                    "concentracao": "30"
                 },
                 {
                     "poluente": "Monóxido de Carbono (CO) [ppm]",
-                    "concentracao": "0,4"
+                    "concentracao": "NM"
                 },
                 {
                     "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
-                    "concentracao": "43,3"
+                    "concentracao": "56"
                 },
                 {
                     "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
-                    "concentracao": "2,5"
+                    "concentracao": "NM"
                 }
             ]
         },
@@ -78,32 +116,32 @@
                 "longitude": -43.326844698961
             },
             "classificacao": "Boa",
-            "indice": "25",
-            "poluente": "Material Particulado (MP10)",
+            "indice": "24",
+            "poluente": "Dióxido de Enxofre (SO2)",
             "medicaoPoluentes": [
                 {
                     "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "30,5"
+                    "concentracao": "16"
                 },
                 {
                     "poluente": "Material Particulado (MP2,5) [µg/m³]",
-                    "concentracao": "ND"
+                    "concentracao": "4"
                 },
                 {
                     "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "56,3"
+                    "concentracao": "37"
                 },
                 {
                     "poluente": "Monóxido de Carbono (CO) [ppm]",
-                    "concentracao": "0,4"
+                    "concentracao": "0,9"
                 },
                 {
                     "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
-                    "concentracao": "29,4"
+                    "concentracao": "50"
                 },
                 {
                     "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
-                    "concentracao": "4,6"
+                    "concentracao": "12"
                 }
             ]
         },
@@ -114,12 +152,12 @@
                 "longitude": -43.47107415449
             },
             "classificacao": "Boa",
-            "indice": "23",
-            "poluente": "Material Particulado (MP10)",
+            "indice": "14",
+            "poluente": "Ozônio (O3)",
             "medicaoPoluentes": [
                 {
                     "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "29,0"
+                    "concentracao": "11"
                 },
                 {
                     "poluente": "Material Particulado (MP2,5) [µg/m³]",
@@ -127,19 +165,19 @@
                 },
                 {
                     "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "57,4"
+                    "concentracao": "35"
                 },
                 {
                     "poluente": "Monóxido de Carbono (CO) [ppm]",
-                    "concentracao": "0,3"
+                    "concentracao": "NM"
                 },
                 {
                     "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
-                    "concentracao": "23,0"
+                    "concentracao": "ND"
                 },
                 {
                     "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
-                    "concentracao": "4,2"
+                    "concentracao": "ND"
                 }
             ]
         },
@@ -150,12 +188,12 @@
                 "longitude": -43.5565219722468
             },
             "classificacao": "Boa",
-            "indice": "20",
+            "indice": "17",
             "poluente": "Material Particulado (MP10)",
             "medicaoPoluentes": [
                 {
                     "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "25,4"
+                    "concentracao": "21"
                 },
                 {
                     "poluente": "Material Particulado (MP2,5) [µg/m³]",
@@ -163,19 +201,19 @@
                 },
                 {
                     "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "51,1"
+                    "concentracao": "37"
                 },
                 {
                     "poluente": "Monóxido de Carbono (CO) [ppm]",
-                    "concentracao": "0,2"
+                    "concentracao": "NM"
                 },
                 {
                     "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
-                    "concentracao": "31,8"
+                    "concentracao": "27"
                 },
                 {
                     "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
-                    "concentracao": "2,9"
+                    "concentracao": "ND"
                 }
             ]
         },
@@ -186,12 +224,12 @@
                 "longitude": -43.629010366464
             },
             "classificacao": "Boa",
-            "indice": "20",
+            "indice": "21",
             "poluente": "Ozônio (O3)",
             "medicaoPoluentes": [
                 {
                     "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "24,1"
+                    "concentracao": "18"
                 },
                 {
                     "poluente": "Material Particulado (MP2,5) [µg/m³]",
@@ -199,7 +237,7 @@
                 },
                 {
                     "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "50,8"
+                    "concentracao": "52"
                 },
                 {
                     "poluente": "Monóxido de Carbono (CO) [ppm]",
@@ -212,74 +250,6 @@
                 {
                     "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
                     "concentracao": "NM"
-                }
-            ]
-        },
-        {
-            "estacao": {
-                "nome": "Unidade Móvel Campo Grande"
-            },
-            "classificacao": "Boa",
-            "indice": "20",
-            "poluente": "Material Particulado (MP10)",
-            "medicaoPoluentes": [
-                {
-                    "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "24,8"
-                },
-                {
-                    "poluente": "Material Particulado (MP2,5) [µg/m³]",
-                    "concentracao": "ND"
-                },
-                {
-                    "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "27,9"
-                },
-                {
-                    "poluente": "Monóxido de Carbono (CO) [ppm]",
-                    "concentracao": "0,5"
-                },
-                {
-                    "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
-                    "concentracao": "NM"
-                },
-                {
-                    "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
-                    "concentracao": "ND"
-                }
-            ]
-        },
-        {
-            "estacao": {
-                "nome": "Teste"
-            },
-            "classificacao": "Boa",
-            "indice": "20",
-            "poluente": "",
-            "medicaoPoluentes": [
-                {
-                    "poluente": "Material Particulado (MP10) [µg/m³]",
-                    "concentracao": "24,8"
-                },
-                {
-                    "poluente": "Material Particulado (MP2,5) [µg/m³]",
-                    "concentracao": "ND"
-                },
-                {
-                    "poluente": "Ozônio (O3) [µg/m³]",
-                    "concentracao": "27,9"
-                },
-                {
-                    "poluente": "Monóxido de Carbono (CO) [ppm]",
-                    "concentracao": "0,5"
-                },
-                {
-                    "poluente": "Dióxido de Nitrogênio (NO2) [µg/m³]",
-                    "concentracao": "NM"
-                },
-                {
-                    "poluente": "Dióxido de Enxofre (SO2) [µg/m³]",
-                    "concentracao": "ND"
                 }
             ]
         }

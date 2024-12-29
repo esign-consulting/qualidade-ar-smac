@@ -1,399 +1,414 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": 1,
-    "links": [],
-    "panels": [
+  "annotations": {
+    "list": [
       {
+        "builtIn": 1,
         "datasource": {
-          "type": "influxdb"
+          "type": "datasource",
+          "uid": "grafana"
         },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "fixed"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             }
           },
-          "overrides": []
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
         },
-        "gridPos": {
-          "h": 8,
-          "w": 8,
-          "x": 0,
-          "y": 0
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "basemap": {
+          "config": {
+            "server": "streets",
+            "showLabels": false,
+            "theme": "auto"
+          },
+          "name": "Layer 0",
+          "type": "carto"
         },
-        "id": 3,
-        "options": {
-          "basemap": {
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": true,
+          "showDebug": false,
+          "showMeasure": false,
+          "showScale": false,
+          "showZoom": true
+        },
+        "layers": [
+          {
             "config": {
-              "server": "streets",
-              "showLabels": false,
-              "theme": "auto"
-            },
-            "name": "Layer 0",
-            "type": "carto"
-          },
-          "controls": {
-            "mouseWheelZoom": true,
-            "showAttribution": true,
-            "showDebug": false,
-            "showMeasure": false,
-            "showScale": false,
-            "showZoom": true
-          },
-          "layers": [
-            {
-              "config": {
-                "showLegend": false,
-                "style": {
-                  "color": {
-                    "fixed": "dark-green"
-                  },
-                  "opacity": 0.4,
-                  "rotation": {
-                    "fixed": 0,
-                    "max": 360,
-                    "min": -360,
-                    "mode": "mod"
-                  },
-                  "size": {
-                    "fixed": 5,
-                    "max": 15,
-                    "min": 2
-                  },
-                  "symbol": {
-                    "fixed": "img/icons/marker/circle.svg",
-                    "mode": "fixed"
-                  },
-                  "symbolAlign": {
-                    "horizontal": "center",
-                    "vertical": "center"
-                  },
-                  "text": {
-                    "field": "estacao",
-                    "fixed": "",
-                    "mode": "fixed"
-                  },
-                  "textConfig": {
-                    "fontSize": 12,
-                    "offsetX": 0,
-                    "offsetY": 15,
-                    "textAlign": "center",
-                    "textBaseline": "middle"
-                  }
+              "showLegend": false,
+              "style": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.4,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 5,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "text": {
+                  "field": "estacao",
+                  "fixed": "",
+                  "mode": "fixed"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 15,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
                 }
-              },
-              "filterData": {
-                "id": "byRefId",
-                "options": "A"
-              },
-              "location": {
-                "mode": "auto"
-              },
-              "name": "Estação de Monitoramento",
-              "tooltip": true,
-              "type": "markers"
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "A"
+            },
+            "location": {
+              "mode": "auto"
+            },
+            "name": "Estação de Monitoramento",
+            "tooltip": true,
+            "type": "markers"
+          }
+        ],
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "fit",
+          "lastOnly": false,
+          "lat": -24.453621,
+          "layer": "Layer 1",
+          "lon": -36.78468,
+          "padding": 30,
+          "zoom": 15
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "estacao::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "latitude::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "longitude::tag"
+              ],
+              "type": "tag"
             }
           ],
-          "tooltip": {
-            "mode": "details"
-          },
-          "view": {
-            "allLayers": true,
-            "id": "fit",
-            "lastOnly": false,
-            "lat": -24.453621,
-            "layer": "Layer 1",
-            "lon": -36.78468,
-            "padding": 30,
-            "zoom": 15
-          }
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "influxdb"
-            },
-            "groupBy": [
+          "hide": false,
+          "measurement": "/^$medicao$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
               {
                 "params": [
-                  "estacao::tag"
+                  "value"
                 ],
-                "type": "tag"
+                "type": "field"
               },
               {
-                "params": [
-                  "latitude::tag"
-                ],
-                "type": "tag"
-              },
-              {
-                "params": [
-                  "longitude::tag"
-                ],
-                "type": "tag"
-              }
-            ],
-            "hide": false,
-            "measurement": "/^$medicao$/",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "table",
-            "select": [
-              [
-                {
-                  "params": [
-                    "value"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "last"
-                }
-              ]
-            ],
-            "tags": [
-              {
-                "key": "estacao::tag",
-                "operator": "=~",
-                "value": "/^$estacao$/"
+                "params": [],
+                "type": "last"
               }
             ]
-          }
-        ],
-        "title": "",
-        "type": "geomap"
+          ],
+          "tags": [
+            {
+              "key": "estacao::tag",
+              "operator": "=~",
+              "value": "/^$estacao$/"
+            },
+            {
+              "condition": "AND",
+              "key": "orgao::tag",
+              "operator": "=",
+              "value": "SMAC"
+            }
+          ]
+        }
+      ],
+      "title": "",
+      "type": "geomap"
+    },
+    {
+      "datasource": {
+        "type": "influxdb"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 8,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "alertThreshold": true,
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "alias": "$tag_estacao",
+          "datasource": {
+            "type": "influxdb"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "estacao"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "/^$medicao$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "estacao",
+              "operator": "=~",
+              "value": "/^$estacao$/"
+            },
+            {
+              "condition": "AND",
+              "key": "orgao::tag",
+              "operator": "=",
+              "value": "SMAC"
+            }
+          ]
+        }
+      ],
+      "title": "",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": [
+            "Bangu",
+            "Centro",
+            "Irajá",
+            "Tijuca",
+            "Campo Grande",
+            "Copacabana",
+            "Pedra de Guaratiba",
+            "São Cristóvão"
+          ],
+          "value": [
+            "Bangu",
+            "Centro",
+            "Irajá",
+            "Tijuca",
+            "Campo Grande",
+            "Copacabana",
+            "Pedra de Guaratiba",
+            "São Cristóvão"
+          ]
+        },
+        "datasource": "influxdb",
+        "definition": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
+        "includeAll": false,
+        "label": "Estação",
+        "multi": true,
+        "name": "estacao",
+        "options": [],
+        "query": {
+          "query": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
+          "refId": "InfluxVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
       },
       {
-        "datasource": {
-          "type": "influxdb"
+        "current": {
+          "text": "IQAR",
+          "value": "IQAR"
         },
-        "description": "",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 10,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "never",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "short"
-          },
-          "overrides": []
+        "datasource": "influxdb",
+        "definition": "SHOW MEASUREMENTS WHERE \"orgao\" = 'SMAC'",
+        "includeAll": false,
+        "label": "Medição",
+        "name": "medicao",
+        "options": [],
+        "query": {
+          "query": "SHOW MEASUREMENTS WHERE \"orgao\" = 'SMAC'",
+          "refId": "InfluxVariableQueryEditor-VariableQuery"
         },
-        "gridPos": {
-          "h": 8,
-          "w": 16,
-          "x": 8,
-          "y": 0
-        },
-        "id": 2,
-        "options": {
-          "alertThreshold": true,
-          "legend": {
-            "calcs": [],
-            "displayMode": "table",
-            "placement": "right",
-            "showLegend": true
-          },
-          "tooltip": {
-            "mode": "multi",
-            "sort": "none"
-          }
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "alias": "$tag_estacao",
-            "datasource": {
-              "type": "influxdb"
-            },
-            "groupBy": [
-              {
-                "params": [
-                  "estacao"
-                ],
-                "type": "tag"
-              }
-            ],
-            "measurement": "/^$medicao$/",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "queryType": "randomWalk",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "value"
-                  ],
-                  "type": "field"
-                }
-              ]
-            ],
-            "tags": [
-              {
-                "key": "estacao",
-                "operator": "=~",
-                "value": "/^$estacao$/"
-              }
-            ]
-          }
-        ],
-        "title": "",
-        "type": "timeseries"
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
       }
-    ],
-    "preload": false,
-    "schemaVersion": 40,
-    "tags": [],
-    "templating": {
-      "list": [
-        {
-          "current": {
-            "text": [
-              "Bangu",
-              "Centro",
-              "Irajá",
-              "Tijuca",
-              "Campo Grande",
-              "Copacabana",
-              "Pedra de Guaratiba",
-              "São Cristóvão"
-            ],
-            "value": [
-              "Bangu",
-              "Centro",
-              "Irajá",
-              "Tijuca",
-              "Campo Grande",
-              "Copacabana",
-              "Pedra de Guaratiba",
-              "São Cristóvão"
-            ]
-          },
-          "datasource": "influxdb",
-          "definition": "SHOW TAG VALUES WITH KEY = \"estacao\"",
-          "includeAll": false,
-          "label": "Estação",
-          "multi": true,
-          "name": "estacao",
-          "options": [],
-          "query": {
-            "query": "SHOW TAG VALUES WITH KEY = \"estacao\"",
-            "refId": "InfluxVariableQueryEditor-VariableQuery"
-          },
-          "refresh": 1,
-          "regex": "",
-          "type": "query"
-        },
-        {
-          "current": {
-            "text": "IQAR",
-            "value": "IQAR"
-          },
-          "datasource": "influxdb",
-          "definition": "SHOW MEASUREMENTS",
-          "includeAll": false,
-          "label": "Medição",
-          "name": "medicao",
-          "options": [],
-          "query": "SHOW MEASUREMENTS",
-          "refresh": 1,
-          "regex": "",
-          "type": "query"
-        }
-      ]
-    },
-    "time": {
-      "from": "now-365d",
-      "to": "now"
-    },
-    "timepicker": {},
-    "timezone": "",
-    "title": "SMAC",
-    "version": 1,
-    "weekStart": ""
-  }
+    ]
+  },
+  "time": {
+    "from": "now-365d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "SMAC",
+  "version": 1,
+  "weekStart": ""
+}

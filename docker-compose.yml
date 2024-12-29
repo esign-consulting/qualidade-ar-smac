@@ -7,8 +7,8 @@ services:
       - ./influxdb:/docker-entrypoint-initdb.d
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_ORG=qualidadear
-      - DOCKER_INFLUXDB_INIT_BUCKET=smac
+      - DOCKER_INFLUXDB_INIT_ORG=esign-consulting
+      - DOCKER_INFLUXDB_INIT_BUCKET=qualidadear
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
       - DOCKER_INFLUXDB_INIT_PASSWORD=SuperSecret
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
@@ -23,9 +23,10 @@ services:
       - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=S3cr3t
+      - GF_AUTH_ANONYMOUS_ENABLED=true
       - INFLUXDB_URL=http://influxdb:8086
       - INFLUXDB_TOKEN=my-super-secret-auth-token
-      - INFLUXDB_BUCKET=smac
+      - INFLUXDB_BUCKET=qualidadear
     ports:
       - 3000:3000
     depends_on:

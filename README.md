@@ -20,23 +20,23 @@ Se quiser obter os dados publicados numa data específica, informe o campo `data
 
 ## Gráfico dos últimos 365 dias
 
-Os dados de qualidade do ar dos últimos 365 dias podem ser carregados para uma base de dados [InfluxDB](https://www.influxdata.com/products/influxdb) e apresentados num dashboard do [Grafana](https://grafana.com). Os passos são os seguintes:
+Os dados de qualidade do ar dos últimos 365 dias podem ser carregados para uma base de dados [InfluxDB](https://www.influxdata.com/products/influxdb) e apresentados num dashboard do [Grafana](https://grafana.com). Os passos são os seguintes (requer [Python](https://www.python.org) e [docker-compose](https://docs.docker.com/compose)):
 
 1. Prepare o ambiente Python: `python3 -m venv env && source env/bin/activate && pip3 install -r requirements.txt`;
 2. Execute o script Python: `./influxdb-data.py 365`;
 3. Inicialize o ambiente: `docker-compose up -d`;
-4. Pelo browser entre em <http://localhost:3000> e use as credenciais `admin` e `S3cr3t` para fazer o login;
+4. Pelo browser entre em <http://localhost:3000>;
 5. Entre no dashboard `SMAC`.
 
 ![SMAC dashboard](last365d.png)
 
 Se preferir, obtenha diretamente os dados:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=smac' --data-urlencode 'q=SELECT * FROM "IQAR"'`
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT * FROM "IQAR"'`
 
 Índice de qualidade do ar dos últimos 7 dias agrupados por estação de monitoramento:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=smac' --data-urlencode 'q=SELECT value FROM "IQAR" WHERE time > now() - 7d GROUP BY "estacao", "latitude", "longitude"' -s | jq`
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT value FROM "IQAR" WHERE time > now() - 7d GROUP BY "estacao", "latitude", "longitude"' -s | jq`
 
 ## Dados das estações de monitoramento
 

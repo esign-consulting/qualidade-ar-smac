@@ -30,13 +30,19 @@ Os dados de qualidade do ar dos últimos 365 dias podem ser carregados para uma 
 
 ![SMAC dashboard](last365d.png)
 
-Se preferir, obtenha diretamente os dados:
+### Consultas aos dados
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT * FROM "IQAR"'`
+Se preferir, obtenha diretamente todos os dados da SMAC:
 
-Índice de qualidade do ar dos últimos 7 dias agrupados por estação de monitoramento:
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT * FROM "IQAR" WHERE "orgao" =~ /SMAC/'`
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT value FROM "IQAR" WHERE time > now() - 7d GROUP BY "estacao", "latitude", "longitude"' -s | jq`
+Último índice de qualidade do ar das estações de monitoramento da SMAC:
+
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT last(value) AS value FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "estacao", "latitude", "longitude"' -s | jq`
+
+Poluentes que mais impactam o índice de qualidade do ar:
+
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "poluente"' -s | jq -r '.results[].series[] | "\(.tags.poluente) - \(.values[0][1])"'`
 
 ## Dados das estações de monitoramento
 

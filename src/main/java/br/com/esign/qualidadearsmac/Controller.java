@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-    @GetMapping("/boletim")
+    @GetMapping(value = "/boletim", produces = "application/json;charset=UTF-8")
     public ResponseEntity<Boletim> listarMedicoes(@RequestParam(required = false) String data) throws IOException, InterruptedException {
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(new BoletimHtmlRequestor(data));
         EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(new EstacoesGeoJsonRequestor());

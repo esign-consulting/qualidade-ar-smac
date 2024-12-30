@@ -4,7 +4,7 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn install
 
-FROM eclipse-temurin:22-alpine
+FROM eclipse-temurin:22-jre-alpine
 COPY --from=builder /qualidadearsmac/target/qualidadearsmac-0.0.1-SNAPSHOT.jar ./
 EXPOSE 8080
 CMD ["java", "-jar", "qualidadearsmac-0.0.1-SNAPSHOT.jar"]

@@ -40,10 +40,10 @@ Se preferir, obtenha diretamente todos os dados da SMAC:
 
 `curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT last(value) AS value FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "estacao", "latitude", "longitude"' -s | jq`
 
-Poluentes que mais impactam o índice de qualidade do ar:
+Poluentes que mais impactaram o índice de qualidade do ar no período:
 
 `curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "poluente"' -s | jq -r '.results[].series[] | "\(.tags.poluente) - \(.values[0][1])"'`
 
-## Dados das estações de monitoramento
+Distribuição da classificação da qualidade do ar no período:
 
-`curl 'https://hub.arcgis.com/api/v3/datasets/5b1bf5c3e5114564bbf9b7a372b85e17_0/downloads/data?format=geojson&spatialRefId=4326' -s | jq`
+curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "classificacao"' -s | jq -r '.results[].series[] | "\(.tags.classificacao) - \(.values[0][1])"'

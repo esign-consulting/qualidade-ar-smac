@@ -2,6 +2,7 @@
 
 import datetime
 import docker
+import logging
 import requests
 import socket
 import sys
@@ -20,7 +21,7 @@ def get_port(port=8080):
 
 def healthy(port):
     try:
-        endpoint = "http://localhost:%s/actuator/health" % port
+        endpoint = f"http://localhost:{port}/actuator/health"
         r = requests.head(endpoint)
         return r.status_code == 200
     except requests.exceptions.ConnectionError:
@@ -48,18 +49,20 @@ def get_concentracao(medicao_poluente):
 def write_line_concentracao_poluente(line_file, poluente):
     concentracao = get_concentracao(get_medicao_poluente(medicao, poluente))
     if concentracao:
-        line_file.write('%s,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,latitude=%s,longitude=%s value=%s %s\n' % (poluente.replace(',', '.'), estacao, latitude, longitude, concentracao, ts))
+        line_file.write(f"{poluente.replace(',', '.')},estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao={estacao},latitude={latitude},longitude={longitude} value={concentracao} {ts}\n")
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s - %(message)s")
 
 client = docker.from_env()
 image = "esignbr/qualidade-ar-smac"
 
 if not client.images.list(name=image):
-    print("Building %s..." % image)
+    logging.info(f"Building {image}...")
     client.images.build(tag=image, path=".")
 
 containers = client.containers.list(filters={"ancestor":image})
 if not containers:
-    print("Running %s..." % image)
+    logging.info(f"Running {image}...")
     port = get_port()
     container = client.containers.run(image=image, name="smac", remove=True, detach=True, ports={"8080/tcp":port})
     stop = True
@@ -71,13 +74,13 @@ else:
 i = 1
 while not healthy(port):
     if i > 5:
-        print("Max retries exceeded.")
+        logging.info("Max retries exceeded.")
         break
-    print("SMAC is not ready. Waiting 2s...")
+    logging.info("SMAC is not ready. Waiting 2s...")
     time.sleep(2)
     i += 1
 
-print("Creating the data.line file...")
+logging.info("Creating the data.line file...")
 iqar_line_file = open("influxdb/data.line", "w")
 
 today = datetime.date.today()
@@ -92,24 +95,24 @@ for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
     if r.status_code == 200:
         boletim = r.json()
         if boletim["data"] == d_string:
-            print(boletim["data"])
             for medicao in boletim["medicoes"]:
                 estacao = escape_tag_value(medicao["estacao"]["nome"])
                 latitude = medicao["estacao"]["latitude"]
                 longitude = medicao["estacao"]["longitude"]
                 poluente = escape_tag_value(medicao["poluente"])
                 classificacao = escape_tag_value(medicao["classificacao"])
-                iqar_line_file.write('IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=%s,latitude=%s,longitude=%s,poluente=%s,classificacao=%s value=%s %s\n' % (estacao, latitude, longitude, poluente, classificacao, medicao["indice"], ts))
+                iqar_line_file.write(f"IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao={estacao},latitude={latitude},longitude={longitude},poluente={poluente},classificacao={classificacao} value={medicao['indice']} {ts}\n")
                 write_line_concentracao_poluente(iqar_line_file, "MP10")
                 write_line_concentracao_poluente(iqar_line_file, "MP2,5")
                 write_line_concentracao_poluente(iqar_line_file, "O3")
                 write_line_concentracao_poluente(iqar_line_file, "CO")
                 write_line_concentracao_poluente(iqar_line_file, "NO2")
                 write_line_concentracao_poluente(iqar_line_file, "SO2")
+            logging.info(f"Data from {boletim['data']} stored.")
 
-print("Done.")
 iqar_line_file.close()
+logging.info("Done.")
 
 if stop:
-    print("Stopping %s..." % image)
     container.stop()
+    logging.info(f"{image} stopped.")

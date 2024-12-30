@@ -25,6 +25,250 @@
       "datasource": {
         "type": "influxdb"
       },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "semi-dark-yellow",
+                "value": 41
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 81
+              },
+              {
+                "color": "semi-dark-red",
+                "value": 121
+              },
+              {
+                "color": "semi-dark-purple",
+                "value": 201
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "alertThreshold": true,
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "alias": "$tag_estacao",
+          "datasource": {
+            "type": "influxdb"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "estacao"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "IQAR",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "estacao",
+              "operator": "=~",
+              "value": "/^$estacao$/"
+            },
+            {
+              "condition": "AND",
+              "key": "orgao::tag",
+              "operator": "=",
+              "value": "SMAC"
+            }
+          ]
+        }
+      ],
+      "title": "IQAr no período",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "alias": "$tag_classificacao",
+          "groupBy": [
+            {
+              "params": [
+                "classificacao::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "IQAR",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "estacao::tag",
+              "operator": "=~",
+              "value": "/^$estacao$/"
+            },
+            {
+              "condition": "AND",
+              "key": "orgao::tag",
+              "operator": "=",
+              "value": "SMAC"
+            }
+          ]
+        }
+      ],
+      "title": "Classificação do IQAr",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "influxdb"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -52,9 +296,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 8,
+        "w": 16,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 3,
       "options": {
@@ -170,7 +414,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$medicao$/",
+          "measurement": "IQAR",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -204,109 +448,77 @@
           ]
         }
       ],
-      "title": "",
+      "title": "Mapa das estações",
       "type": "geomap"
     },
     {
       "datasource": {
-        "type": "influxdb"
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "bars",
-            "fillOpacity": 10,
-            "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
+          "mappings": []
         },
         "overrides": []
       },
       "gridPos": {
         "h": 8,
-        "w": 16,
-        "x": 8,
-        "y": 0
+        "w": 8,
+        "x": 16,
+        "y": 8
       },
-      "id": 2,
+      "id": 4,
       "options": {
-        "alertThreshold": true,
+        "displayLabels": [
+          "percent"
+        ],
         "legend": {
-          "calcs": [],
           "displayMode": "table",
           "placement": "right",
-          "showLegend": true
+          "showLegend": true,
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
         "tooltip": {
-          "mode": "multi",
+          "mode": "single",
           "sort": "none"
         }
       },
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          "alias": "$tag_estacao",
-          "datasource": {
-            "type": "influxdb"
-          },
+          "alias": "$tag_poluente",
           "groupBy": [
             {
               "params": [
-                "estacao"
+                "poluente::tag"
               ],
               "type": "tag"
             }
           ],
-          "measurement": "/^$medicao$/",
+          "measurement": "IQAR",
           "orderByTime": "ASC",
           "policy": "default",
-          "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -316,12 +528,16 @@
                   "value"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
               }
             ]
           ],
           "tags": [
             {
-              "key": "estacao",
+              "key": "estacao::tag",
               "operator": "=~",
               "value": "/^$estacao$/"
             },
@@ -334,8 +550,8 @@
           ]
         }
       ],
-      "title": "",
-      "type": "timeseries"
+      "title": "Impacto dos poluentes",
+      "type": "piechart"
     }
   ],
   "preload": false,
@@ -375,25 +591,6 @@
         "options": [],
         "query": {
           "query": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
-          "refId": "InfluxVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "type": "query"
-      },
-      {
-        "current": {
-          "text": "IQAR",
-          "value": "IQAR"
-        },
-        "datasource": "influxdb",
-        "definition": "SHOW MEASUREMENTS WHERE \"orgao\" = 'SMAC'",
-        "includeAll": false,
-        "label": "Medição",
-        "name": "medicao",
-        "options": [],
-        "query": {
-          "query": "SHOW MEASUREMENTS WHERE \"orgao\" = 'SMAC'",
           "refId": "InfluxVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,

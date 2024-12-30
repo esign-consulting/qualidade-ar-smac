@@ -1,3 +1,83 @@
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386,poluente=Ozônio\ (O3),classificacao=Boa value=24 1735430400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=61.0 1735430400000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=0.3 1735430400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037,poluente=Ozônio\ (O3),classificacao=Boa value=24 1735430400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=9.0 1735430400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=61.0 1735430400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968,poluente=Ozônio\ (O3),classificacao=Boa value=20 1735430400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=24.0 1735430400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=50.0 1735430400000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=45.0 1735430400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961,poluente=Ozônio\ (O3),classificacao=Boa value=28 1735430400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=14.0 1735430400000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=4.0 1735430400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=70.0 1735430400000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=0.5 1735430400000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=36.0 1735430400000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=5.0 1735430400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449,poluente=Ozônio\ (O3),classificacao=Boa value=29 1735430400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=73.0 1735430400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468,poluente=Ozônio\ (O3),classificacao=Boa value=28 1735430400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=17.0 1735430400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=69.0 1735430400000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=19.0 1735430400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464,poluente=Ozônio\ (O3),classificacao=Boa value=26 1735430400000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=22.0 1735430400000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=66.0 1735430400000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386,poluente=Ozônio\ (O3),classificacao=Boa value=31 1735344000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=78.0 1735344000000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=0.4 1735344000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037,poluente=Ozônio\ (O3),classificacao=Boa value=27 1735344000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=12.0 1735344000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=67.0 1735344000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968,poluente=Ozônio\ (O3),classificacao=Boa value=24 1735344000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=22.0 1735344000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=59.0 1735344000000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=56.0 1735344000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961,poluente=Ozônio\ (O3),classificacao=Boa value=34 1735344000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=14.0 1735344000000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=4.0 1735344000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=85.0 1735344000000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=0.7 1735344000000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=41.0 1735344000000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=8.0 1735344000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449,poluente=Ozônio\ (O3),classificacao=Boa value=30 1735344000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=17.0 1735344000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=76.0 1735344000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468,poluente=Ozônio\ (O3),classificacao=Boa value=30 1735344000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=15.0 1735344000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=74.0 1735344000000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=17.0 1735344000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464,poluente=Ozônio\ (O3),classificacao=Boa value=34 1735344000000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=18.0 1735344000000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=86.0 1735344000000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386,poluente=Ozônio\ (O3),classificacao=Boa value=15 1735257600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=38.0 1735257600000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=0.6 1735257600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037,poluente=Ozônio\ (O3),classificacao=Boa value=14 1735257600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=11.0 1735257600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=34.0 1735257600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1735257600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=28.0 1735257600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=40.0 1735257600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=78.0 1735257600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961,poluente=Ozônio\ (O3),classificacao=Boa value=20 1735257600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=16.0 1735257600000000000
+MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=4.0 1735257600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=50.0 1735257600000000000
+CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=0.4 1735257600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=49.0 1735257600000000000
+SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=5.0 1735257600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449,poluente=Ozônio\ (O3),classificacao=Boa value=21 1735257600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=15.0 1735257600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=52.0 1735257600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468,poluente=Ozônio\ (O3),classificacao=Boa value=16 1735257600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=17.0 1735257600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=41.0 1735257600000000000
+NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=23.0 1735257600000000000
+IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464,poluente=Ozônio\ (O3),classificacao=Boa value=22 1735257600000000000
+MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=13.0 1735257600000000000
+O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=55.0 1735257600000000000
 IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386,poluente=Ozônio\ (O3),classificacao=Boa value=12 1735171200000000000
 O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=29.0 1735171200000000000
 CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=0.5 1735171200000000000
@@ -9765,93 +9845,3 @@ SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=
 IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464,poluente=Material\ Particulado\ (MP10),classificacao=Moderada value=43 1704067200000000000
 MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=53.0 1704067200000000000
 O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=41.0 1704067200000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=39 1703980800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=49.0 1703980800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=29.0 1703980800000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=0.4 1703980800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1703980800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=33.0 1703980800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=23.0 1703980800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=23 1703980800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=29.0 1703980800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=21.0 1703980800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=37.0 1703980800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=22 1703980800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=28.0 1703980800000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=6.0 1703980800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=39.0 1703980800000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=0.3 1703980800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=7.0 1703980800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=20 1703980800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=25.0 1703980800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=46.0 1703980800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=22.0 1703980800000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=4.0 1703980800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468,poluente=Ozônio\ (O3),classificacao=Boa value=19 1703980800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=23.0 1703980800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=47.0 1703980800000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=28.0 1703980800000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=1.0 1703980800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464,poluente=Ozônio\ (O3),classificacao=Boa value=30 1703980800000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=24.0 1703980800000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=75.0 1703980800000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=35 1703894400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=44.0 1703894400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=33.0 1703894400000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=0.5 1703894400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=31 1703894400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=39.0 1703894400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=37.0 1703894400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=26 1703894400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=32.0 1703894400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=33.0 1703894400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=45.0 1703894400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=37 1703894400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=46.0 1703894400000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=17.0 1703894400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=58.0 1703894400000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=0.7 1703894400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=55.0 1703894400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449,poluente=Ozônio\ (O3),classificacao=Boa value=29 1703894400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=32.0 1703894400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=72.0 1703894400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=38.0 1703894400000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=6.0 1703894400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468,poluente=Ozônio\ (O3),classificacao=Boa value=29 1703894400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=35.0 1703894400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=73.0 1703894400000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=50.0 1703894400000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=3.0 1703894400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464,poluente=Ozônio\ (O3),classificacao=Moderada value=52 1703894400000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=48.0 1703894400000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=109.0 1703894400000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386,poluente=Ozônio\ (O3),classificacao=Moderada value=52 1703808000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=47.0 1703808000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=109.0 1703808000000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Centro,latitude=-22.9083442826264,longitude=-43.178151756386 value=0.7 1703808000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=31 1703808000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=39.0 1703808000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Copacabana,latitude=-22.9650037338809,longitude=-43.1804816536037 value=68.0 1703808000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968,poluente=Material\ Particulado\ (MP10),classificacao=Boa value=29 1703808000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=36.0 1703808000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=56.0 1703808000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Tijuca,latitude=-22.9249153429029,longitude=-43.2326565174968 value=71.0 1703808000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961,poluente=Ozônio\ (O3),classificacao=Moderada value=46 1703808000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=28.0 1703808000000000000
-MP2.5,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=12.0 1703808000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=105.0 1703808000000000000
-CO,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=0.5 1703808000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Irajá,latitude=-22.831620802504,longitude=-43.326844698961 value=74.0 1703808000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449,poluente=Ozônio\ (O3),classificacao=Boa value=39 1703808000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=35.0 1703808000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=97.0 1703808000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=61.0 1703808000000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Bangu,latitude=-22.887909592765,longitude=-43.47107415449 value=9.0 1703808000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468,poluente=Ozônio\ (O3),classificacao=Boa value=38 1703808000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=40.0 1703808000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=96.0 1703808000000000000
-NO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=66.0 1703808000000000000
-SO2,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Campo\ Grande,latitude=-22.8862546758773,longitude=-43.5565219722468 value=7.0 1703808000000000000
-IQAR,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464,poluente=Ozônio\ (O3),classificacao=Muito\ ruim value=131 1703808000000000000
-MP10,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=46.0 1703808000000000000
-O3,estado=RJ,cidade=Rio\ de\ Janeiro,orgao=SMAC,estacao=Pedra\ de\ Guaratiba,latitude=-23.0043789751932,longitude=-43.629010366464 value=166.0 1703808000000000000

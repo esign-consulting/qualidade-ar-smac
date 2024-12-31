@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=esign-consulting_qualidade-ar-smac&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=esign-consulting_qualidade-ar-smac) [![Docker Pulls](https://img.shields.io/docker/pulls/esignbr/qualidade-ar-smac.svg)](https://hub.docker.com/r/esignbr/qualidade-ar-smac) [![API](https://img.shields.io/website-up-down-green-red/http/www.esign.com.br:13887/actuator/health.svg?label=API)](http://www.esign.com.br:13887/boletim)
 
-Dados de qualidade do ar coletados da [Prefeitura do RJ - Secretaria Municipal de Meio Ambiente (SMAC)](https://www.rio.rj.gov.br/web/smac). Os dados publicados em <http://jeap.rio.rj.gov.br/je-metinfosmac/boletim> em formato [HTML](https://en.wikipedia.org/wiki/HTML) são interpretados e disponibilizados por uma [API](https://en.wikipedia.org/wiki/API) em formato [JSON](https://en.wikipedia.org/wiki/JSON). Isso permite que sejam mais facilmente consumidos por outros sistemas de informação.
+Dados de qualidade do ar coletados da [Prefeitura do RJ - Secretaria Municipal de Meio Ambiente (SMAC)](https://ambienteclima.prefeitura.rio). Os dados publicados em <http://jeap.rio.rj.gov.br/je-metinfosmac/boletim> em formato [HTML](https://en.wikipedia.org/wiki/HTML) são interpretados e disponibilizados por uma [API](https://en.wikipedia.org/wiki/API) em formato [JSON](https://en.wikipedia.org/wiki/JSON). Isso permite que sejam mais facilmente consumidos por outros sistemas de informação.
 
 ## Execução
 
@@ -47,3 +47,17 @@ Poluentes que mais impactaram o índice de qualidade do ar no período:
 Distribuição da classificação da qualidade do ar no período:
 
 `curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "classificacao"' -s | jq -r '.results[].series[] | "\(.tags.classificacao) - \(.values[0][1])"'`
+
+## Portal MonitorAr do Ministério de Meio Ambiente e Mudança do Clima
+
+Estações de monitoramento da qualidade do ar:
+
+`curl https://monitorar-backend.mma.gov.br/v1/estacao/todas -s | jq -r '.[] | "\(.noFonteDados) - \(.noEstacao)"' | sort`
+
+Estações de monitoramento da SMAC:
+
+`curl https://monitorar-backend.mma.gov.br/v1/estacao/todas -s | jq -r '.[] | select(.noFonteDados | contains("SMAC")) | "\(.idEstacao) - \(.noEstacao)"' | sort`
+
+Dados horários das estações de monitoramento da SMAC:
+
+`curl https://monitorar-backend.mma.gov.br/v1/estacao/por-ids?ids=381,382,383,384,385,386,387,401 -s | jq`

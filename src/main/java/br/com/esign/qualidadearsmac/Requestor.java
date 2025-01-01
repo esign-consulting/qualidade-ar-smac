@@ -20,7 +20,7 @@ public class Requestor {
             ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
 
                 @Override
-                public String handleResponse(HttpResponse response) throws ClientProtocolException, IOException {
+                public String handleResponse(HttpResponse response) throws IOException {
                     int status = response.getStatusLine().getStatusCode();
                     if (status >= 200 && status < 300) {
                         HttpEntity entity = response.getEntity();

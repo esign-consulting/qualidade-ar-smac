@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @GetMapping(value = "/boletim", produces = "application/json;charset=UTF-8")
-    public ResponseEntity<Boletim> listarMedicoes(@RequestParam(required = false) String data) throws IOException, InterruptedException {
+    public ResponseEntity<Boletim> listarMedicoes(@RequestParam(required = false) String data) throws IOException {
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(new BoletimHtmlRequestor(data));
         EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(new EstacoesGeoJsonRequestor());
         Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
@@ -23,7 +23,7 @@ public class Controller {
     }
 
     @GetMapping(value = "/prometheus", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String prometheusMetrics() throws IOException, InterruptedException {
+    public String prometheusMetrics() throws IOException {
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(new BoletimHtmlRequestor());
         EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(new EstacoesGeoJsonRequestor());
         Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
@@ -32,7 +32,7 @@ public class Controller {
     }
 
     @GetMapping(value = "/estacoes", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String listarEstacoes() throws IOException, InterruptedException {
+    public String listarEstacoes() throws IOException {
         EstacoesGeoJsonRequestor reequestor = new EstacoesGeoJsonRequestor();
         return reequestor.request();
     }

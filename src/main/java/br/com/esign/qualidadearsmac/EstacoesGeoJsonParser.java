@@ -13,11 +13,11 @@ public class EstacoesGeoJsonParser {
 
     private final FeatureCollection featureCollection;
 
-    public EstacoesGeoJsonParser() throws IOException, InterruptedException {
+    public EstacoesGeoJsonParser() throws IOException {
         this(new EstacoesGeoJsonRequestor());
     }
 
-    public EstacoesGeoJsonParser(EstacoesGeoJsonRequestor requestor) throws IOException, InterruptedException {
+    public EstacoesGeoJsonParser(EstacoesGeoJsonRequestor requestor) throws IOException {
         this(requestor.request());
     }
 

@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class EstacoesGeoJsonTest {
 
     @Autowired
-    ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;
 
     @Test
     public void listarEstacoesTest() throws IOException {

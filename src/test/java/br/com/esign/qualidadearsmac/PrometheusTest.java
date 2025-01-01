@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PrometheusTest {
 
     @Autowired
-    ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;
 
     @Test
     public void listMetricsTest() throws IOException {

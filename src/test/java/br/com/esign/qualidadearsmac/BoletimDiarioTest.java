@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BoletimDiarioTest {
 
     @Autowired
-    ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;
 
     @Test
     public void listarMedicoesTest() throws IOException {

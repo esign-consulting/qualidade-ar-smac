@@ -31,8 +31,7 @@ public class Requestor {
                 }
 
             };
-            String responseBody = httpclient.execute(httpget, responseHandler);
-            return responseBody;
+            return httpclient.execute(httpget, responseHandler);
         } finally {
             httpclient.close();
         }

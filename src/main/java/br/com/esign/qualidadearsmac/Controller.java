@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 @RestController
 public class Controller {
 
@@ -35,6 +37,13 @@ public class Controller {
     public String listarEstacoes() throws IOException {
         EstacoesGeoJsonRequestor reequestor = new EstacoesGeoJsonRequestor();
         return reequestor.request();
+    }
+
+    @GetMapping(value = "/monitorar/estacoes", produces = "application/json;charset=UTF-8")
+    public ResponseEntity<JsonNode> listarMonitorArEstacoes() throws IOException {
+        MonitorArEstacoesJsonParser estacoesParser = new MonitorArEstacoesJsonParser(new MonitorArEstacoesJsonRequestor());
+        JsonNode jsonNode = estacoesParser.getJsonNode();
+        return new ResponseEntity<>(jsonNode, HttpStatus.OK);
     }
 
 }

@@ -18,13 +18,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ContextConfiguration(classes = Application.class)
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EstacoesGeoJsonTest {
+public class EstacoesGeoJsonParserTest {
 
     @Autowired
     private ResourceLoader resourceLoader;
 
     @Test
-    public void listarEstacoesTest() throws IOException {
+    public void getFeatureCollectionTest() throws IOException {
         Resource resource = resourceLoader.getResource("classpath:estacoes.json");
         String geoJson = new String(Files.readAllBytes(resource.getFile().toPath()));
         EstacoesGeoJsonParser parser = new EstacoesGeoJsonParser(geoJson);

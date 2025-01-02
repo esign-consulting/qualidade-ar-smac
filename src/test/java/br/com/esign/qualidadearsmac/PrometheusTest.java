@@ -25,7 +25,7 @@ public class PrometheusTest {
     private ResourceLoader resourceLoader;
 
     @Test
-    public void listMetricsTest() throws IOException {
+    public void getMetricsTest() throws IOException {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.html");
         String html = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(html);

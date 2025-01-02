@@ -21,13 +21,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ContextConfiguration(classes = Application.class)
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BoletimDiarioTest {
+public class BoletimHtmlParserTest {
 
     @Autowired
     private ResourceLoader resourceLoader;
 
     @Test
-    public void listarMedicoesTest() throws IOException {
+    public void obterBoletimTest() throws IOException {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.html");
         String html = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(html);

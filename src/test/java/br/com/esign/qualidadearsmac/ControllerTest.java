@@ -32,7 +32,7 @@ public class ControllerTest {
     private ResourceLoader resourceLoader;
 
     @Test
-    public void testBoletimEndpoint() throws IOException, JSONException {
+    public void obterBoletimTest() throws IOException, JSONException {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.json");
         String expected = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
         String url = String.format("http://localhost:%s/boletim?data=26/12/2024", port);

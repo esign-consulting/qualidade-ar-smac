@@ -29,12 +29,12 @@ public class BoletimHtmlParserTest {
     @Test
     public void obterBoletimTest() throws IOException {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.html");
-        String html = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
-        BoletimHtmlParser boletimParser = new BoletimHtmlParser(html);
-        Resource estacoesResource = resourceLoader.getResource("classpath:estacoes.json");
-        String geoJson = new String(Files.readAllBytes(estacoesResource.getFile().toPath()));
-        EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(geoJson);
-        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
+        String boletimHtml = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
+        BoletimHtmlParser boletimParser = new BoletimHtmlParser(boletimHtml);
+        Resource dataRioEstacoesResource = resourceLoader.getResource("classpath:estacoes-datario.json");
+        String dataRioEstacoesGeoJson = new String(Files.readAllBytes(dataRioEstacoesResource.getFile().toPath()));
+        DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(dataRioEstacoesGeoJson);
+        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getDataRioEstacoesFeatureCollection());
         assertThat(boletim.getData()).isEqualTo("26/12/2024");
         assertThat(boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("Campo Grande")).findFirst()).isPresent();
         

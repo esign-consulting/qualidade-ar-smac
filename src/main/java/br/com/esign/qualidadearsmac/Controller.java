@@ -17,33 +17,41 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class Controller {
 
     @GetMapping(value = "/boletim", produces = "application/json;charset=UTF-8")
-    public ResponseEntity<Boletim> listarMedicoes(@RequestParam(required = false) String data) throws IOException {
+    public ResponseEntity<Boletim> obterBoletim(@RequestParam(required = false) String data) throws IOException {
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(new BoletimHtmlRequestor(data));
-        EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(new EstacoesGeoJsonRequestor());
-        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
+        DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(new DataRioEstacoesGeoJsonRequestor());
+        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getDataRioEstacoesFeatureCollection());
         return new ResponseEntity<>(boletim, HttpStatus.OK);
     }
 
     @GetMapping(value = "/prometheus", produces = MediaType.TEXT_PLAIN_VALUE)
     public String prometheusMetrics() throws IOException {
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(new BoletimHtmlRequestor());
-        EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(new EstacoesGeoJsonRequestor());
-        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
+        DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(new DataRioEstacoesGeoJsonRequestor());
+        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getDataRioEstacoesFeatureCollection());
         Prometheus prometheus = new Prometheus(boletim);
         return prometheus.getMetrics();
     }
 
-    @GetMapping(value = "/estacoes", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String listarEstacoes() throws IOException {
-        EstacoesGeoJsonRequestor reequestor = new EstacoesGeoJsonRequestor();
-        return reequestor.request();
+    @GetMapping(value = "/datario/estacoes", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String listarDataRioEstacoes() throws IOException {
+        DataRioEstacoesGeoJsonRequestor dataRioEstacoesRequestor = new DataRioEstacoesGeoJsonRequestor();
+        return dataRioEstacoesRequestor.request();
     }
 
     @GetMapping(value = "/monitorar/estacoes", produces = "application/json;charset=UTF-8")
     public ResponseEntity<JsonNode> listarMonitorArEstacoes() throws IOException {
         MonitorArEstacoesJsonParser estacoesParser = new MonitorArEstacoesJsonParser(new MonitorArEstacoesJsonRequestor());
-        JsonNode jsonNode = estacoesParser.getJsonNode();
-        return new ResponseEntity<>(jsonNode, HttpStatus.OK);
+        JsonNode monitorArEstacoesJsonNode = estacoesParser.getMonitorArEstacoesJsonNode();
+        return new ResponseEntity<>(monitorArEstacoesJsonNode, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/monitorar/dados-horarios", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String listarMonitorArDadosHorarios() throws IOException {
+        MonitorArEstacoesJsonParser estacoesParser = new MonitorArEstacoesJsonParser(new MonitorArEstacoesJsonRequestor());
+        JsonNode monitorArEstacoesJsonNode = estacoesParser.getMonitorArEstacoesJsonNode();
+        MonitorArDadosHorariosRequestor dadosHorariosRequestor = new MonitorArDadosHorariosRequestor(monitorArEstacoesJsonNode);
+        return dadosHorariosRequestor.request();
     }
 
 }

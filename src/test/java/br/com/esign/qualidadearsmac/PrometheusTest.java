@@ -27,12 +27,12 @@ public class PrometheusTest {
     @Test
     public void getMetricsTest() throws IOException {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.html");
-        String html = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
-        BoletimHtmlParser boletimParser = new BoletimHtmlParser(html);
-        Resource estacoesResource = resourceLoader.getResource("classpath:estacoes.json");
-        String geoJson = new String(Files.readAllBytes(estacoesResource.getFile().toPath()));
-        EstacoesGeoJsonParser estacoesParser = new EstacoesGeoJsonParser(geoJson);
-        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getFeatureCollection());
+        String boletimHtml = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
+        BoletimHtmlParser boletimParser = new BoletimHtmlParser(boletimHtml);
+        Resource dataRioEstacoesResource = resourceLoader.getResource("classpath:estacoes-datario.json");
+        String dataRioEstacoesGeoJson = new String(Files.readAllBytes(dataRioEstacoesResource.getFile().toPath()));
+        DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(dataRioEstacoesGeoJson);
+        Boletim boletim = boletimParser.obterBoletim(estacoesParser.getDataRioEstacoesFeatureCollection());
         Prometheus prometheus = new Prometheus(boletim);
         String metrics = prometheus.getMetrics();
         assertThat(metrics).contains("iqar{estado=\"RJ\",cidade=\"Rio de Janeiro\",orgao=\"SMAC\",estacao=\"Tijuca\",poluente=\"Material Particulado (MP10)\",classificacao=\"Boa\"} 20 1735171200000");

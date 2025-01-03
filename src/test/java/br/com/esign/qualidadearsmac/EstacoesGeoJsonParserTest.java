@@ -24,12 +24,12 @@ public class EstacoesGeoJsonParserTest {
     private ResourceLoader resourceLoader;
 
     @Test
-    public void getFeatureCollectionTest() throws IOException {
-        Resource resource = resourceLoader.getResource("classpath:estacoes.json");
-        String geoJson = new String(Files.readAllBytes(resource.getFile().toPath()));
-        EstacoesGeoJsonParser parser = new EstacoesGeoJsonParser(geoJson);
-        FeatureCollection featureCollection = parser.getFeatureCollection();
-        assertThat(featureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").equals("ESTAÇÃO BANGU")).findFirst()).isPresent();
+    public void getDataRioEstacoesFeatureCollectionTest() throws IOException {
+        Resource dataRioEstacoesResource = resourceLoader.getResource("classpath:estacoes-datario.json");
+        String dataRioEstacoesGeoJson = new String(Files.readAllBytes(dataRioEstacoesResource.getFile().toPath()));
+        DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(dataRioEstacoesGeoJson);
+        FeatureCollection dataRioEstacoesFeatureCollection = estacoesParser.getDataRioEstacoesFeatureCollection();
+        assertThat(dataRioEstacoesFeatureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").equals("ESTAÇÃO BANGU")).findFirst()).isPresent();
     }
 
 }

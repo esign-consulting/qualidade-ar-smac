@@ -26,12 +26,12 @@ public class MonitorArEstacoesJsonParserTest {
     private ResourceLoader resourceLoader;
 
     @Test
-    public void getJsonNodeTest() throws IOException {
-        Resource resource = resourceLoader.getResource("classpath:estacoes-monitorar.json");
-        String json = new String(Files.readAllBytes(resource.getFile().toPath()));
-        MonitorArEstacoesJsonParser parser = new MonitorArEstacoesJsonParser(json);
-        JsonNode jsonNode = parser.getJsonNode();
-        assertThat(Streams.stream(jsonNode.elements()).filter(n-> !n.get("noFonteDados").textValue().contains("SMAC")).findFirst()).isNotPresent();
+    public void getMonitorArEstacoesJsonNodeTest() throws IOException {
+        Resource monitorArEstacoesResource = resourceLoader.getResource("classpath:estacoes-monitorar.json");
+        String monitorArEstacoesJson = new String(Files.readAllBytes(monitorArEstacoesResource.getFile().toPath()));
+        MonitorArEstacoesJsonParser estacoesParser = new MonitorArEstacoesJsonParser(monitorArEstacoesJson);
+        JsonNode monitorArEstacoesJsonNode = estacoesParser.getMonitorArEstacoesJsonNode();
+        assertThat(Streams.stream(monitorArEstacoesJsonNode.elements()).filter(n-> !n.get("noFonteDados").textValue().contains("SMAC")).findFirst()).isNotPresent();
     }
 
 }

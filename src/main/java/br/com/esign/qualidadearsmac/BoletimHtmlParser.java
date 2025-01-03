@@ -27,8 +27,8 @@ public class BoletimHtmlParser {
         this(requestor.request());
     }
 
-    public BoletimHtmlParser(String html) {
-        doc = Jsoup.parse(html);
+    public BoletimHtmlParser(String boletimHtml) {
+        doc = Jsoup.parse(boletimHtml);
     }
 
     private String obterData() {
@@ -38,7 +38,7 @@ public class BoletimHtmlParser {
         return (h4 == null) ? null : h4.html();
     }
 
-    public Boletim obterBoletim(FeatureCollection featureCollection) {
+    public Boletim obterBoletim(FeatureCollection dataRioEstacoesFeatureCollection) {
         Boletim boletim = new Boletim();
         boletim.setData(obterData());
         List<Medicao> medicoes = new ArrayList<>();
@@ -55,7 +55,7 @@ public class BoletimHtmlParser {
             } else {
                 Elements tds = tr.getElementsByTag("td");
                 if (tds.size() == size + 3) {
-                    Medicao medicao = obterMedicao(featureCollection, tds, size, poluentes);
+                    Medicao medicao = obterMedicao(dataRioEstacoesFeatureCollection, tds, size, poluentes);
                     medicoes.add(medicao);
                 }
             }
@@ -64,9 +64,9 @@ public class BoletimHtmlParser {
         return boletim;
     }
 
-    private Medicao obterMedicao(FeatureCollection featureCollection, Elements tds, int size, List<String> poluentes) {
+    private Medicao obterMedicao(FeatureCollection dataRioEstacoesFeatureCollection, Elements tds, int size, List<String> poluentes) {
         Medicao medicao = new Medicao();
-        medicao.setEstacao(obterEstacao(tds.get(0).text(), featureCollection));
+        medicao.setEstacao(obterEstacao(tds.get(0).text(), dataRioEstacoesFeatureCollection));
         List<MedicaoPoluente> medicaoPoluentes = new ArrayList<>();
         String poluentePrincipal = null;
         for (int k = 0, l = 1; k < size; k++, l++) {
@@ -88,10 +88,10 @@ public class BoletimHtmlParser {
         return medicao;
     }
 
-    private Estacao obterEstacao(String nome, FeatureCollection featureCollection) {
+    private Estacao obterEstacao(String nome, FeatureCollection dataRioEstacoesFeatureCollection) {
         Estacao estacao = new Estacao();
         estacao.setNome(nome);
-        Optional<Feature> optional = featureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").toString().substring(8).equals(nome.toUpperCase())).findFirst();
+        Optional<Feature> optional = dataRioEstacoesFeatureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").toString().substring(8).equals(nome.toUpperCase())).findFirst();
         if (optional.isPresent()) {
             Feature feature = optional.get();
             estacao.setLatitude(((Point) feature.getGeometry()).getCoordinates().getLatitude());

@@ -21,7 +21,7 @@ def get_port(port=8080):
 
 def healthy(port):
     try:
-        endpoint = f"http://localhost:{port}/actuator/health"
+        endpoint = f"http://localhost:{port}/health"
         r = requests.head(endpoint)
         return r.status_code == 200
     except requests.exceptions.ConnectionError:

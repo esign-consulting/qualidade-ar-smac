@@ -47,7 +47,7 @@ public class ControllerTest {
 	}
 
     @Test
-    public void listarMonitorArUltimas24hTest() throws IOException, JSONException {
+    public void listarMonitorArUltimas24hTest() throws IOException {
         String url = String.format("http://localhost:%s/smac/monitorar/ultimas24h", port);
         String ultimas24hJson = restTemplate.getForObject(url, String.class);
         JsonNode ultimas24hJsonNode = new ObjectMapper().readTree(ultimas24hJson);

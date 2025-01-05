@@ -30,7 +30,7 @@ public class MonitorArUltimas24hRequestor  extends Requestor {
     public String request() throws IOException {
         String ids = null;
         if (monitorArEstacoesJsonNode != null) {
-            List<String> idsList = new ArrayList<String>(monitorArEstacoesJsonNode.size());
+            List<String> idsList = new ArrayList<>(monitorArEstacoesJsonNode.size());
             Iterator<JsonNode> nodes = monitorArEstacoesJsonNode.elements();
             while (nodes.hasNext()) {
                 idsList.add(nodes.next().get("idEstacao").asText());

@@ -21,7 +21,7 @@ def get_port(port=8080):
 
 def healthy(port):
     try:
-        endpoint = f"http://localhost:{port}/health"
+        endpoint = f"http://localhost:{port}/smac/health"
         r = requests.head(endpoint)
         return r.status_code == 200
     except requests.exceptions.ConnectionError:
@@ -90,7 +90,7 @@ for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
     ts = int(datetime.datetime.timestamp(datetime.datetime.combine(date, datetime.datetime.min.time())) * 1000000000)
     d_string = date.strftime("%d/%m/%Y")
 
-    url = "http://localhost:%s/boletim?data=%s" % (port, d_string)
+    url = "http://localhost:%s/smac/boletim?data=%s" % (port, d_string)
     r = requests.get(url)
     if r.status_code == 200:
         boletim = r.json()

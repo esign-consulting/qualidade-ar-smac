@@ -46,12 +46,12 @@ public class Controller {
         return new ResponseEntity<>(monitorArEstacoesJsonNode, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/monitorar/dados-horarios", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String listarMonitorArDadosHorarios() throws IOException {
+    @GetMapping(value = "/monitorar/ultimas24h", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String listarMonitorArUltimas24h() throws IOException {
         MonitorArEstacoesJsonParser estacoesParser = new MonitorArEstacoesJsonParser(new MonitorArEstacoesJsonRequestor());
         JsonNode monitorArEstacoesJsonNode = estacoesParser.getMonitorArEstacoesJsonNode();
-        MonitorArDadosHorariosRequestor dadosHorariosRequestor = new MonitorArDadosHorariosRequestor(monitorArEstacoesJsonNode);
-        return dadosHorariosRequestor.request();
+        MonitorArUltimas24hRequestor ultimas24hRequestor = new MonitorArUltimas24hRequestor(monitorArEstacoesJsonNode);
+        return ultimas24hRequestor.request();
     }
 
 }

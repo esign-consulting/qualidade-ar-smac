@@ -25,7 +25,7 @@ public class EstacoesGeoJsonParserTest {
 
     @Test
     public void getDataRioEstacoesFeatureCollectionTest() throws IOException {
-        Resource dataRioEstacoesResource = resourceLoader.getResource("classpath:estacoes-datario.json");
+        Resource dataRioEstacoesResource = resourceLoader.getResource("classpath:datario-estacoes.json");
         String dataRioEstacoesGeoJson = new String(Files.readAllBytes(dataRioEstacoesResource.getFile().toPath()));
         DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(dataRioEstacoesGeoJson);
         FeatureCollection dataRioEstacoesFeatureCollection = estacoesParser.getDataRioEstacoesFeatureCollection();

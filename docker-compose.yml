@@ -8,7 +8,7 @@ services:
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_ORG=esign-consulting
-      - DOCKER_INFLUXDB_INIT_BUCKET=qualidadear
+      - DOCKER_INFLUXDB_INIT_BUCKET=qualidadear-diaria
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
       - DOCKER_INFLUXDB_INIT_PASSWORD=SuperSecret
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
@@ -26,7 +26,7 @@ services:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - INFLUXDB_URL=http://influxdb:8086
       - INFLUXDB_TOKEN=my-super-secret-auth-token
-      - INFLUXDB_BUCKET=qualidadear
+      - INFLUXDB_BUCKET=qualidadear-diaria
     ports:
       - 3000:3000
     depends_on:

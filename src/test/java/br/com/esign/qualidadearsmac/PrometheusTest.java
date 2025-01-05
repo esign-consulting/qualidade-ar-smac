@@ -29,7 +29,7 @@ public class PrometheusTest {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.html");
         String boletimHtml = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
         BoletimHtmlParser boletimParser = new BoletimHtmlParser(boletimHtml);
-        Resource dataRioEstacoesResource = resourceLoader.getResource("classpath:estacoes-datario.json");
+        Resource dataRioEstacoesResource = resourceLoader.getResource("classpath:datario-estacoes.json");
         String dataRioEstacoesGeoJson = new String(Files.readAllBytes(dataRioEstacoesResource.getFile().toPath()));
         DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(dataRioEstacoesGeoJson);
         Boletim boletim = boletimParser.obterBoletim(estacoesParser.getDataRioEstacoesFeatureCollection());

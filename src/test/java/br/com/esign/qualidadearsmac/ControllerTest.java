@@ -3,6 +3,7 @@ package br.com.esign.qualidadearsmac;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import org.assertj.core.util.Streams;
 import org.json.JSONException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ContextConfiguration(classes = Application.class)
 @RunWith(SpringRunner.class)
@@ -35,9 +41,17 @@ public class ControllerTest {
     public void obterBoletimTest() throws IOException, JSONException {
         Resource boletimResource = resourceLoader.getResource("classpath:boletim.json");
         String expected = new String(Files.readAllBytes(boletimResource.getFile().toPath()));
-        String url = String.format("http://localhost:%s/boletim?data=26/12/2024", port);
+        String url = String.format("http://localhost:%s/smac/boletim?data=26/12/2024", port);
         String actual = restTemplate.getForObject(url, String.class);
         JSONAssert.assertEquals(expected, actual, false);
+	}
+
+    @Test
+    public void listarMonitorArUltimas24hTest() throws IOException, JSONException {
+        String url = String.format("http://localhost:%s/smac/monitorar/ultimas24h", port);
+        String ultimas24hJson = restTemplate.getForObject(url, String.class);
+        JsonNode ultimas24hJsonNode = new ObjectMapper().readTree(ultimas24hJson);
+        assertThat(Streams.stream(ultimas24hJsonNode.elements()).filter(n-> !n.get("noFonteDados").textValue().contains("SMAC")).findFirst()).isNotPresent();
 	}
 
 }

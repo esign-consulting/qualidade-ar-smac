@@ -27,7 +27,7 @@ public class MonitorArEstacoesJsonParserTest {
 
     @Test
     public void getMonitorArEstacoesJsonNodeTest() throws IOException {
-        Resource monitorArEstacoesResource = resourceLoader.getResource("classpath:estacoes-monitorar.json");
+        Resource monitorArEstacoesResource = resourceLoader.getResource("classpath:monitorar-estacoes.json");
         String monitorArEstacoesJson = new String(Files.readAllBytes(monitorArEstacoesResource.getFile().toPath()));
         MonitorArEstacoesJsonParser estacoesParser = new MonitorArEstacoesJsonParser(monitorArEstacoesJson);
         JsonNode monitorArEstacoesJsonNode = estacoesParser.getMonitorArEstacoesJsonNode();

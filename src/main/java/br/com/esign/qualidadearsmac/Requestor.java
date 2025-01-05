@@ -14,7 +14,6 @@ import org.apache.http.util.EntityUtils;
 public class Requestor {
 
     public String request(String url) throws IOException {
-        System.out.println(url);
         CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
             HttpGet httpget = new HttpGet(url);

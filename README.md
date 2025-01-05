@@ -34,16 +34,16 @@ Os dados de qualidade do ar dos últimos 365 dias podem ser carregados para uma 
 
 Se preferir, obtenha diretamente todos os dados da SMAC:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT * FROM "IQAR" WHERE "orgao" =~ /SMAC/'`
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT * FROM "IQAR" WHERE "orgao" =~ /SMAC/'`
 
 Último índice de qualidade do ar das estações de monitoramento da SMAC:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT last(value) AS value FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "estacao", "latitude", "longitude"' -s | jq`
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT last(value) AS value FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "estacao", "latitude", "longitude"' -s | jq`
 
 Poluentes que mais impactaram o índice de qualidade do ar no período:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "poluente"' -s | jq -r '.results[].series[] | "\(.tags.poluente) - \(.values[0][1])"'`
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "poluente"' -s | jq -r '.results[].series[] | "\(.tags.poluente) - \(.values[0][1])"'`
 
 Distribuição da classificação da qualidade do ar no período:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "classificacao"' -s | jq -r '.results[].series[] | "\(.tags.classificacao) - \(.values[0][1])"'`
+`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "classificacao"' -s | jq -r '.results[].series[] | "\(.tags.classificacao) - \(.values[0][1])"'`

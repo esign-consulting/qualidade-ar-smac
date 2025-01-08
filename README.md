@@ -16,7 +16,7 @@ A API é uma aplicação [Spring Boot](https://spring.io/projects/spring-boot) e
 
 A API também pode ser inicializada como [contâiner](https://en.wikipedia.org/wiki/Container_Linux). Para inicializar a API deste modo, execute (requer [Docker](https://www.docker.com)):
 
-`docker run --name smac -d -p 8080:8080 esignbr/qualidade-ar-smac`
+`docker run --name smac --rm -d -p 8080:8080 esignbr/qualidade-ar-smac`
 
 ## Gráfico dos últimos 365 dias
 

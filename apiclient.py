@@ -1,6 +1,7 @@
 from datetime import datetime
+import logging
 import requests
-
+import time
 
 class Boletim:
 
@@ -34,12 +35,34 @@ class MedicaoPoluente:
         self.concentracao = concentracao
 
 
-class Requestor:
+class BoletimRequestor:
 
-    def __init__(self, url = "http://localhost:8080/smac"):
+    def __init__(self, url = "http://localhost:8080/smac", healthcheck_max_retries = 5, healthcheck_retry_delay = 2):
         self.url = url
+        self.healthcheck_max_retries = healthcheck_max_retries
+        self.healthcheck_retry_delay = healthcheck_retry_delay
+
+    def healthy(self) -> bool:
+        try:
+            r = requests.head(f"{self.url}/health")
+            return r.status_code == 200
+        except requests.exceptions.ConnectionError:
+            return False
+        
+    def healthcheck(self) -> bool:
+        i = 1
+        while not self.healthy():
+            if i > self.healthcheck_max_retries:
+                logging.info("Max retries exceeded.")
+                return False
+            logging.info(f"SMAC is not ready. Waiting {self.healthcheck_retry_delay}s...")
+            time.sleep(self.healthcheck_retry_delay)
+            i += 1
+        return True
 
     def request(self, data = datetime.today().strftime("%d/%m/%Y")) -> Boletim:
+        if not self.healthcheck():
+            return None
         try:
             r = requests.get(f"{self.url}/boletim?data={data}")
             return Boletim(**r.json()) if r.status_code == 200 else None

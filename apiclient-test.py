@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 
-from apiclient import Requestor
+from apiclient import BoletimRequestor
+import logging
 
-requestor = Requestor()
+logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s - %(message)s")
+
+requestor = BoletimRequestor()
 boletim = requestor.request()
 
 if boletim:

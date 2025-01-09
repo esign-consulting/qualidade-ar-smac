@@ -35,6 +35,12 @@ class MedicaoPoluente:
         self.concentracao = concentracao
 
 
+class HealthcheckMaxRetriesExceededError(Exception):
+
+    def __init__(self, *args):
+        super().__init__("Max retries exceeded.")
+
+
 class BoletimRequestor:
 
     def __init__(self, url = "http://localhost:8080/smac", healthcheck_max_retries = 5, healthcheck_retry_delay = 2):
@@ -49,22 +55,20 @@ class BoletimRequestor:
         except requests.exceptions.ConnectionError:
             return False
         
-    def healthcheck(self) -> bool:
+    def healthcheck(self) -> None:
         i = 1
         while not self.healthy():
             if i > self.healthcheck_max_retries:
-                logging.info("Max retries exceeded.")
-                return False
-            logging.info(f"SMAC is not ready. Waiting {self.healthcheck_retry_delay}s...")
+                raise HealthcheckMaxRetriesExceededError()
+            logging.info(f"SMAC is not ready. Waiting {self.healthcheck_retry_delay}s (attempt {i} of {self.healthcheck_max_retries})...")
             time.sleep(self.healthcheck_retry_delay)
             i += 1
-        return True
 
     def request(self, data = datetime.today().strftime("%d/%m/%Y")) -> Boletim:
-        if not self.healthcheck():
-            return None
         try:
+            self.healthcheck()
             r = requests.get(f"{self.url}/boletim?data={data}")
             return Boletim(**r.json()) if r.status_code == 200 else None
-        except Exception:
+        except Exception as exception:
+            logging.error(exception)
             return None 

@@ -5,7 +5,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s - %(message)s")
 
-requestor = BoletimRequestor()
+requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
 boletim = requestor.request()
 
 if boletim:

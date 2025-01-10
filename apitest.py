@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 
 from apiclient import BoletimRequestor
+from apidocker import SMAC
+
 import logging
+
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s - %(message)s")
 
-requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
+smac = SMAC()
+port = smac.run()
+requestor = BoletimRequestor(f"http://localhost:{port}/smac")
 boletim = requestor.request()
+smac.stop()
 
 if boletim:
     print(boletim.data)

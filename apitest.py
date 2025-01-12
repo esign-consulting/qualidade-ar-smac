@@ -2,6 +2,7 @@
 
 from apiclient import BoletimRequestor
 from apidocker import SMAC
+from apiinfluxdb import InfluxDB
 
 import logging
 
@@ -15,12 +16,6 @@ boletim = requestor.request()
 smac.stop()
 
 if boletim:
-    print(boletim.data)
-    print(boletim.medicoes[0].estacao.nome)
-    print(boletim.medicoes[0].estacao.latitude)
-    print(boletim.medicoes[0].estacao.longitude)
-    print(boletim.medicoes[0].classificacao)
-    print(boletim.medicoes[0].indice)
-    print(boletim.medicoes[0].poluente)
-    print(boletim.medicoes[0].medicaoPoluentes[1].poluente)
-    print(boletim.medicoes[0].medicaoPoluentes[1].concentracao)
+    influxdb = InfluxDB()
+    for point in influxdb.convert_boletim_to_points_array(boletim):
+        print(point.to_line_protocol())

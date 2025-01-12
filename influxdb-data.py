@@ -17,7 +17,7 @@ requestor = BoletimRequestor(f"http://localhost:{port}/smac")
 influxdb = InfluxDB()
 
 logging.info("Creating the data.line file...")
-iqar_line_file = open("influxdb/data.line", "w")
+influxdb_line_file = open("influxdb/data.line", "w")
 
 today = datetime.date.today()
 for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
@@ -28,10 +28,10 @@ for x in range(int(sys.argv[1]) if len(sys.argv) == 2 else 30):
     boletim = requestor.request(d_string)
     if boletim and boletim.data == d_string:
         for point in influxdb.convert_boletim_to_points_array(boletim):
-            iqar_line_file.write("%s\n" % point.to_line_protocol())
+            influxdb_line_file.write("%s\n" % point.to_line_protocol())
         logging.info(f"Data from {boletim.data} stored.")
 
-iqar_line_file.close()
+influxdb_line_file.close()
 logging.info("Done.")
 
 smac.stop()

@@ -1,4 +1,4 @@
-from apiclient import Boletim, Estacao, MedicaoPoluente
+from apiclient import Boletim, MedicaoPoluente
 from datetime import datetime
 from influxdb_client_3 import Point
 

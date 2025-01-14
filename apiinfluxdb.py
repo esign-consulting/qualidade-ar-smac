@@ -61,3 +61,8 @@ class InfluxDB:
             |> last(column: "_time")'
         last_data = query_api.query(query)
         return last_data[0].records[0]["_time"]
+    
+    def write_boletim(self, boletim: Boletim):
+        write_api = self.client.write_api()
+        write_api.write(bucket="qualidadear-diaria",
+                        record=self.convert_boletim_to_points_array(boletim))

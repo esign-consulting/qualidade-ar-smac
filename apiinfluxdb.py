@@ -1,12 +1,15 @@
 from apiclient import Boletim, MedicaoPoluente
 from datetime import datetime
-from influxdb_client_3 import Point
+from influxdb_client import InfluxDBClient, Point
 
 
 class InfluxDB:
 
-    def __init__(self):
-        pass
+    def __init__(self,
+                 url="http://localhost:8086",
+                 org="esign-consulting",
+                 token="my-super-secret-auth-token"):
+        self.client = InfluxDBClient(url=url, org=org, token=token)
 
     def get_concentracao(self, medicao_poluente: MedicaoPoluente) -> float:
         if medicao_poluente:
@@ -47,3 +50,14 @@ class InfluxDB:
                                        .field("value", concentracao)
                                        .time(ts))
         return points_array
+    
+    def get_last_timestamp(self) -> datetime:
+        query_api = self.client.query_api()
+        query = 'from(bucket: "qualidadear-diaria") \
+            |> range(start: 0, stop: now()) \
+            |> filter(fn: (r) => r._measurement == "IQAR" and r.orgao == "SMAC") \
+            |> keep(columns: ["_time"]) \
+            |> sort(columns: ["_time"], desc: false) \
+            |> last(column: "_time")'
+        last_data = query_api.query(query)
+        return last_data[0].records[0]["_time"]

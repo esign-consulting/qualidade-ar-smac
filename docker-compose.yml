@@ -6,12 +6,12 @@ services:
     volumes:
       - ./influxdb:/docker-entrypoint-initdb.d
     environment:
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_ORG=esign-consulting
-      - DOCKER_INFLUXDB_INIT_BUCKET=qualidadear-diaria
-      - DOCKER_INFLUXDB_INIT_USERNAME=admin
-      - DOCKER_INFLUXDB_INIT_PASSWORD=SuperSecret
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
+      DOCKER_INFLUXDB_INIT_MODE: "setup"
+      DOCKER_INFLUXDB_INIT_ORG: "esign-consulting"
+      DOCKER_INFLUXDB_INIT_BUCKET: "qualidadear-diaria"
+      DOCKER_INFLUXDB_INIT_USERNAME: "admin"
+      DOCKER_INFLUXDB_INIT_PASSWORD: "SuperSecret"
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: "my-super-secret-auth-token"
     ports:
       - 8086:8086
 
@@ -22,11 +22,11 @@ services:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources
       - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=S3cr3t
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - INFLUXDB_URL=http://influxdb:8086
-      - INFLUXDB_TOKEN=my-super-secret-auth-token
-      - INFLUXDB_BUCKET=qualidadear-diaria
+      GF_SECURITY_ADMIN_PASSWORD: "S3cr3t"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      INFLUXDB_URL: "http://influxdb:8086"
+      INFLUXDB_TOKEN: "my-super-secret-auth-token"
+      INFLUXDB_BUCKET: "qualidadear-diaria"
     ports:
       - 3000:3000
     depends_on:
@@ -35,6 +35,13 @@ services:
   airflow:
     image: apache/airflow:slim-2.10.4-python3.9
     container_name: airflow
+    environment:
+      _AIRFLOW_DB_MIGRATE: "true"
+      _AIRFLOW_WWW_USER_CREATE: "true"
+      _AIRFLOW_WWW_USER_USERNAME: "airflow"
+      _AIRFLOW_WWW_USER_PASSWORD: "airflow"
     command: standalone
     ports:
       - 8090:8080
+    depends_on:
+      - influxdb

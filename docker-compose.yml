@@ -32,6 +32,12 @@ services:
     depends_on:
       - influxdb
 
+  smac:
+    image: esignbr/qualidade-ar-smac
+    container_name: smac
+    ports:
+        - 8080:8080
+
   airflow:
     image: apache/airflow:slim-2.10.4-python3.9
     container_name: airflow
@@ -42,8 +48,11 @@ services:
       _AIRFLOW_WWW_USER_CREATE: "true"
       _AIRFLOW_WWW_USER_USERNAME: "airflow"
       _AIRFLOW_WWW_USER_PASSWORD: "airflow"
+      _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- requests==2.32.3 influxdb-client==1.48.0}
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
     command: standalone
     ports:
       - 8090:8080
     depends_on:
       - influxdb
+      - smac

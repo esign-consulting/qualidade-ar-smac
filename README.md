@@ -23,7 +23,7 @@ A API também pode ser inicializada como [contâiner](https://en.wikipedia.org/w
 Os dados de qualidade do ar dos últimos 365 dias podem ser carregados para uma base de dados [InfluxDB](https://www.influxdata.com/products/influxdb) e apresentados num dashboard do [Grafana](https://grafana.com). Os passos são os seguintes (requer [Python](https://www.python.org) e [docker-compose](https://docs.docker.com/compose)):
 
 1. Prepare o ambiente Python: `python3 -m venv env && source env/bin/activate && pip3 install -r requirements.txt`;
-2. Execute o script Python: `./influxdb-data.py 365`;
+2. Execute o script Python: `./airflow/influxdb-data.py 365`;
 3. Inicialize o ambiente: `docker-compose up -d`;
 4. Pelo browser entre em <http://localhost:3000>;
 5. Entre no dashboard `SMAC`.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 from apiclient import BoletimRequestor
-from apidocker import SMAC
 from apiinfluxdb import InfluxDB
+from apidocker import SMAC
 
 import datetime
 import logging

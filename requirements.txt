@@ -1,3 +1,5 @@
 docker==7.1.0
 requests==2.32.3
 influxdb-client==1.48.0
+setuptools>=70.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
+urllib3>=2.2.2 # not directly required, pinned by Snyk to avoid a vulnerability

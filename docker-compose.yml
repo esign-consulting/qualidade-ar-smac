@@ -35,6 +35,8 @@ services:
   airflow:
     image: apache/airflow:slim-2.10.4-python3.9
     container_name: airflow
+    volumes:
+      - ./airflow:/opt/airflow/dags
     environment:
       _AIRFLOW_DB_MIGRATE: "true"
       _AIRFLOW_WWW_USER_CREATE: "true"

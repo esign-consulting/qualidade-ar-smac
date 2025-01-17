@@ -1,3 +1,4 @@
 docker==7.1.0
 requests==2.32.3
 influxdb-client==1.48.0
+apache-airflow==2.10.4

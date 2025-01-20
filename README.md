@@ -47,3 +47,9 @@ Poluentes que mais impactaram o índice de qualidade do ar no período:
 Distribuição da classificação da qualidade do ar no período:
 
 `curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "classificacao"' -s | jq -r '.results[].series[] | "\(.tags.classificacao) - \(.values[0][1])"'`
+
+## Dados históricos
+
+Dados históricos horários no formato CSV podem ser obtidos do Data.Rio através do comando:
+
+`curl 'https://hub.arcgis.com/api/v3/datasets/5b1bf5c3e5114564bbf9b7a372b85e17_2/downloads/data?format=csv&spatialRefId=31983'`

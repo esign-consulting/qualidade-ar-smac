@@ -23,7 +23,7 @@ class InfluxDB:
         points_array = []
         ts = int(datetime.timestamp(datetime.combine(
             datetime.strptime(boletim.data, "%d/%m/%Y").date(),
-            datetime.min.time())) * 1000000000)
+            datetime.min.time())) * 1e3)
         for medicao in boletim.medicoes:
             points_array.append(Point("IQAR")
                                .tag("estado", "RJ")

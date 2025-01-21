@@ -23,7 +23,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "influxdb"
+        "type": "influxdb1"
       },
       "description": "",
       "fieldConfig": {
@@ -119,7 +119,7 @@
         {
           "alias": "$tag_estacao",
           "datasource": {
-            "type": "influxdb"
+            "type": "influxdb1"
           },
           "groupBy": [
             {
@@ -165,8 +165,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "P3C6603E967DC8568"
+        "type": "influxdb1"
       },
       "fieldConfig": {
         "defaults": {
@@ -267,7 +266,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb"
+        "type": "influxdb1"
       },
       "fieldConfig": {
         "defaults": {
@@ -391,7 +390,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb"
+            "type": "influxdb1"
           },
           "groupBy": [
             {
@@ -453,8 +452,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "P3C6603E967DC8568"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -582,7 +580,7 @@
             "São Cristóvão"
           ]
         },
-        "datasource": "influxdb",
+        "datasource": "influxdb1",
         "definition": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
         "includeAll": false,
         "label": "Estação",

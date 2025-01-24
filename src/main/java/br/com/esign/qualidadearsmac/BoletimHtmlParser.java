@@ -94,8 +94,10 @@ public class BoletimHtmlParser {
         Optional<Feature> optional = dataRioEstacoesFeatureCollection.getFeatures().stream().filter(f -> f.getProperty("nome").toString().substring(8).equals(nome.toUpperCase())).findFirst();
         if (optional.isPresent()) {
             Feature feature = optional.get();
-            estacao.setLatitude(((Point) feature.getGeometry()).getCoordinates().getLatitude());
-            estacao.setLongitude(((Point) feature.getGeometry()).getCoordinates().getLongitude());
+            estacao.setCodigo(feature.getProperty("código"));
+            Point point = (Point) feature.getGeometry();
+            estacao.setLatitude(point.getCoordinates().getLatitude());
+            estacao.setLongitude(point.getCoordinates().getLongitude());
         }
         return estacao;
     }

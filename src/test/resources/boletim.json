@@ -4,6 +4,7 @@
         {
             "estacao": {
                 "nome": "Centro",
+                "codigo": "CA",
                 "latitude": -22.9083442826264,
                 "longitude": -43.178151756386
             },
@@ -40,6 +41,7 @@
         {
             "estacao": {
                 "nome": "Copacabana",
+                "codigo": "AV",
                 "latitude": -22.9650037338809,
                 "longitude": -43.1804816536037
             },
@@ -76,6 +78,7 @@
         {
             "estacao": {
                 "nome": "Tijuca",
+                "codigo": "SP",
                 "latitude": -22.9249153429029,
                 "longitude": -43.2326565174968
             },
@@ -112,6 +115,7 @@
         {
             "estacao": {
                 "nome": "Irajá",
+                "codigo": "IR",
                 "latitude": -22.831620802504,
                 "longitude": -43.326844698961
             },
@@ -148,6 +152,7 @@
         {
             "estacao": {
                 "nome": "Bangu",
+                "codigo": "BG",
                 "latitude": -22.887909592765,
                 "longitude": -43.47107415449
             },
@@ -184,6 +189,7 @@
         {
             "estacao": {
                 "nome": "Campo Grande",
+                "codigo": "CG",
                 "latitude": -22.8862546758773,
                 "longitude": -43.5565219722468
             },
@@ -220,6 +226,7 @@
         {
             "estacao": {
                 "nome": "Pedra de Guaratiba",
+                "codigo": "PG",
                 "latitude": -23.0043789751932,
                 "longitude": -43.629010366464
             },

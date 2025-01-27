@@ -24,8 +24,9 @@ class Medicao:
 
 class Estacao:
 
-    def __init__(self, nome, latitude, longitude):
+    def __init__(self, nome, codigo, latitude, longitude):
         self.nome = nome
+        self.codigo = codigo
         self.latitude = latitude
         self.longitude = longitude
 

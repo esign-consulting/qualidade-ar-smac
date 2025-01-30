@@ -1,10 +1,12 @@
 package br.com.esign.qualidadearsmac;
 
 import br.com.esign.qualidadearsmac.model.Boletim;
+import br.com.esign.qualidadearsmac.model.Estacao;
 import br.com.esign.qualidadearsmac.model.Medicao;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
@@ -38,11 +40,18 @@ public class BoletimHtmlParserTest {
         assertThat(boletim.getData()).isEqualTo("26/12/2024");
         assertThat(boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("Campo Grande")).findFirst()).isPresent();
         
-        Optional<Medicao> optional = boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("Pedra de Guaratiba")).findFirst();
-        assertThat(optional).isPresent();
-        Medicao medicao = optional.get();
+        Optional<Medicao> medicaoOptional = boletim.getMedicoes().stream().filter(m -> m.getEstacao().getNome().equals("Pedra de Guaratiba")).findFirst();
+        assertThat(medicaoOptional).isPresent();
+        Medicao medicao = medicaoOptional.get();
         assertThat(medicao.getEstacao().getLatitude()).isEqualTo(-23.0043789751932);
         assertThat(medicao.getEstacao().getLongitude()).isEqualTo(-43.629010366464);
+
+        List<Estacao> estacoes = boletim.getEstacoes();
+        Optional<Estacao> estacaoOptional = estacoes.stream().filter(e -> e.getNome().equals("Pedra de Guaratiba")).findFirst();
+        assertThat(estacaoOptional).isPresent();
+        Estacao estacao = estacaoOptional.get();
+        assertThat(estacao.getLatitude()).isEqualTo(-23.0043789751932);
+        assertThat(estacao.getLongitude()).isEqualTo(-43.629010366464);
     }
 
 }

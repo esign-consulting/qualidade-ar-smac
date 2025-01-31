@@ -1,6 +1,7 @@
 from apiclient import Boletim, MedicaoPoluente
 from datetime import datetime
 from influxdb_client import InfluxDBClient, Point
+from influxdb_client.client.write_api import SYNCHRONOUS
 
 
 class InfluxDB:
@@ -9,7 +10,7 @@ class InfluxDB:
                  url="http://localhost:8086",
                  org="esign-consulting",
                  token="my-super-secret-auth-token"):
-        self.client = InfluxDBClient(url=url, org=org, token=token)
+        self.client = InfluxDBClient(url=url, org=org, token=token, debug=True)
 
     def get_concentracao(self, medicao_poluente: MedicaoPoluente) -> float:
         if medicao_poluente:
@@ -63,6 +64,6 @@ class InfluxDB:
         return last_data[0].records[0]["_time"]
     
     def write_boletim(self, boletim: Boletim):
-        write_api = self.client.write_api()
-        write_api.write(bucket="qualidadear-diaria",
-                        record=self.convert_boletim_to_points_array(boletim))
+        with self.client.write_api(write_options=SYNCHRONOUS) as write_api:
+            write_api.write(bucket="qualidadear-diaria",
+                            record=self.convert_boletim_to_points_array(boletim))

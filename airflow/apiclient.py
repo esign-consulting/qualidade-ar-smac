@@ -5,11 +5,20 @@ import requests
 import time
 
 
-class Boletim:
+class MedicaoPoluente:
 
-    def __init__(self, data, medicoes):
-        self.data = data
-        self.medicoes = [Medicao(**m) for m in medicoes]
+    def __init__(self, poluente, concentracao):
+        self.poluente = poluente
+        self.concentracao = concentracao
+
+
+class Estacao:
+
+    def __init__(self, nome, codigo, latitude, longitude):
+        self.nome = nome
+        self.codigo = codigo
+        self.latitude = latitude
+        self.longitude = longitude
 
 
 class Medicao:
@@ -22,20 +31,15 @@ class Medicao:
         self.medicaoPoluentes = [MedicaoPoluente(**mp) for mp in medicaoPoluentes]
 
 
-class Estacao:
+class Boletim:
 
-    def __init__(self, nome, codigo, latitude, longitude):
-        self.nome = nome
-        self.codigo = codigo
-        self.latitude = latitude
-        self.longitude = longitude
+    def __init__(self, data, medicoes):
+        self.data = data
+        self.medicoes = [Medicao(**m) for m in medicoes]
 
-
-class MedicaoPoluente:
-
-    def __init__(self, poluente, concentracao):
-        self.poluente = poluente
-        self.concentracao = concentracao
+    @property
+    def estacoes(self) -> list[Estacao]:
+        return [m.estacao for m in self.medicoes]
 
 
 class HealthcheckMaxRetriesExceededError(Exception):

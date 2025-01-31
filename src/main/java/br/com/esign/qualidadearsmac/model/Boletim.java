@@ -1,6 +1,7 @@
 package br.com.esign.qualidadearsmac.model;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Boletim {
 
@@ -23,6 +24,7 @@ public class Boletim {
         this.medicoes = medicoes;
     }
 
+    @JsonIgnore
     public List<Estacao> getEstacoes() {
         return this.medicoes.stream().map(Medicao::getEstacao).toList();
     }

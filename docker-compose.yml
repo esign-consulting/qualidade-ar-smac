@@ -1,8 +1,10 @@
 services:
 
   timescaledb:
-    image: timescale/timescaledb:2.18.0-pg17
+    image: timescale/timescaledb-ha:pg17.2-ts2.18.0-all
     container_name: timescaledb
+    volumes:
+      - ./timescaledb/load-extensions.sh:/docker-entrypoint-initdb.d/load-extensions.sh
     environment:
       POSTGRES_PASSWORD: "SuperSecret"
     ports:

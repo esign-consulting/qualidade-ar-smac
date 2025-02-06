@@ -15,5 +15,6 @@ d_string = today.strftime("%d/%m/%Y")
 boletim = requestor.request(d_string)
 
 if boletim:
+    logging.info(f"Boletim of {boletim.data} obtained.")
     timescaleDB = TimescaleDB()
-    timescaleDB.init(boletim)
+    timescaleDB.insert_boletim(boletim)

@@ -13,10 +13,12 @@ class TimescaleDB:
                  dbname="postgres"):
         self.conn = psycopg2.connect(f"postgres://{username}:{password}@{host}:{port}/{dbname}")
 
-    def init(self, boletim: Boletim):
+    def insert_boletim(self, boletim: Boletim):
         estacoes_table = EstacoesTable()
         estacoes_table.create(self.conn)
-        estacoes_table.load(self.conn, boletim.estacoes)
+        logging.info("Estacoes table OK.")
+        estacoes_table.upsert_estacoes(self.conn, boletim.estacoes)
+        logging.info("Estacoes loaded into table.")
 
 
 class EstacoesTable:
@@ -29,9 +31,13 @@ class EstacoesTable:
                 coordenadas GEOGRAPHY(POINT,4326)
             );
         """
-        self.insert_command = """
+        self.upsert_command = """
             INSERT INTO estacoes (codigo, nome, coordenadas)
             VALUES (%s, %s, 'SRID=4326;POINT(%s %s)')
+            ON CONFLICT(codigo)
+            DO UPDATE SET
+                nome = EXCLUDED.nome,
+                coordenadas = EXCLUDED.coordenadas;
         """
 
     def create(self, conn: psycopg2.connect):
@@ -40,12 +46,12 @@ class EstacoesTable:
         conn.commit()
         cursor.close()
 
-    def load(self, conn: psycopg2.connect, estacoes: list[Estacao]):
+    def upsert_estacoes(self, conn: psycopg2.connect, estacoes: list[Estacao]):
         cursor = conn.cursor()
         for estacao in estacoes:
             try:
                 data = (estacao.codigo, estacao.nome, estacao.longitude, estacao.latitude)
-                cursor.execute(self.insert_command, data)
+                cursor.execute(self.upsert_command, data)
             except (Exception, psycopg2.Error) as error:
                 logging.error(error.pgerror)
         conn.commit()

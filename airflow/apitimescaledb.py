@@ -130,7 +130,7 @@ class MedicoesTable():
         conn.commit()
         cursor.close()
 
-    def get_concentracao_poluente(self, medicao, poluente):
+    def get_concentracao_poluente(self, medicao: Medicao, poluente: str):
         medicao_poluente = next((mp for mp in medicao.medicaoPoluentes if poluente in mp.poluente), None)
         if medicao_poluente:
             try:

@@ -30,6 +30,16 @@ class Medicao:
         self.poluente = poluente
         self.medicaoPoluentes = [MedicaoPoluente(**mp) for mp in medicaoPoluentes]
 
+    def get_concentracao_poluente(self, poluente: str) -> float:
+        medicao_poluente = next((mp for mp in self.medicaoPoluentes if poluente in mp.poluente), None)
+        if medicao_poluente:
+            try:
+                return float(medicao_poluente.concentracao.replace(',', '.'))
+            except ValueError:
+                return None
+        else:
+            return None
+
 
 class Boletim:
 

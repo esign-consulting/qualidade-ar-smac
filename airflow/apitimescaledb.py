@@ -1,4 +1,4 @@
-from apiclient import Boletim, Medicao
+from apiclient import Boletim
 from datetime import datetime
 
 import logging
@@ -17,13 +17,13 @@ class TimescaleDB:
     def insert_boletim(self, boletim: Boletim):
         estacoes_table = EstacoesTable()
         estacoes_table.create(self.conn)
-        logging.info("Estacoes table OK.")
+        logging.info("estacoes table OK.")
         estacoes_table.upsert_estacoes(self.conn, boletim)
         logging.info("Estacoes loaded into table.")
 
-        medicoes_table = MedicoesTable()
+        medicoes_table = MedicoesDiariasTable()
         medicoes_table.create(self.conn)
-        logging.info("Medicoes table OK.")
+        logging.info("medicoes_diarias table OK.")
         medicoes_table.upsert_medicoes(self.conn, boletim)
         logging.info("Medicoes loaded into table.")
 
@@ -68,11 +68,11 @@ class EstacoesTable:
         cursor.close()
 
 
-class MedicoesTable():
+class MedicoesDiariasTable():
 
     def __init__(self):
         self.create_table_command = """
-            CREATE TABLE IF NOT EXISTS medicoes (
+            CREATE TABLE IF NOT EXISTS medicoes_diarias (
                 data DATE NOT NULL,
                 codigo_estacao VARCHAR(2),
                 MP10 DOUBLE PRECISION,
@@ -85,9 +85,9 @@ class MedicoesTable():
                 FOREIGN KEY (codigo_estacao) REFERENCES estacoes (codigo)
             );
         """
-        self.create_hypertable_command = "SELECT create_hypertable('medicoes', by_range('data'));"
+        self.create_hypertable_command = "SELECT create_hypertable('medicoes_diarias', by_range('data'));"
         self.upsert_command = """
-            INSERT INTO medicoes (data, codigo_estacao, MP10, MP2_5, O3, CO, NO2, SO2)
+            INSERT INTO medicoes_diarias (data, codigo_estacao, MP10, MP2_5, O3, CO, NO2, SO2)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT(data, codigo_estacao)
             DO UPDATE SET
@@ -118,24 +118,14 @@ class MedicoesTable():
             try:
                 data = (datetime.strptime(boletim.data, "%d/%m/%Y").date(),
                         medicao.estacao.codigo,
-                        self.get_concentracao_poluente(medicao, "MP10"),
-                        self.get_concentracao_poluente(medicao, "MP2,5"),
-                        self.get_concentracao_poluente(medicao, "O3"),
-                        self.get_concentracao_poluente(medicao, "CO"),
-                        self.get_concentracao_poluente(medicao, "NO2"),
-                        self.get_concentracao_poluente(medicao, "SO2"))
+                        medicao.get_concentracao_poluente("MP10"),
+                        medicao.get_concentracao_poluente("MP2,5"),
+                        medicao.get_concentracao_poluente("O3"),
+                        medicao.get_concentracao_poluente("CO"),
+                        medicao.get_concentracao_poluente("NO2"),
+                        medicao.get_concentracao_poluente("SO2"))
                 cursor.execute(self.upsert_command, data)
             except (Exception, psycopg2.Error) as error:
                 logging.error(error.pgerror)
         conn.commit()
         cursor.close()
-
-    def get_concentracao_poluente(self, medicao: Medicao, poluente: str):
-        medicao_poluente = next((mp for mp in medicao.medicaoPoluentes if poluente in mp.poluente), None)
-        if medicao_poluente:
-            try:
-                return float(medicao_poluente.concentracao.replace(',', '.'))
-            except ValueError:
-                return None
-        else:
-            return None

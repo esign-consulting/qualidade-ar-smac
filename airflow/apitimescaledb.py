@@ -1,5 +1,6 @@
 from apiclient import Boletim
-from datetime import datetime
+from datetime import datetime, date
+from psycopg2 import extras
 
 import logging
 import psycopg2
@@ -13,19 +14,22 @@ class TimescaleDB:
                  password="SuperSecret",
                  dbname="postgres"):
         self.conn = psycopg2.connect(f"postgres://{username}:{password}@{host}:{port}/{dbname}")
+        self.estacoes_table = EstacoesTable()
+        self.medicoes_diarias_table = MedicoesDiariasTable()
 
     def insert_boletim(self, boletim: Boletim):
-        estacoes_table = EstacoesTable()
-        estacoes_table.create(self.conn)
+        self.estacoes_table.create(self.conn)
         logging.info("estacoes table OK.")
-        estacoes_table.upsert_estacoes(self.conn, boletim)
+        self.estacoes_table.upsert_estacoes(self.conn, boletim)
         logging.info("Estacoes loaded into table.")
 
-        medicoes_table = MedicoesDiariasTable()
-        medicoes_table.create(self.conn)
+        self.medicoes_diarias_table.create(self.conn)
         logging.info("medicoes_diarias table OK.")
-        medicoes_table.upsert_medicoes(self.conn, boletim)
+        self.medicoes_diarias_table.upsert_medicoes(self.conn, boletim)
         logging.info("Medicoes loaded into table.")
+
+    def get_last_boletim_data(self) -> date:
+        return self.medicoes_diarias_table.get_max_data(self.conn)
 
 
 class EstacoesTable:
@@ -129,3 +133,10 @@ class MedicoesDiariasTable():
                 logging.error(error.pgerror)
         conn.commit()
         cursor.close()
+
+    def get_max_data(self, conn: psycopg2.connect) -> date:
+        cursor = conn.cursor(cursor_factory=extras.DictCursor)
+        cursor.execute("SELECT max(data) AS max_data FROM medicoes_diarias")
+        rows = cursor.fetchall()
+        cursor.close()
+        return rows[0]["max_data"] if len(rows) == 1 else None

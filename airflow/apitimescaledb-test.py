@@ -18,3 +18,4 @@ if boletim:
     logging.info(f"Boletim of {boletim.data} obtained.")
     timescaleDB = TimescaleDB()
     timescaleDB.insert_boletim(boletim)
+    print(timescaleDB.get_last_boletim_data())

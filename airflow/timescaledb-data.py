@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+from apiclient import BoletimRequestor
+from apitimescaledb import TimescaleDB
+
+import datetime
+import logging
+import sys
+
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s - %(message)s")
+
+requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
+timescaleDB = TimescaleDB()
+
+today = datetime.date.today()
+for x in reversed(range(int(sys.argv[1]) if len(sys.argv) == 2 else 30)):
+    days = datetime.timedelta(x)
+    past_date = today - days
+    d_string = past_date.strftime("%d/%m/%Y")
+
+    boletim = requestor.request(d_string)
+    if boletim and boletim.data == d_string:
+        timescaleDB.insert_boletim(boletim)
+        logging.info(f"Data from {boletim.data} stored.")
+
+logging.info("Done.")

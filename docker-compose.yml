@@ -24,6 +24,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: "esign@esign.com.br"
       PGADMIN_DEFAULT_PASSWORD: "S3cr3t"
+      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: "False"
     entrypoint: >
       /bin/sh -c "
       mkdir /var/lib/pgadmin/storage;

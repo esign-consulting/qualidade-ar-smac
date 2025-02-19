@@ -1,0 +1,956 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 17.2 (Ubuntu 17.2-1.pgdg22.04+1)
+-- Dumped by pg_dump version 17.2 (Homebrew)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: timescaledb; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS timescaledb WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION timescaledb; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION timescaledb IS 'Enables scalable inserts and complex queries for time-series data (Community Edition)';
+
+
+--
+-- Name: timescaledb_toolkit; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS timescaledb_toolkit WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION timescaledb_toolkit; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION timescaledb_toolkit IS 'Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities';
+
+
+--
+-- Name: postgis; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION postgis; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION postgis IS 'PostGIS geometry and geography spatial types and functions';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: medicoes_diarias; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.medicoes_diarias (
+    data date NOT NULL,
+    codigo_estacao character varying(2) NOT NULL,
+    mp10 double precision,
+    mp2_5 double precision,
+    o3 double precision,
+    co double precision,
+    no2 double precision,
+    so2 double precision
+);
+
+
+ALTER TABLE public.medicoes_diarias OWNER TO postgres;
+
+--
+-- Name: _hyper_1_1_chunk; Type: TABLE; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE TABLE _timescaledb_internal._hyper_1_1_chunk (
+    CONSTRAINT constraint_1 CHECK (((data >= '2025-01-09'::date) AND (data < '2025-01-16'::date)))
+)
+INHERITS (public.medicoes_diarias);
+
+
+ALTER TABLE _timescaledb_internal._hyper_1_1_chunk OWNER TO postgres;
+
+--
+-- Name: _hyper_1_2_chunk; Type: TABLE; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE TABLE _timescaledb_internal._hyper_1_2_chunk (
+    CONSTRAINT constraint_2 CHECK (((data >= '2025-01-16'::date) AND (data < '2025-01-23'::date)))
+)
+INHERITS (public.medicoes_diarias);
+
+
+ALTER TABLE _timescaledb_internal._hyper_1_2_chunk OWNER TO postgres;
+
+--
+-- Name: _hyper_1_3_chunk; Type: TABLE; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE TABLE _timescaledb_internal._hyper_1_3_chunk (
+    CONSTRAINT constraint_3 CHECK (((data >= '2025-01-23'::date) AND (data < '2025-01-30'::date)))
+)
+INHERITS (public.medicoes_diarias);
+
+
+ALTER TABLE _timescaledb_internal._hyper_1_3_chunk OWNER TO postgres;
+
+--
+-- Name: _hyper_1_4_chunk; Type: TABLE; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE TABLE _timescaledb_internal._hyper_1_4_chunk (
+    CONSTRAINT constraint_4 CHECK (((data >= '2025-01-30'::date) AND (data < '2025-02-06'::date)))
+)
+INHERITS (public.medicoes_diarias);
+
+
+ALTER TABLE _timescaledb_internal._hyper_1_4_chunk OWNER TO postgres;
+
+--
+-- Name: _hyper_1_5_chunk; Type: TABLE; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE TABLE _timescaledb_internal._hyper_1_5_chunk (
+    CONSTRAINT constraint_5 CHECK (((data >= '2025-02-06'::date) AND (data < '2025-02-13'::date)))
+)
+INHERITS (public.medicoes_diarias);
+
+
+ALTER TABLE _timescaledb_internal._hyper_1_5_chunk OWNER TO postgres;
+
+--
+-- Name: _hyper_1_6_chunk; Type: TABLE; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE TABLE _timescaledb_internal._hyper_1_6_chunk (
+    CONSTRAINT constraint_6 CHECK (((data >= '2025-02-13'::date) AND (data < '2025-02-20'::date)))
+)
+INHERITS (public.medicoes_diarias);
+
+
+ALTER TABLE _timescaledb_internal._hyper_1_6_chunk OWNER TO postgres;
+
+--
+-- Name: estacoes; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.estacoes (
+    codigo character varying(2) NOT NULL,
+    nome character varying(50),
+    estado character varying(2),
+    cidade character varying(50),
+    orgao character varying(10),
+    coordenadas public.geography(Point,4326)
+);
+
+
+ALTER TABLE public.estacoes OWNER TO postgres;
+
+--
+-- Data for Name: hypertable; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.hypertable (id, schema_name, table_name, associated_schema_name, associated_table_prefix, num_dimensions, chunk_sizing_func_schema, chunk_sizing_func_name, chunk_target_size, compression_state, compressed_hypertable_id, status) FROM stdin;
+1	public	medicoes_diarias	_timescaledb_internal	_hyper_1	1	_timescaledb_internal	calculate_chunk_interval	0	0	\N	0
+\.
+
+
+--
+-- Data for Name: chunk; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.chunk (id, hypertable_id, schema_name, table_name, compressed_chunk_id, dropped, status, osm_chunk, creation_time) FROM stdin;
+1	1	_timescaledb_internal	_hyper_1_1_chunk	\N	f	0	f	2025-02-10 19:53:01.668655+00
+2	1	_timescaledb_internal	_hyper_1_2_chunk	\N	f	0	f	2025-02-10 19:53:06.320701+00
+3	1	_timescaledb_internal	_hyper_1_3_chunk	\N	f	0	f	2025-02-10 19:53:15.041448+00
+4	1	_timescaledb_internal	_hyper_1_4_chunk	\N	f	0	f	2025-02-10 19:53:23.882285+00
+5	1	_timescaledb_internal	_hyper_1_5_chunk	\N	f	0	f	2025-02-10 19:53:32.45751+00
+6	1	_timescaledb_internal	_hyper_1_6_chunk	\N	f	0	f	2025-02-19 16:56:50.808867+00
+\.
+
+
+--
+-- Data for Name: chunk_column_stats; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.chunk_column_stats (id, hypertable_id, chunk_id, column_name, range_start, range_end, valid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: dimension; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.dimension (id, hypertable_id, column_name, column_type, aligned, num_slices, partitioning_func_schema, partitioning_func, interval_length, compress_interval_length, integer_now_func_schema, integer_now_func) FROM stdin;
+1	1	data	date	t	\N	\N	\N	604800000000	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: dimension_slice; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.dimension_slice (id, dimension_id, range_start, range_end) FROM stdin;
+1	1	1736380800000000	1736985600000000
+2	1	1736985600000000	1737590400000000
+3	1	1737590400000000	1738195200000000
+4	1	1738195200000000	1738800000000000
+5	1	1738800000000000	1739404800000000
+6	1	1739404800000000	1740009600000000
+\.
+
+
+--
+-- Data for Name: chunk_constraint; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.chunk_constraint (chunk_id, dimension_slice_id, constraint_name, hypertable_constraint_name) FROM stdin;
+1	1	constraint_1	\N
+1	\N	1_1_medicao_diaria	medicao_diaria
+1	\N	1_2_medicoes_diarias_codigo_estacao_fkey	medicoes_diarias_codigo_estacao_fkey
+2	2	constraint_2	\N
+2	\N	2_3_medicao_diaria	medicao_diaria
+2	\N	2_4_medicoes_diarias_codigo_estacao_fkey	medicoes_diarias_codigo_estacao_fkey
+3	3	constraint_3	\N
+3	\N	3_5_medicao_diaria	medicao_diaria
+3	\N	3_6_medicoes_diarias_codigo_estacao_fkey	medicoes_diarias_codigo_estacao_fkey
+4	4	constraint_4	\N
+4	\N	4_7_medicao_diaria	medicao_diaria
+4	\N	4_8_medicoes_diarias_codigo_estacao_fkey	medicoes_diarias_codigo_estacao_fkey
+5	5	constraint_5	\N
+5	\N	5_9_medicao_diaria	medicao_diaria
+5	\N	5_10_medicoes_diarias_codigo_estacao_fkey	medicoes_diarias_codigo_estacao_fkey
+6	6	constraint_6	\N
+6	\N	6_11_medicao_diaria	medicao_diaria
+6	\N	6_12_medicoes_diarias_codigo_estacao_fkey	medicoes_diarias_codigo_estacao_fkey
+\.
+
+
+--
+-- Data for Name: chunk_index; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.chunk_index (chunk_id, index_name, hypertable_id, hypertable_index_name) FROM stdin;
+1	1_1_medicao_diaria	1	medicao_diaria
+1	_hyper_1_1_chunk_medicoes_diarias_data_idx	1	medicoes_diarias_data_idx
+2	2_3_medicao_diaria	1	medicao_diaria
+2	_hyper_1_2_chunk_medicoes_diarias_data_idx	1	medicoes_diarias_data_idx
+3	3_5_medicao_diaria	1	medicao_diaria
+3	_hyper_1_3_chunk_medicoes_diarias_data_idx	1	medicoes_diarias_data_idx
+4	4_7_medicao_diaria	1	medicao_diaria
+4	_hyper_1_4_chunk_medicoes_diarias_data_idx	1	medicoes_diarias_data_idx
+5	5_9_medicao_diaria	1	medicao_diaria
+5	_hyper_1_5_chunk_medicoes_diarias_data_idx	1	medicoes_diarias_data_idx
+6	6_11_medicao_diaria	1	medicao_diaria
+6	_hyper_1_6_chunk_medicoes_diarias_data_idx	1	medicoes_diarias_data_idx
+\.
+
+
+--
+-- Data for Name: compression_chunk_size; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.compression_chunk_size (chunk_id, compressed_chunk_id, uncompressed_heap_size, uncompressed_toast_size, uncompressed_index_size, compressed_heap_size, compressed_toast_size, compressed_index_size, numrows_pre_compression, numrows_post_compression, numrows_frozen_immediately) FROM stdin;
+\.
+
+
+--
+-- Data for Name: compression_settings; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.compression_settings (relid, segmentby, orderby, orderby_desc, orderby_nullsfirst) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_agg; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_agg (mat_hypertable_id, raw_hypertable_id, parent_mat_hypertable_id, user_view_schema, user_view_name, partial_view_schema, partial_view_name, direct_view_schema, direct_view_name, materialized_only, finalized) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_agg_migrate_plan; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_agg_migrate_plan (mat_hypertable_id, start_ts, end_ts, user_view_definition) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_agg_migrate_plan_step; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_agg_migrate_plan_step (mat_hypertable_id, step_id, status, start_ts, end_ts, type, config) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_aggs_bucket_function; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_aggs_bucket_function (mat_hypertable_id, bucket_func, bucket_width, bucket_origin, bucket_offset, bucket_timezone, bucket_fixed_width) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_aggs_hypertable_invalidation_log; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_aggs_hypertable_invalidation_log (hypertable_id, lowest_modified_value, greatest_modified_value) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_aggs_invalidation_threshold; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_aggs_invalidation_threshold (hypertable_id, watermark) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_aggs_materialization_invalidation_log; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_aggs_materialization_invalidation_log (materialization_id, lowest_modified_value, greatest_modified_value) FROM stdin;
+\.
+
+
+--
+-- Data for Name: continuous_aggs_watermark; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.continuous_aggs_watermark (mat_hypertable_id, watermark) FROM stdin;
+\.
+
+
+--
+-- Data for Name: metadata; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.metadata (key, value, include_in_telemetry) FROM stdin;
+install_timestamp	2025-02-10 19:52:21.9816+00	t
+timescaledb_version	2.18.0	f
+\.
+
+
+--
+-- Data for Name: tablespace; Type: TABLE DATA; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+COPY _timescaledb_catalog.tablespace (id, hypertable_id, tablespace_name) FROM stdin;
+\.
+
+
+--
+-- Data for Name: bgw_job; Type: TABLE DATA; Schema: _timescaledb_config; Owner: postgres
+--
+
+COPY _timescaledb_config.bgw_job (id, application_name, schedule_interval, max_runtime, max_retries, retry_period, proc_schema, proc_name, owner, scheduled, fixed_schedule, initial_start, hypertable_id, config, check_schema, check_name, timezone) FROM stdin;
+\.
+
+
+--
+-- Data for Name: _hyper_1_1_chunk; Type: TABLE DATA; Schema: _timescaledb_internal; Owner: postgres
+--
+
+COPY _timescaledb_internal._hyper_1_1_chunk (data, codigo_estacao, mp10, mp2_5, o3, co, no2, so2) FROM stdin;
+2025-01-12	CA	\N	\N	32	0.1	\N	\N
+2025-01-12	AV	16	\N	30	\N	\N	\N
+2025-01-12	SP	26	\N	29	\N	19	\N
+2025-01-12	IR	12	7	40	0.4	35	3
+2025-01-12	BG	16	\N	41	0.4	35	3
+2025-01-12	PG	18	\N	48	\N	\N	\N
+2025-01-13	CA	\N	\N	33	0.2	\N	\N
+2025-01-13	AV	15	\N	35	\N	\N	\N
+2025-01-13	SP	27	\N	31	\N	50	\N
+2025-01-13	IR	15	7	30	0.4	48	9
+2025-01-13	BG	16	\N	39	\N	\N	\N
+2025-01-13	CG	15	\N	\N	\N	26	\N
+2025-01-13	PG	8	\N	45	\N	\N	\N
+2025-01-14	CA	\N	\N	28	0.4	\N	\N
+2025-01-14	AV	\N	\N	20	\N	\N	\N
+2025-01-14	SP	36	\N	24	\N	48	\N
+2025-01-14	IR	21	10	46	0.7	47	5
+2025-01-14	BG	18	\N	49	\N	\N	\N
+2025-01-14	CG	19	\N	\N	\N	22	\N
+2025-01-14	PG	16	\N	50	\N	\N	\N
+2025-01-15	CA	\N	\N	41	0.4	\N	\N
+2025-01-15	AV	\N	\N	52	\N	\N	\N
+2025-01-15	SP	30	\N	35	\N	47	\N
+2025-01-15	IR	14	6	65	0.5	32	7
+2025-01-15	BG	21	\N	71	\N	\N	\N
+2025-01-15	CG	26	\N	70	\N	25	\N
+2025-01-15	PG	23	\N	69	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: _hyper_1_2_chunk; Type: TABLE DATA; Schema: _timescaledb_internal; Owner: postgres
+--
+
+COPY _timescaledb_internal._hyper_1_2_chunk (data, codigo_estacao, mp10, mp2_5, o3, co, no2, so2) FROM stdin;
+2025-01-16	CA	\N	\N	36	0.3	\N	\N
+2025-01-16	AV	24	\N	40	\N	\N	\N
+2025-01-16	SP	30	\N	32	\N	25	\N
+2025-01-16	IR	19	5	72	\N	30	6
+2025-01-16	BG	22	\N	80	\N	\N	\N
+2025-01-16	CG	21	\N	87	\N	23	\N
+2025-01-16	PG	23	\N	64	\N	\N	\N
+2025-01-17	CA	\N	\N	50	1.1	\N	\N
+2025-01-17	AV	43	\N	56	\N	\N	\N
+2025-01-17	SP	33	\N	47	\N	37	\N
+2025-01-17	IR	24	6	92	0.6	39	5
+2025-01-17	BG	23	\N	100	\N	\N	\N
+2025-01-17	CG	23	\N	70	\N	23	\N
+2025-01-17	PG	28	\N	75	\N	\N	\N
+2025-01-18	CA	\N	\N	80	\N	\N	\N
+2025-01-18	AV	47	\N	65	\N	\N	\N
+2025-01-18	SP	43	\N	75	\N	70	\N
+2025-01-18	IR	38	16	138	0.6	59	8
+2025-01-18	BG	33	\N	108	\N	\N	\N
+2025-01-18	CG	37	\N	110	\N	41	\N
+2025-01-18	PG	42	\N	122	\N	\N	\N
+2025-01-19	CA	\N	\N	108	0.6	\N	\N
+2025-01-19	AV	34	\N	96	\N	\N	\N
+2025-01-19	SP	48	\N	110	\N	78	\N
+2025-01-19	IR	42	16	188	1.2	44	\N
+2025-01-19	BG	30	\N	111	\N	\N	\N
+2025-01-19	CG	31	\N	98	\N	30	\N
+2025-01-19	PG	36	\N	100	\N	\N	\N
+2025-01-20	CA	\N	\N	138	0.4	\N	\N
+2025-01-20	AV	28	\N	98	\N	\N	\N
+2025-01-20	SP	43	\N	108	\N	69	\N
+2025-01-20	IR	41	15	113	1	54	\N
+2025-01-20	BG	22	\N	99	\N	\N	\N
+2025-01-20	CG	25	\N	109	\N	36	\N
+2025-01-20	PG	38	\N	116	\N	\N	\N
+2025-01-21	CA	\N	\N	118	0.6	\N	\N
+2025-01-21	AV	31	\N	158	\N	\N	\N
+2025-01-21	SP	40	\N	63	\N	107	\N
+2025-01-21	IR	\N	14	110	0.7	69	\N
+2025-01-21	BG	21	\N	113	\N	\N	\N
+2025-01-21	CG	25	\N	107	\N	39	\N
+2025-01-21	PG	46	\N	101	\N	\N	\N
+2025-01-22	CA	\N	\N	94	0.5	\N	\N
+2025-01-22	AV	26	\N	111	\N	\N	\N
+2025-01-22	SP	38	\N	65	\N	89	\N
+2025-01-22	IR	31	13	152	0.6	55	\N
+2025-01-22	BG	29	\N	147	\N	\N	\N
+2025-01-22	CG	33	\N	149	\N	39	\N
+2025-01-22	PG	37	\N	126	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: _hyper_1_3_chunk; Type: TABLE DATA; Schema: _timescaledb_internal; Owner: postgres
+--
+
+COPY _timescaledb_internal._hyper_1_3_chunk (data, codigo_estacao, mp10, mp2_5, o3, co, no2, so2) FROM stdin;
+2025-01-23	CA	\N	\N	61	0.7	\N	\N
+2025-01-23	AV	23	\N	66	\N	\N	\N
+2025-01-23	SP	38	\N	61	\N	88	\N
+2025-01-23	IR	28	12	153	0.5	55	\N
+2025-01-23	BG	29	\N	121	\N	\N	\N
+2025-01-23	CG	31	\N	97	\N	32	\N
+2025-01-23	PG	32	\N	80	\N	\N	\N
+2025-01-24	CA	\N	\N	55	0.3	\N	\N
+2025-01-24	AV	27	\N	53	\N	\N	\N
+2025-01-24	SP	43	\N	69	\N	84	\N
+2025-01-24	IR	32	13	166	6.9	56	\N
+2025-01-24	BG	35	\N	174	\N	\N	\N
+2025-01-24	CG	37	\N	155	\N	35	\N
+2025-01-24	PG	32	\N	88	\N	\N	\N
+2025-01-25	CA	\N	\N	58	0.7	\N	\N
+2025-01-25	AV	21	\N	51	\N	\N	\N
+2025-01-25	SP	33	\N	71	\N	49	\N
+2025-01-25	IR	23	7	115	0.7	50	\N
+2025-01-25	BG	25	\N	98	\N	\N	\N
+2025-01-25	CG	35	\N	71	\N	27	\N
+2025-01-25	PG	37	\N	72	\N	\N	\N
+2025-01-26	AV	21	\N	72	\N	\N	\N
+2025-01-26	SP	33	\N	82	\N	87	\N
+2025-01-26	IR	18	6	113	0.5	41	\N
+2025-01-26	BG	18	\N	92	\N	\N	\N
+2025-01-26	CG	24	\N	92	\N	21	\N
+2025-01-26	PG	23	\N	86	\N	\N	\N
+2025-01-27	CA	\N	\N	17	\N	\N	\N
+2025-01-27	AV	16	\N	53	\N	\N	\N
+2025-01-27	SP	35	\N	31	\N	69	\N
+2025-01-27	IR	19	5	67	0.7	40	\N
+2025-01-27	BG	15	\N	69	\N	\N	\N
+2025-01-27	CG	19	\N	60	\N	25	\N
+2025-01-27	PG	16	\N	50	\N	\N	\N
+2025-01-28	CA	\N	\N	56	0.4	\N	\N
+2025-01-28	AV	15	\N	57	\N	\N	\N
+2025-01-28	SP	31	\N	72	\N	57	\N
+2025-01-28	IR	26	\N	129	0.5	39	\N
+2025-01-28	BG	23	\N	125	\N	\N	\N
+2025-01-28	CG	25	\N	117	\N	35	\N
+2025-01-28	PG	26	\N	83	\N	\N	\N
+2025-01-29	CA	\N	\N	57	0.7	\N	\N
+2025-01-29	AV	18	\N	76	\N	\N	\N
+2025-01-29	SP	33	\N	70	\N	73	\N
+2025-01-29	IR	26	8	124	0.6	52	\N
+2025-01-29	BG	21	\N	129	\N	\N	\N
+2025-01-29	CG	26	\N	106	\N	29	\N
+2025-01-29	PG	21	\N	89	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: _hyper_1_4_chunk; Type: TABLE DATA; Schema: _timescaledb_internal; Owner: postgres
+--
+
+COPY _timescaledb_internal._hyper_1_4_chunk (data, codigo_estacao, mp10, mp2_5, o3, co, no2, so2) FROM stdin;
+2025-01-30	CA	\N	\N	32	0.6	\N	\N
+2025-01-30	AV	21	\N	49	\N	\N	\N
+2025-01-30	SP	28	\N	46	\N	71	\N
+2025-01-30	IR	30	10	66	0.7	54	\N
+2025-01-30	BG	25	\N	77	\N	\N	\N
+2025-01-30	CG	25	\N	72	\N	32	\N
+2025-01-30	PG	16	\N	73	\N	\N	\N
+2025-01-31	CA	\N	\N	32	0.4	\N	\N
+2025-01-31	AV	18	\N	39	\N	\N	\N
+2025-01-31	SP	24	\N	41	\N	57	\N
+2025-01-31	IR	25	9	61	0.6	49	\N
+2025-01-31	BG	11	\N	61	0.6	49	\N
+2025-01-31	CG	15	\N	51	\N	36	\N
+2025-01-31	PG	14	\N	60	\N	\N	\N
+2025-02-01	CA	\N	\N	42	0.4	\N	\N
+2025-02-01	AV	24	\N	54	\N	\N	\N
+2025-02-01	SP	29	\N	52	\N	67	\N
+2025-02-01	IR	21	7	56	1.1	50	\N
+2025-02-01	BG	17	\N	60	\N	\N	\N
+2025-02-01	CG	23	\N	49	\N	27	\N
+2025-02-01	PG	21	\N	64	\N	\N	\N
+2025-02-02	CA	\N	\N	42	0.7	\N	\N
+2025-02-02	AV	20	\N	54	\N	\N	\N
+2025-02-02	SP	28	\N	57	\N	69	\N
+2025-02-02	IR	23	9	39	0.6	37	\N
+2025-02-02	BG	21	\N	43	\N	\N	\N
+2025-02-02	CG	19	\N	43	\N	24	\N
+2025-02-02	PG	19	\N	45	\N	\N	\N
+2025-02-03	CA	\N	\N	61	0.5	\N	\N
+2025-02-03	AV	20	\N	79	\N	\N	\N
+2025-02-03	SP	29	\N	85	\N	63	\N
+2025-02-03	IR	24	9	90	0.8	58	\N
+2025-02-03	BG	37	\N	56	\N	\N	\N
+2025-02-03	CG	30	\N	64	\N	40	\N
+2025-02-03	PG	23	\N	85	\N	\N	\N
+2025-02-04	CA	\N	\N	66	0.5	\N	\N
+2025-02-04	AV	26	\N	79	\N	\N	\N
+2025-02-04	SP	42	\N	71	\N	64	\N
+2025-02-04	IR	31	10	121	0.5	36	\N
+2025-02-04	BG	32	\N	116	\N	\N	\N
+2025-02-04	CG	33	\N	85	\N	42	\N
+2025-02-04	PG	31	\N	109	\N	\N	\N
+2025-02-05	CA	\N	\N	69	0.3	\N	\N
+2025-02-05	AV	31	\N	64	\N	\N	\N
+2025-02-05	SP	45	\N	87	\N	65	\N
+2025-02-05	IR	37	11	69	0.4	79	\N
+2025-02-05	BG	38	\N	112	\N	\N	\N
+2025-02-05	CG	46	\N	86	\N	45	\N
+2025-02-05	PG	39	\N	97	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: _hyper_1_5_chunk; Type: TABLE DATA; Schema: _timescaledb_internal; Owner: postgres
+--
+
+COPY _timescaledb_internal._hyper_1_5_chunk (data, codigo_estacao, mp10, mp2_5, o3, co, no2, so2) FROM stdin;
+2025-02-06	CA	\N	\N	101	0.7	\N	\N
+2025-02-06	AV	33	\N	82	\N	\N	\N
+2025-02-06	SP	43	\N	99	\N	74	\N
+2025-02-06	IR	39	13	119	0.6	85	\N
+2025-02-06	BG	40	\N	138	\N	\N	\N
+2025-02-06	CG	54	\N	102	\N	56	\N
+2025-02-06	PG	43	\N	125	\N	\N	\N
+2025-02-07	CA	\N	\N	70	0.4	\N	\N
+2025-02-07	AV	35	\N	101	\N	\N	\N
+2025-02-07	SP	49	\N	80	\N	86	\N
+2025-02-07	IR	41	16	136	0.7	83	\N
+2025-02-07	BG	42	\N	135	\N	\N	\N
+2025-02-07	CG	40	\N	124	\N	35	\N
+2025-02-07	PG	48	\N	119	\N	\N	\N
+2025-02-08	CA	\N	\N	85	0.4	\N	\N
+2025-02-08	AV	27	\N	98	\N	\N	\N
+2025-02-08	SP	42	\N	76	\N	78	\N
+2025-02-08	IR	23	8	94	0.5	57	\N
+2025-02-08	BG	29	\N	91	\N	\N	\N
+2025-02-08	CG	30	\N	80	\N	39	\N
+2025-02-08	PG	34	\N	75	\N	\N	\N
+2025-02-09	CA	\N	\N	43	0.2	\N	\N
+2025-02-09	AV	21	\N	42	\N	\N	\N
+2025-02-09	SP	29	\N	47	\N	44	\N
+2025-02-09	IR	18	5	72	0.4	29	\N
+2025-02-09	BG	28	\N	102	\N	\N	\N
+2025-02-09	CG	33	\N	94	\N	36	\N
+2025-02-09	PG	36	\N	62	\N	\N	\N
+2025-02-10	CA	\N	\N	45	0.4	\N	\N
+2025-02-10	AV	19	\N	52	\N	\N	\N
+2025-02-10	SP	26	\N	59	\N	48	\N
+2025-02-10	IR	20	5	86	0.5	44	\N
+2025-02-10	BG	32	\N	144	\N	\N	\N
+2025-02-10	CG	29	\N	82	\N	38	\N
+2025-02-10	PG	33	\N	69	\N	\N	\N
+2025-02-11	CA	\N	\N	34	0.5	\N	\N
+2025-02-11	AV	23	\N	38	\N	\N	\N
+2025-02-11	SP	30	\N	54	\N	54	\N
+2025-02-11	IR	21	5	93	0.4	47	\N
+2025-02-11	BG	34	\N	151	\N	\N	\N
+2025-02-11	CG	35	\N	92	\N	41	\N
+2025-02-11	PG	40	\N	90	\N	\N	\N
+2025-02-12	CA	\N	\N	74	0.4	\N	\N
+2025-02-12	AV	23	\N	57	\N	\N	\N
+2025-02-12	SP	26	\N	79	\N	52	\N
+2025-02-12	IR	22	5	80	0.4	40	\N
+2025-02-12	BG	31	\N	82	\N	\N	\N
+2025-02-12	CG	36	\N	53	\N	29	\N
+2025-02-12	PG	44	\N	68	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: _hyper_1_6_chunk; Type: TABLE DATA; Schema: _timescaledb_internal; Owner: postgres
+--
+
+COPY _timescaledb_internal._hyper_1_6_chunk (data, codigo_estacao, mp10, mp2_5, o3, co, no2, so2) FROM stdin;
+2025-02-13	CA	\N	\N	90	0.4	\N	\N
+2025-02-13	AV	30	\N	82	\N	\N	\N
+2025-02-13	SP	36	\N	87	\N	72	\N
+2025-02-13	IR	29	10	92	0.6	60	\N
+2025-02-13	BG	33	\N	89	\N	\N	\N
+2025-02-13	CG	33	\N	85	\N	36	\N
+2025-02-13	PG	40	\N	77	\N	\N	\N
+2025-02-14	CA	\N	\N	78	0.4	\N	\N
+2025-02-14	AV	38	\N	81	\N	\N	\N
+2025-02-14	SP	42	\N	79	\N	69	\N
+2025-02-14	IR	33	12	111	0.6	73	\N
+2025-02-14	BG	36	\N	116	\N	\N	\N
+2025-02-14	CG	34	\N	105	\N	29	\N
+2025-02-14	PG	44	\N	82	\N	\N	\N
+2025-02-15	CA	\N	\N	72	0.3	\N	\N
+2025-02-15	AV	35	\N	71	\N	\N	\N
+2025-02-15	SP	54	\N	98	\N	77	\N
+2025-02-15	IR	41	18	133	0.6	58	\N
+2025-02-15	BG	46	\N	181	\N	\N	\N
+2025-02-15	CG	39	\N	126	\N	22	\N
+2025-02-15	PG	\N	\N	98	\N	\N	\N
+2025-02-16	CA	\N	\N	86	0.4	\N	\N
+2025-02-16	AV	35	\N	65	\N	\N	\N
+2025-02-16	SP	49	\N	94	\N	62	\N
+2025-02-16	IR	31	11	122	0.4	53	\N
+2025-02-16	BG	41	\N	157	\N	\N	\N
+2025-02-16	CG	45	\N	105	\N	47	\N
+2025-02-16	PG	\N	\N	116	\N	\N	\N
+2025-02-17	CA	\N	\N	84	0.4	\N	\N
+2025-02-17	AV	31	\N	89	\N	\N	\N
+2025-02-17	SP	\N	\N	112	\N	64	\N
+2025-02-17	IR	31	8	107	0.4	65	\N
+2025-02-17	BG	32	\N	125	\N	\N	\N
+2025-02-17	CG	44	\N	113	\N	58	\N
+2025-02-17	PG	\N	\N	84	\N	\N	\N
+2025-02-18	CA	\N	\N	112	0.5	\N	\N
+2025-02-18	AV	41	\N	111	\N	\N	\N
+2025-02-18	SP	\N	\N	103	\N	114	\N
+2025-02-18	IR	47	21	167	0.6	78	\N
+2025-02-18	BG	47	\N	197	\N	\N	\N
+2025-02-18	CG	48	\N	186	\N	48	\N
+2025-02-18	PG	\N	\N	204	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: estacoes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.estacoes (codigo, nome, estado, cidade, orgao, coordenadas) FROM stdin;
+CA	Centro	RJ	Rio de Janeiro	SMAC	0101000020E610000090B33FADCD9645C093633B4089E836C0
+AV	Copacabana	RJ	Rio de Janeiro	SMAC	0101000020E6100000C1E0D7051A9745C04E89157C0AF736C0
+SP	Tijuca	RJ	Rio de Janeiro	SMAC	0101000020E6100000CDEC52B0C79D45C02A567D40C7EC36C0
+IR	Irajá	RJ	Rio de Janeiro	SMAC	0101000020E610000048740E0CD6A945C08E6DD519E5D436C0
+BG	Bangu	RJ	Rio de Janeiro	SMAC	0101000020E610000040C36B284CBC45C0F8BA060B4EE336C0
+CG	Campo Grande	RJ	Rio de Janeiro	SMAC	0101000020E61000001827AB1C3CC745C0F1D12096E1E236C0
+PG	Pedra de Guaratiba	RJ	Rio de Janeiro	SMAC	0101000020E61000006867646983D045C0AB3E03FB1E0137C0
+\.
+
+
+--
+-- Data for Name: medicoes_diarias; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.medicoes_diarias (data, codigo_estacao, mp10, mp2_5, o3, co, no2, so2) FROM stdin;
+\.
+
+
+--
+-- Data for Name: spatial_ref_sys; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.spatial_ref_sys (srid, auth_name, auth_srid, srtext, proj4text) FROM stdin;
+\.
+
+
+--
+-- Name: chunk_column_stats_id_seq; Type: SEQUENCE SET; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_catalog.chunk_column_stats_id_seq', 1, false);
+
+
+--
+-- Name: chunk_constraint_name; Type: SEQUENCE SET; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_catalog.chunk_constraint_name', 12, true);
+
+
+--
+-- Name: chunk_id_seq; Type: SEQUENCE SET; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_catalog.chunk_id_seq', 6, true);
+
+
+--
+-- Name: continuous_agg_migrate_plan_step_step_id_seq; Type: SEQUENCE SET; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_catalog.continuous_agg_migrate_plan_step_step_id_seq', 1, false);
+
+
+--
+-- Name: dimension_id_seq; Type: SEQUENCE SET; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_catalog.dimension_id_seq', 1, true);
+
+
+--
+-- Name: dimension_slice_id_seq; Type: SEQUENCE SET; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_catalog.dimension_slice_id_seq', 6, true);
+
+
+--
+-- Name: hypertable_id_seq; Type: SEQUENCE SET; Schema: _timescaledb_catalog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_catalog.hypertable_id_seq', 1, true);
+
+
+--
+-- Name: bgw_job_id_seq; Type: SEQUENCE SET; Schema: _timescaledb_config; Owner: postgres
+--
+
+SELECT pg_catalog.setval('_timescaledb_config.bgw_job_id_seq', 1000, false);
+
+
+--
+-- Name: _hyper_1_1_chunk 1_1_medicao_diaria; Type: CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_1_chunk
+    ADD CONSTRAINT "1_1_medicao_diaria" PRIMARY KEY (data, codigo_estacao);
+
+
+--
+-- Name: _hyper_1_2_chunk 2_3_medicao_diaria; Type: CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_2_chunk
+    ADD CONSTRAINT "2_3_medicao_diaria" PRIMARY KEY (data, codigo_estacao);
+
+
+--
+-- Name: _hyper_1_3_chunk 3_5_medicao_diaria; Type: CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_3_chunk
+    ADD CONSTRAINT "3_5_medicao_diaria" PRIMARY KEY (data, codigo_estacao);
+
+
+--
+-- Name: _hyper_1_4_chunk 4_7_medicao_diaria; Type: CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_4_chunk
+    ADD CONSTRAINT "4_7_medicao_diaria" PRIMARY KEY (data, codigo_estacao);
+
+
+--
+-- Name: _hyper_1_5_chunk 5_9_medicao_diaria; Type: CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_5_chunk
+    ADD CONSTRAINT "5_9_medicao_diaria" PRIMARY KEY (data, codigo_estacao);
+
+
+--
+-- Name: _hyper_1_6_chunk 6_11_medicao_diaria; Type: CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_6_chunk
+    ADD CONSTRAINT "6_11_medicao_diaria" PRIMARY KEY (data, codigo_estacao);
+
+
+--
+-- Name: estacoes estacoes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.estacoes
+    ADD CONSTRAINT estacoes_pkey PRIMARY KEY (codigo);
+
+
+--
+-- Name: medicoes_diarias medicao_diaria; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.medicoes_diarias
+    ADD CONSTRAINT medicao_diaria PRIMARY KEY (data, codigo_estacao);
+
+
+--
+-- Name: _hyper_1_1_chunk_medicoes_diarias_data_idx; Type: INDEX; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE INDEX _hyper_1_1_chunk_medicoes_diarias_data_idx ON _timescaledb_internal._hyper_1_1_chunk USING btree (data DESC);
+
+
+--
+-- Name: _hyper_1_2_chunk_medicoes_diarias_data_idx; Type: INDEX; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE INDEX _hyper_1_2_chunk_medicoes_diarias_data_idx ON _timescaledb_internal._hyper_1_2_chunk USING btree (data DESC);
+
+
+--
+-- Name: _hyper_1_3_chunk_medicoes_diarias_data_idx; Type: INDEX; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE INDEX _hyper_1_3_chunk_medicoes_diarias_data_idx ON _timescaledb_internal._hyper_1_3_chunk USING btree (data DESC);
+
+
+--
+-- Name: _hyper_1_4_chunk_medicoes_diarias_data_idx; Type: INDEX; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE INDEX _hyper_1_4_chunk_medicoes_diarias_data_idx ON _timescaledb_internal._hyper_1_4_chunk USING btree (data DESC);
+
+
+--
+-- Name: _hyper_1_5_chunk_medicoes_diarias_data_idx; Type: INDEX; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE INDEX _hyper_1_5_chunk_medicoes_diarias_data_idx ON _timescaledb_internal._hyper_1_5_chunk USING btree (data DESC);
+
+
+--
+-- Name: _hyper_1_6_chunk_medicoes_diarias_data_idx; Type: INDEX; Schema: _timescaledb_internal; Owner: postgres
+--
+
+CREATE INDEX _hyper_1_6_chunk_medicoes_diarias_data_idx ON _timescaledb_internal._hyper_1_6_chunk USING btree (data DESC);
+
+
+--
+-- Name: medicoes_diarias_data_idx; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX medicoes_diarias_data_idx ON public.medicoes_diarias USING btree (data DESC);
+
+
+--
+-- Name: medicoes_diarias ts_insert_blocker; Type: TRIGGER; Schema: public; Owner: postgres
+--
+
+CREATE TRIGGER ts_insert_blocker BEFORE INSERT ON public.medicoes_diarias FOR EACH ROW EXECUTE FUNCTION _timescaledb_functions.insert_blocker();
+
+
+--
+-- Name: _hyper_1_1_chunk 1_2_medicoes_diarias_codigo_estacao_fkey; Type: FK CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_1_chunk
+    ADD CONSTRAINT "1_2_medicoes_diarias_codigo_estacao_fkey" FOREIGN KEY (codigo_estacao) REFERENCES public.estacoes(codigo);
+
+
+--
+-- Name: _hyper_1_2_chunk 2_4_medicoes_diarias_codigo_estacao_fkey; Type: FK CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_2_chunk
+    ADD CONSTRAINT "2_4_medicoes_diarias_codigo_estacao_fkey" FOREIGN KEY (codigo_estacao) REFERENCES public.estacoes(codigo);
+
+
+--
+-- Name: _hyper_1_3_chunk 3_6_medicoes_diarias_codigo_estacao_fkey; Type: FK CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_3_chunk
+    ADD CONSTRAINT "3_6_medicoes_diarias_codigo_estacao_fkey" FOREIGN KEY (codigo_estacao) REFERENCES public.estacoes(codigo);
+
+
+--
+-- Name: _hyper_1_4_chunk 4_8_medicoes_diarias_codigo_estacao_fkey; Type: FK CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_4_chunk
+    ADD CONSTRAINT "4_8_medicoes_diarias_codigo_estacao_fkey" FOREIGN KEY (codigo_estacao) REFERENCES public.estacoes(codigo);
+
+
+--
+-- Name: _hyper_1_5_chunk 5_10_medicoes_diarias_codigo_estacao_fkey; Type: FK CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_5_chunk
+    ADD CONSTRAINT "5_10_medicoes_diarias_codigo_estacao_fkey" FOREIGN KEY (codigo_estacao) REFERENCES public.estacoes(codigo);
+
+
+--
+-- Name: _hyper_1_6_chunk 6_12_medicoes_diarias_codigo_estacao_fkey; Type: FK CONSTRAINT; Schema: _timescaledb_internal; Owner: postgres
+--
+
+ALTER TABLE ONLY _timescaledb_internal._hyper_1_6_chunk
+    ADD CONSTRAINT "6_12_medicoes_diarias_codigo_estacao_fkey" FOREIGN KEY (codigo_estacao) REFERENCES public.estacoes(codigo);
+
+
+--
+-- Name: medicoes_diarias medicoes_diarias_codigo_estacao_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.medicoes_diarias
+    ADD CONSTRAINT medicoes_diarias_codigo_estacao_fkey FOREIGN KEY (codigo_estacao) REFERENCES public.estacoes(codigo);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

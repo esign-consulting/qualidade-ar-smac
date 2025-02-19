@@ -14,15 +14,15 @@ requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
 timescaleDB = TimescaleDB()
 
 logging.info("Storing into TimescaleDB...")
+last_date = timescaleDB.get_last_boletim_data()
+next_date = last_date + datetime.timedelta(1)
 today = datetime.date.today()
-for x in reversed(range(int(sys.argv[1]) if len(sys.argv) == 2 else 30)):
-    days = datetime.timedelta(x)
-    past_date = today - days
-    d_string = past_date.strftime("%d/%m/%Y")
-
+while next_date <= today:
+    d_string = next_date.strftime("%d/%m/%Y")
     boletim = requestor.request(d_string)
     if boletim and boletim.data == d_string:
         timescaleDB.insert_boletim(boletim)
         logging.info(f"Data from {boletim.data} stored.")
+    next_date = next_date + datetime.timedelta(1)
 
 logging.info("Done.")

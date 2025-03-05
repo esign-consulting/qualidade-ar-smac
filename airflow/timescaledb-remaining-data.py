@@ -5,7 +5,6 @@ from apitimescaledb import TimescaleDB
 
 import datetime
 import logging
-import sys
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s - %(message)s")

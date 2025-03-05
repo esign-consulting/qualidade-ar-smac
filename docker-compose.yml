@@ -44,3 +44,22 @@ services:
     depends_on:
       timescaledb:
         condition: service_healthy
+
+  airflow:
+    image: apache/airflow:slim-2.10.4-python3.9
+    container_name: airflow
+    volumes:
+      - ./airflow:/opt/airflow/dags
+    environment:
+      _AIRFLOW_DB_MIGRATE: "true"
+      _AIRFLOW_WWW_USER_CREATE: "true"
+      _AIRFLOW_WWW_USER_USERNAME: "airflow"
+      _AIRFLOW_WWW_USER_PASSWORD: "airflow"
+      _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- requests==2.32.3 psycopg2-binary==2.9.10}
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+    command: standalone
+    ports:
+      - 8090:8080
+    depends_on:
+      timescaledb:
+        condition: service_healthy

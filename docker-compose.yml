@@ -63,3 +63,20 @@ services:
     depends_on:
       timescaledb:
         condition: service_healthy
+
+  grafana:
+    image: grafana/grafana:11.4.0
+    container_name: grafana
+    volumes:
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: "S3cr3t"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      POSTGRES_URL: "timescaledb:5432"
+      POSTGRES_PASSWORD: "SuperSecret"
+    ports:
+      - 3000:3000
+    depends_on:
+      timescaledb:
+        condition: service_healthy

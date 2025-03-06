@@ -23,7 +23,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "influxdb1"
+        "type": "Postgres"
       },
       "description": "",
       "fieldConfig": {
@@ -119,7 +119,7 @@
         {
           "alias": "$tag_estacao",
           "datasource": {
-            "type": "influxdb1"
+            "type": "Postgres"
           },
           "groupBy": [
             {
@@ -165,7 +165,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb1"
+        "type": "Postgres"
       },
       "fieldConfig": {
         "defaults": {
@@ -266,7 +266,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb1"
+        "type": "Postgres"
       },
       "fieldConfig": {
         "defaults": {
@@ -390,7 +390,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb1"
+            "type": "Postgres"
           },
           "groupBy": [
             {
@@ -580,7 +580,7 @@
             "São Cristóvão"
           ]
         },
-        "datasource": "influxdb1",
+        "datasource": "Postgres",
         "definition": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
         "includeAll": false,
         "label": "Estação",

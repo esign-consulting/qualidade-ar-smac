@@ -53,3 +53,7 @@ Distribuição da classificação da qualidade do ar no período:
 Dados históricos horários no formato CSV podem ser obtidos do Data.Rio através do comando:
 
 `curl 'https://hub.arcgis.com/api/v3/datasets/5b1bf5c3e5114564bbf9b7a372b85e17_2/downloads/data?format=csv&spatialRefId=31983'`
+
+## Dump da base de dados
+
+`pg_dump -h localhost -p 5432 -U postgres -f dump.sql postgres`

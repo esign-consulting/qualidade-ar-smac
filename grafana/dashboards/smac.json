@@ -561,38 +561,36 @@
         "current": {
           "text": [
             "Bangu",
-            "Centro",
-            "Irajá",
-            "Tijuca",
             "Campo Grande",
+            "Centro",
             "Copacabana",
+            "Irajá",
             "Pedra de Guaratiba",
-            "São Cristóvão"
+            "São Cristóvão",
+            "Tijuca"
           ],
           "value": [
-            "Bangu",
-            "Centro",
-            "Irajá",
-            "Tijuca",
-            "Campo Grande",
-            "Copacabana",
-            "Pedra de Guaratiba",
-            "São Cristóvão"
+            "BG",
+            "CG",
+            "CA",
+            "AV",
+            "IR",
+            "PG",
+            "SC",
+            "SP"
           ]
         },
         "datasource": "Postgres",
-        "definition": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
+        "definition": "SELECT nome AS __text, codigo AS __value FROM estacoes WHERE orgao = 'SMAC'",
         "includeAll": false,
         "label": "Estação",
         "multi": true,
         "name": "estacao",
         "options": [],
-        "query": {
-          "query": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
-          "refId": "InfluxVariableQueryEditor-VariableQuery"
-        },
+        "query": "SELECT nome AS __text, codigo AS __value FROM estacoes WHERE orgao = 'SMAC'",
         "refresh": 1,
         "regex": "",
+        "sort": 1,
         "type": "query"
       }
     ]

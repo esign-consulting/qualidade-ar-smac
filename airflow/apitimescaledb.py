@@ -79,6 +79,9 @@ class MedicoesDiariasTable():
             CREATE TABLE IF NOT EXISTS medicoes_diarias (
                 data DATE NOT NULL,
                 codigo_estacao VARCHAR(2),
+                classificacao VARCHAR(20),
+                IQAR DOUBLE PRECISION,
+                poluente VARCHAR(10),
                 MP10 DOUBLE PRECISION,
                 MP2_5 DOUBLE PRECISION,
                 O3 DOUBLE PRECISION,
@@ -91,10 +94,13 @@ class MedicoesDiariasTable():
         """
         self.create_hypertable_command = "SELECT create_hypertable('medicoes_diarias', by_range('data'));"
         self.upsert_command = """
-            INSERT INTO medicoes_diarias (data, codigo_estacao, MP10, MP2_5, O3, CO, NO2, SO2)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            INSERT INTO medicoes_diarias (data, codigo_estacao, classificacao, IQAR, poluente, MP10, MP2_5, O3, CO, NO2, SO2)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT(data, codigo_estacao)
             DO UPDATE SET
+                classificacao = EXCLUDED.classificacao,
+                IQAR = EXCLUDED.IQAR,
+                poluente = EXCLUDED.poluente,
                 MP10 = EXCLUDED.MP10,
                 MP2_5 = EXCLUDED.MP2_5,
                 O3 = EXCLUDED.O3,
@@ -122,6 +128,9 @@ class MedicoesDiariasTable():
             try:
                 data = (datetime.strptime(boletim.data, "%d/%m/%Y").date(),
                         medicao.estacao.codigo,
+                        medicao.classificacao,
+                        medicao.get_IQAR(),
+                        medicao.get_poluente(),
                         medicao.get_concentracao_poluente("MP10"),
                         medicao.get_concentracao_poluente("MP2,5"),
                         medicao.get_concentracao_poluente("O3"),

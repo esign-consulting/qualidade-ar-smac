@@ -105,7 +105,7 @@
         "alertThreshold": true,
         "legend": {
           "calcs": [],
-          "displayMode": "table",
+          "displayMode": "list",
           "placement": "right",
           "showLegend": true
         },
@@ -121,6 +121,8 @@
           "datasource": {
             "type": "Postgres"
           },
+          "editorMode": "code",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -129,10 +131,11 @@
               "type": "tag"
             }
           ],
-          "measurement": "IQAR",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  md.data AS \"time\",\n  md.iqar AS \"value\",\n  e.nome AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\nORDER BY\n  md.data",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -144,19 +147,6 @@
                 "type": "field"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],

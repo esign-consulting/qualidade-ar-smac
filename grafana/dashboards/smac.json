@@ -92,7 +92,20 @@
           },
           "unit": "short"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time: YYYY-MM-DD"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -135,7 +148,7 @@
           "policy": "default",
           "queryType": "randomWalk",
           "rawQuery": true,
-          "rawSql": "SELECT\n  md.data AS \"time\",\n  md.iqar AS \"value\",\n  e.nome AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\nORDER BY\n  md.data",
+          "rawSql": "SELECT\n  md.data AS \"time\",\n  md.iqar AS \"value\",\n  e.nome AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nORDER BY\n  md.data",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [

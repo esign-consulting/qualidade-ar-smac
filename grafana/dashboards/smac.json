@@ -136,14 +136,6 @@
           },
           "editorMode": "code",
           "format": "time_series",
-          "groupBy": [
-            {
-              "params": [
-                "estacao"
-              ],
-              "type": "tag"
-            }
-          ],
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -208,10 +200,10 @@
         "pieType": "pie",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "count"
           ],
-          "fields": "",
-          "values": false
+          "fields": "/^value$/",
+          "values": true
         },
         "tooltip": {
           "mode": "single",
@@ -222,17 +214,12 @@
       "targets": [
         {
           "alias": "$tag_classificacao",
-          "groupBy": [
-            {
-              "params": [
-                "classificacao::tag"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "IQAR",
+          "editorMode": "code",
+          "format": "table",
           "orderByTime": "ASC",
           "policy": "default",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  COUNT(*) AS \"value\",\n  md.classificacao AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nGROUP BY\n  md.classificacao",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -248,19 +235,6 @@
                 "type": "count"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao::tag",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],
@@ -455,7 +429,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb"
+        "type": "Postgres"
       },
       "fieldConfig": {
         "defaults": {
@@ -498,7 +472,7 @@
             "lastNotNull"
           ],
           "fields": "",
-          "values": false
+          "values": true
         },
         "tooltip": {
           "mode": "single",
@@ -509,17 +483,12 @@
       "targets": [
         {
           "alias": "$tag_poluente",
-          "groupBy": [
-            {
-              "params": [
-                "poluente::tag"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "IQAR",
+          "editorMode": "code",
+          "format": "table",
           "orderByTime": "ASC",
           "policy": "default",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  COUNT(*) AS \"value\",\n  md.poluente AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nGROUP BY\n  md.poluente",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -535,19 +504,6 @@
                 "type": "count"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao::tag",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],

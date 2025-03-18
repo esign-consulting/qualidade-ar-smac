@@ -369,30 +369,13 @@
           "datasource": {
             "type": "Postgres"
           },
-          "groupBy": [
-            {
-              "params": [
-                "estacao::tag"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "latitude::tag"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "longitude::tag"
-              ],
-              "type": "tag"
-            }
-          ],
+          "editorMode": "code",
+          "format": "table",
           "hide": false,
-          "measurement": "IQAR",
           "orderByTime": "ASC",
           "policy": "default",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  e.nome AS \"nome\",\n  ST_X(e.coordenadas :: geometry) AS \"longitude\",\n  ST_Y(e.coordenadas :: geometry) AS \"latitude\",\n  (\n    SELECT\n      md1.iqar\n    FROM\n      medicoes_diarias AS md1\n    WHERE\n      md1.codigo_estacao = e.codigo\n      AND md1.data = (\n        SELECT\n          MAX(md2.data)\n        FROM\n          medicoes_diarias AS md2\n        WHERE\n          $__timeFilter(md2.data)\n          AND md2.codigo_estacao = e.codigo\n      )\n  ) AS \"value\"\nFROM\n  estacoes AS e\nWHERE\n  e.codigo IN ($estacao)\n  AND e.orgao = 'SMAC'",
           "refId": "A",
           "resultFormat": "table",
           "select": [
@@ -408,19 +391,6 @@
                 "type": "last"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao::tag",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],

@@ -20,33 +20,66 @@ A API também pode ser inicializada como [contâiner](https://en.wikipedia.org/w
 
 ## Gráfico dos últimos 365 dias
 
-Os dados de qualidade do ar dos últimos 365 dias podem ser carregados para uma base de dados [InfluxDB](https://www.influxdata.com/products/influxdb) e apresentados num dashboard do [Grafana](https://grafana.com). Os passos são os seguintes (requer [Python](https://www.python.org) e [docker-compose](https://docs.docker.com/compose)):
+Os dados de qualidade do ar dos últimos 365 dias, carregados para uma base de dados [TimescaleDB](https://www.timescale.com/go/time-series), podem ser visualizados num dashboard do [Grafana](https://grafana.com). Para isso, siga os seguintes passos (requer [docker-compose](https://docs.docker.com/compose)):
 
-1. Prepare o ambiente Python: `python3 -m venv env && source env/bin/activate && pip3 install -r requirements.txt`;
-2. Execute o script Python: `./airflow/influxdb-data.py 365`;
-3. Inicialize o ambiente: `docker-compose up -d`;
-4. Pelo browser entre em <http://localhost:3000>;
-5. Entre no dashboard `SMAC`.
+1. Inicialize o ambiente: `docker-compose up -d`;
+2. Pelo browser entre em <http://localhost:3000>;
+3. Entre no dashboard `SMAC`.
 
 ![SMAC dashboard](last365d.png)
 
 ### Consultas aos dados
 
-Se preferir, obtenha diretamente todos os dados da SMAC:
+Se preferir, obtenha diretamente todos os dados da SMAC, através da **Query Tool** do [pgAdmin](http://localhost:8085) (usuário `esign@esign.com.br` e senha `S3cr3t`):
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT * FROM "IQAR" WHERE "orgao" =~ /SMAC/'`
+```sql
+SELECT md.*
+FROM medicoes_diarias AS md
+JOIN estacoes AS e ON e.codigo = md.codigo_estacao
+WHERE e.orgao = 'SMAC'
+ORDER BY md.data
+```
 
 Último índice de qualidade do ar das estações de monitoramento da SMAC:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT last(value) AS value FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "estacao", "latitude", "longitude"' -s | jq`
+```sql
+SELECT e.nome AS "estacao",
+  (SELECT md1.iqar
+     FROM medicoes_diarias AS md1
+    WHERE md1.codigo_estacao = e.codigo
+      AND md1.data = (SELECT MAX(md2.data)
+                         FROM medicoes_diarias AS md2
+                        WHERE md2.codigo_estacao = e.codigo)
+  ) AS "iqar"
+FROM estacoes AS e
+WHERE e.orgao = 'SMAC'
+```
 
 Poluentes que mais impactaram o índice de qualidade do ar no período:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "poluente"' -s | jq -r '.results[].series[] | "\(.tags.poluente) - \(.values[0][1])"'`
+```sql
+SELECT md.poluente, COUNT(*) AS "qtde"
+FROM medicoes_diarias AS md
+JOIN estacoes AS e ON e.codigo = md.codigo_estacao
+WHERE e.orgao = 'SMAC'
+GROUP BY md.poluente
+ORDER BY qtde DESC
+```
 
 Distribuição da classificação da qualidade do ar no período:
 
-`curl -H 'Authorization: Token my-super-secret-auth-token' -G 'http://localhost:8086/query?db=qualidadear-diaria' --data-urlencode 'q=SELECT count(value) FROM "IQAR" WHERE "orgao" =~ /SMAC/ GROUP BY "classificacao"' -s | jq -r '.results[].series[] | "\(.tags.classificacao) - \(.values[0][1])"'`
+```sql
+SELECT md.classificacao, COUNT(*) AS "qtde"
+FROM medicoes_diarias AS md
+JOIN estacoes AS e ON e.codigo = md.codigo_estacao
+WHERE e.orgao = 'SMAC'
+GROUP BY md.classificacao
+ORDER BY qtde DESC
+```
+
+### Dump da base de dados
+
+`pg_dump -h localhost -p 5432 -U postgres -f dump.sql postgres`
 
 ## Dados históricos
 

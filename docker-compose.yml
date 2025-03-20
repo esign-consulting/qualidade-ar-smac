@@ -1,43 +1,49 @@
 services:
 
-  influxdb:
-    image: influxdb:2.7.11-alpine
-    container_name: influxdb
+  timescaledb:
+    image: timescale/timescaledb-ha:pg17.2-ts2.18.0-all
+    container_name: timescaledb
     volumes:
-      - ./influxdb:/docker-entrypoint-initdb.d
+      - ./timescaledb/init.sh:/docker-entrypoint-initdb.d/init.sh
+      - ./timescaledb/postgres.dump:/docker-entrypoint-initdb.d/postgres.dump
     environment:
-      DOCKER_INFLUXDB_INIT_MODE: "setup"
-      DOCKER_INFLUXDB_INIT_ORG: "esign-consulting"
-      DOCKER_INFLUXDB_INIT_BUCKET: "qualidadear-diaria"
-      DOCKER_INFLUXDB_INIT_USERNAME: "admin"
-      DOCKER_INFLUXDB_INIT_PASSWORD: "SuperSecret"
-      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: "my-super-secret-auth-token"
+      POSTGRES_PASSWORD: "SuperSecret"
     ports:
-      - 8086:8086
+      - 5432:5432
+    healthcheck:
+      test: pg_isready -U postgres -d postgres
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  grafana:
-    image: grafana/grafana:11.4.0
-    container_name: grafana
+  pgadmin:
+    image: dpage/pgadmin4:8.14.0
+    container_name: pgadmin
     volumes:
-      - ./grafana/datasources:/etc/grafana/provisioning/datasources
-      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
+      - ./pgadmin/pgpass:/pgadmin4/pgpass
     environment:
-      GF_SECURITY_ADMIN_PASSWORD: "S3cr3t"
-      GF_AUTH_ANONYMOUS_ENABLED: "true"
-      INFLUXDB_URL: "http://influxdb:8086"
-      INFLUXDB_TOKEN: "my-super-secret-auth-token"
-      INFLUXDB_BUCKET1: "qualidadear-diaria"
-      INFLUXDB_BUCKET2: "qualidadear-horaria"
+      PGADMIN_DEFAULT_EMAIL: "esign@esign.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "S3cr3t"
+      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: "False"
+    entrypoint: >
+      /bin/sh -c "
+      mkdir /var/lib/pgadmin/storage;
+      mkdir /var/lib/pgadmin/storage/esign_esign.com.br;
+      cp /pgadmin4/pgpass /var/lib/pgadmin/storage/esign_esign.com.br/;
+      chmod 600 /var/lib/pgadmin/storage/esign_esign.com.br/pgpass;
+      /entrypoint.sh
+      "
     ports:
-      - 3000:3000
+      - 8085:80
+    healthcheck:
+      test: wget http://localhost:80/misc/ping -q -O -
+      interval: 10s
+      timeout: 5s
+      retries: 5
     depends_on:
-      - influxdb
-
-  smac:
-    image: esignbr/qualidade-ar-smac
-    container_name: smac
-    ports:
-        - 8080:8080
+      timescaledb:
+        condition: service_healthy
 
   airflow:
     image: apache/airflow:slim-2.10.4-python3.9
@@ -49,11 +55,28 @@ services:
       _AIRFLOW_WWW_USER_CREATE: "true"
       _AIRFLOW_WWW_USER_USERNAME: "airflow"
       _AIRFLOW_WWW_USER_PASSWORD: "airflow"
-      _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- requests==2.32.3 influxdb-client==1.48.0}
+      _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- requests==2.32.3 psycopg2-binary==2.9.10}
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
     command: standalone
     ports:
       - 8090:8080
     depends_on:
-      - influxdb
-      - smac
+      timescaledb:
+        condition: service_healthy
+
+  grafana:
+    image: grafana/grafana:11.4.0
+    container_name: grafana
+    volumes:
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: "S3cr3t"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      POSTGRES_URL: "timescaledb:5432"
+      POSTGRES_PASSWORD: "SuperSecret"
+    ports:
+      - 3000:3000
+    depends_on:
+      timescaledb:
+        condition: service_healthy

@@ -23,7 +23,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "influxdb1"
+        "type": "Postgres"
       },
       "description": "",
       "fieldConfig": {
@@ -92,7 +92,20 @@
           },
           "unit": "short"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time: YYYY-MM-DD"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -105,7 +118,7 @@
         "alertThreshold": true,
         "legend": {
           "calcs": [],
-          "displayMode": "table",
+          "displayMode": "list",
           "placement": "right",
           "showLegend": true
         },
@@ -119,20 +132,15 @@
         {
           "alias": "$tag_estacao",
           "datasource": {
-            "type": "influxdb1"
+            "type": "Postgres"
           },
-          "groupBy": [
-            {
-              "params": [
-                "estacao"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "IQAR",
+          "editorMode": "code",
+          "format": "time_series",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  md.data AS \"time\",\n  md.iqar AS \"value\",\n  e.nome AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nORDER BY\n  md.data",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -144,19 +152,6 @@
                 "type": "field"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],
@@ -165,7 +160,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb1"
+        "type": "Postgres"
       },
       "fieldConfig": {
         "defaults": {
@@ -205,10 +200,10 @@
         "pieType": "pie",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "count"
           ],
-          "fields": "",
-          "values": false
+          "fields": "/^value$/",
+          "values": true
         },
         "tooltip": {
           "mode": "single",
@@ -219,17 +214,12 @@
       "targets": [
         {
           "alias": "$tag_classificacao",
-          "groupBy": [
-            {
-              "params": [
-                "classificacao::tag"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "IQAR",
+          "editorMode": "code",
+          "format": "table",
           "orderByTime": "ASC",
           "policy": "default",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  COUNT(*) AS \"value\",\n  md.classificacao AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nGROUP BY\n  md.classificacao",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -245,19 +235,6 @@
                 "type": "count"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao::tag",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],
@@ -266,7 +243,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb1"
+        "type": "Postgres"
       },
       "fieldConfig": {
         "defaults": {
@@ -390,32 +367,15 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb1"
+            "type": "Postgres"
           },
-          "groupBy": [
-            {
-              "params": [
-                "estacao::tag"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "latitude::tag"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "longitude::tag"
-              ],
-              "type": "tag"
-            }
-          ],
+          "editorMode": "code",
+          "format": "table",
           "hide": false,
-          "measurement": "IQAR",
           "orderByTime": "ASC",
           "policy": "default",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  e.nome AS \"nome\",\n  ST_X(e.coordenadas :: geometry) AS \"longitude\",\n  ST_Y(e.coordenadas :: geometry) AS \"latitude\",\n  (\n    SELECT\n      md1.iqar\n    FROM\n      medicoes_diarias AS md1\n    WHERE\n      md1.codigo_estacao = e.codigo\n      AND md1.data = (\n        SELECT\n          MAX(md2.data)\n        FROM\n          medicoes_diarias AS md2\n        WHERE\n          $__timeFilter(md2.data)\n          AND md2.codigo_estacao = e.codigo\n      )\n  ) AS \"value\"\nFROM\n  estacoes AS e\nWHERE\n  e.codigo IN ($estacao)\n  AND e.orgao = 'SMAC'",
           "refId": "A",
           "resultFormat": "table",
           "select": [
@@ -431,19 +391,6 @@
                 "type": "last"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao::tag",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],
@@ -452,7 +399,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb"
+        "type": "Postgres"
       },
       "fieldConfig": {
         "defaults": {
@@ -495,7 +442,7 @@
             "lastNotNull"
           ],
           "fields": "",
-          "values": false
+          "values": true
         },
         "tooltip": {
           "mode": "single",
@@ -506,17 +453,12 @@
       "targets": [
         {
           "alias": "$tag_poluente",
-          "groupBy": [
-            {
-              "params": [
-                "poluente::tag"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "IQAR",
+          "editorMode": "code",
+          "format": "table",
           "orderByTime": "ASC",
           "policy": "default",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  COUNT(*) AS \"value\",\n  md.poluente AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nGROUP BY\n  md.poluente",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -532,19 +474,6 @@
                 "type": "count"
               }
             ]
-          ],
-          "tags": [
-            {
-              "key": "estacao::tag",
-              "operator": "=~",
-              "value": "/^$estacao$/"
-            },
-            {
-              "condition": "AND",
-              "key": "orgao::tag",
-              "operator": "=",
-              "value": "SMAC"
-            }
           ]
         }
       ],
@@ -561,38 +490,36 @@
         "current": {
           "text": [
             "Bangu",
-            "Centro",
-            "Irajá",
-            "Tijuca",
             "Campo Grande",
+            "Centro",
             "Copacabana",
+            "Irajá",
             "Pedra de Guaratiba",
-            "São Cristóvão"
+            "São Cristóvão",
+            "Tijuca"
           ],
           "value": [
-            "Bangu",
-            "Centro",
-            "Irajá",
-            "Tijuca",
-            "Campo Grande",
-            "Copacabana",
-            "Pedra de Guaratiba",
-            "São Cristóvão"
+            "BG",
+            "CG",
+            "CA",
+            "AV",
+            "IR",
+            "PG",
+            "SC",
+            "SP"
           ]
         },
-        "datasource": "influxdb1",
-        "definition": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
+        "datasource": "Postgres",
+        "definition": "SELECT nome AS __text, codigo AS __value FROM estacoes WHERE orgao = 'SMAC'",
         "includeAll": false,
         "label": "Estação",
         "multi": true,
         "name": "estacao",
         "options": [],
-        "query": {
-          "query": "SHOW TAG VALUES WITH KEY = \"estacao\" WHERE \"orgao\" = 'SMAC'",
-          "refId": "InfluxVariableQueryEditor-VariableQuery"
-        },
+        "query": "SELECT nome AS __text, codigo AS __value FROM estacoes WHERE orgao = 'SMAC'",
         "refresh": 1,
         "regex": "",
+        "sort": 1,
         "type": "query"
       }
     ]

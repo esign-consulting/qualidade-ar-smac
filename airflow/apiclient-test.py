@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-from apiclient import BoletimRequestor
+from apiclient import Boletim, BoletimRequestor
 
 import datetime
+import json
 
 
-def test_apiclient():
+def test_api_request():
     requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
 
     today = datetime.date.today()
@@ -15,3 +16,16 @@ def test_apiclient():
     assert boletim
     assert len(boletim.estacoes) > 0
     assert next((e for e in boletim.estacoes if e.nome == "Centro"), None)
+
+
+def test_boletim_parse():
+    with open('src/test/resources/boletim.json') as f:
+        boletim = Boletim(**json.load(f))
+
+        assert boletim.data == "26/12/2024"
+        assert len(boletim.estacoes) == 7
+        medicao = next((m for m in boletim.medicoes if m.estacao.nome == "Centro"), None)
+        assert medicao.classificacao == "Boa"
+        assert len(medicao.medicaoPoluentes) == 6
+        medicao_poluente = next((mp for mp in medicao.medicaoPoluentes if mp.poluente.codigo == "O3"), None)
+        assert medicao_poluente.concentracao =="29"

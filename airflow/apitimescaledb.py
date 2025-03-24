@@ -130,7 +130,7 @@ class MedicoesDiariasTable():
                         medicao.estacao.codigo,
                         medicao.classificacao,
                         medicao.get_IQAR(),
-                        medicao.get_poluente(),
+                        medicao.poluente.codigo,
                         medicao.get_concentracao_poluente("MP10"),
                         medicao.get_concentracao_poluente("MP2,5"),
                         medicao.get_concentracao_poluente("O3"),

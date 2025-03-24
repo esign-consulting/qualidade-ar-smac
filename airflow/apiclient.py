@@ -8,7 +8,7 @@ import time
 class MedicaoPoluente:
 
     def __init__(self, poluente, concentracao):
-        self.poluente = poluente
+        self.poluente = Poluente(poluente)
         self.concentracao = concentracao
 
 
@@ -21,13 +21,21 @@ class Estacao:
         self.longitude = longitude
 
 
+class Poluente:
+
+    def __init__(self, poluente):
+        self.poluente = poluente
+        self.nome = poluente[0 : poluente.find("(") - 1]
+        self.codigo = poluente[poluente.find("(") + 1 : poluente.find(")")]
+
+
 class Medicao:
 
     def __init__(self, estacao, classificacao, indice, poluente, medicaoPoluentes):
         self.estacao = Estacao(**estacao)
         self.classificacao = classificacao
         self.indice = indice
-        self.poluente = poluente
+        self.poluente = Poluente(poluente)
         self.medicaoPoluentes = [MedicaoPoluente(**mp) for mp in medicaoPoluentes]
 
     def get_IQAR(self) -> float:
@@ -36,11 +44,8 @@ class Medicao:
         except ValueError:
             return None
 
-    def get_poluente(self) -> str:
-        return self.poluente[self.poluente.find("(") + 1 : self.poluente.find(")")]
-
-    def get_concentracao_poluente(self, poluente: str) -> float:
-        medicao_poluente = next((mp for mp in self.medicaoPoluentes if poluente in mp.poluente), None)
+    def get_concentracao_poluente(self, codigo_poluente: str) -> float:
+        medicao_poluente = next((mp for mp in self.medicaoPoluentes if codigo_poluente == mp.poluente.codigo), None)
         if medicao_poluente:
             try:
                 return float(medicao_poluente.concentracao.replace(',', '.'))

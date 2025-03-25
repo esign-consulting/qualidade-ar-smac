@@ -24,8 +24,11 @@ def test_boletim_parse():
 
         assert boletim.data == "26/12/2024"
         assert len(boletim.estacoes) == 7
+        assert len(boletim.poluentes) == 6
         medicao = next((m for m in boletim.medicoes if m.estacao.nome == "Centro"), None)
         assert medicao.classificacao == "Boa"
+        assert medicao.poluente.codigo == "O3"
+        assert [p.codigo for p in medicao.poluentes] == ["O3", "CO"] 
         assert len(medicao.medicaoPoluentes) == 6
         medicao_poluente = next((mp for mp in medicao.medicaoPoluentes if mp.poluente.codigo == "O3"), None)
         assert medicao_poluente.concentracao =="29"

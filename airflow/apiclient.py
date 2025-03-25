@@ -20,6 +20,15 @@ class Estacao:
         self.latitude = latitude
         self.longitude = longitude
 
+    def __str__(self):
+        return self.codigo
+
+    def __eq__(self, other):
+        return isinstance(other, Estacao) and self.codigo == other.codigo
+
+    def __hash__(self):
+        return hash(f"Estacao {self.codigo}")
+
 
 class Poluente:
 
@@ -27,6 +36,15 @@ class Poluente:
         self.poluente = poluente
         self.nome = poluente[0 : poluente.find("(") - 1]
         self.codigo = poluente[poluente.find("(") + 1 : poluente.find(")")]
+
+    def __str__(self):
+        return self.codigo
+
+    def __eq__(self, other):
+        return isinstance(other, Poluente) and self.codigo == other.codigo
+
+    def __hash__(self):
+        return hash(f"Poluente {self.codigo}")
 
 
 class Medicao:
@@ -37,6 +55,11 @@ class Medicao:
         self.indice = indice
         self.poluente = Poluente(poluente)
         self.medicaoPoluentes = [MedicaoPoluente(**mp) for mp in medicaoPoluentes]
+
+    @property
+    def poluentes(self) -> list[Poluente]:
+        return [mp.poluente for mp in self.medicaoPoluentes
+                if self.get_concentracao_poluente(mp.poluente.codigo)]
 
     def get_IQAR(self) -> float:
         try:
@@ -64,6 +87,13 @@ class Boletim:
     @property
     def estacoes(self) -> list[Estacao]:
         return [m.estacao for m in self.medicoes]
+    
+    @property
+    def poluentes(self) -> list[Poluente]:
+        poluentes = []
+        for m in self.medicoes:
+            poluentes = list(set(poluentes + m.poluentes))
+        return poluentes
 
 
 class HealthcheckMaxRetriesExceededError(Exception):

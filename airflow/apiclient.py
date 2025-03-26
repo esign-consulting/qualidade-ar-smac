@@ -39,6 +39,7 @@ class Poluente:
         self.poluente = poluente
         self.nome = poluente[0 : poluente.find("(") - 1]
         self.codigo = poluente[poluente.find("(") + 1 : poluente.find(")")]
+        self.unidade_concentracao = poluente[poluente.find("[") + 1 : poluente.find("]")]
 
     def __str__(self):
         return self.codigo

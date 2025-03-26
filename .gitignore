@@ -1,7 +1,9 @@
-.classpath
-.project
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
 .settings/
 .vscode/
 env/
 target/
-__pycache__/
+.classpath
+.project

@@ -129,7 +129,7 @@ class MedicoesDiariasTable():
                 data = (datetime.strptime(boletim.data, "%d/%m/%Y").date(),
                         medicao.estacao.codigo,
                         medicao.classificacao,
-                        medicao.get_IQAR(),
+                        medicao.indice,
                         medicao.poluente.codigo,
                         medicao.get_concentracao_poluente("MP10"),
                         medicao.get_concentracao_poluente("MP2,5"),

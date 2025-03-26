@@ -31,4 +31,4 @@ def test_boletim_parse():
         assert [p.codigo for p in medicao.poluentes] == ["O3", "CO"] 
         assert len(medicao.medicaoPoluentes) == 6
         medicao_poluente = next((mp for mp in medicao.medicaoPoluentes if mp.poluente.codigo == "O3"), None)
-        assert medicao_poluente.concentracao =="29"
+        assert medicao_poluente.concentracao == 29

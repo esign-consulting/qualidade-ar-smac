@@ -9,7 +9,10 @@ class MedicaoPoluente:
 
     def __init__(self, poluente, concentracao):
         self.poluente = Poluente(poluente)
-        self.concentracao = concentracao
+        try:
+            self.concentracao = float(concentracao.replace(',', '.'))
+        except ValueError:
+            self.concentracao = None
 
 
 class Estacao:
@@ -52,7 +55,10 @@ class Medicao:
     def __init__(self, estacao, classificacao, indice, poluente, medicaoPoluentes):
         self.estacao = Estacao(**estacao)
         self.classificacao = classificacao
-        self.indice = indice
+        try:
+            self.indice = float(indice.replace(',', '.'))
+        except ValueError:
+            self.indice = None
         self.poluente = Poluente(poluente)
         self.medicaoPoluentes = [MedicaoPoluente(**mp) for mp in medicaoPoluentes]
 
@@ -61,21 +67,10 @@ class Medicao:
         return [mp.poluente for mp in self.medicaoPoluentes
                 if self.get_concentracao_poluente(mp.poluente.codigo)]
 
-    def get_IQAR(self) -> float:
-        try:
-            return float(self.indice.replace(',', '.'))
-        except ValueError:
-            return None
-
     def get_concentracao_poluente(self, codigo_poluente: str) -> float:
-        medicao_poluente = next((mp for mp in self.medicaoPoluentes if codigo_poluente == mp.poluente.codigo), None)
-        if medicao_poluente:
-            try:
-                return float(medicao_poluente.concentracao.replace(',', '.'))
-            except ValueError:
-                return None
-        else:
-            return None
+        medicao_poluente = next((mp for mp in self.medicaoPoluentes
+                                 if codigo_poluente == mp.poluente.codigo), None)
+        return medicao_poluente.concentracao if medicao_poluente else None
 
 
 class Boletim:

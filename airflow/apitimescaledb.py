@@ -15,6 +15,7 @@ class TimescaleDB:
                  dbname="postgres"):
         self.conn = psycopg2.connect(f"postgres://{username}:{password}@{host}:{port}/{dbname}")
         self.estacoes_table = EstacoesTable()
+        self.poluentes_table = PoluentesTable()
         self.medicoes_diarias_table = MedicoesDiariasTable()
 
     def insert_boletim(self, boletim: Boletim):
@@ -22,6 +23,11 @@ class TimescaleDB:
         logging.info("estacoes table OK.")
         self.estacoes_table.upsert_estacoes(self.conn, boletim)
         logging.info("Estacoes loaded into table.")
+
+        self.poluentes_table.create(self.conn)
+        logging.info("poluentes table OK.")
+        self.poluentes_table.upsert_poluentes(self.conn, boletim)
+        logging.info("Poluentes loaded into table.")
 
         self.medicoes_diarias_table.create(self.conn)
         logging.info("medicoes_diarias table OK.")
@@ -72,6 +78,43 @@ class EstacoesTable:
         cursor.close()
 
 
+class PoluentesTable:
+
+    def __init__(self):
+        self.create_command = """
+            CREATE TABLE IF NOT EXISTS poluentes (
+                codigo VARCHAR(10) PRIMARY KEY,
+                nome VARCHAR(50),
+                unidade_concentracao VARCHAR(10)
+            );
+        """
+        self.upsert_command = """
+            INSERT INTO poluentes (codigo, nome, unidade_concentracao)
+            VALUES (%s, %s, %s)
+            ON CONFLICT(codigo)
+            DO UPDATE SET
+                nome = EXCLUDED.nome,
+                unidade_concentracao = EXCLUDED.unidade_concentracao;
+        """
+
+    def create(self, conn: psycopg2.connect):
+        cursor = conn.cursor()
+        cursor.execute(self.create_command)
+        conn.commit()
+        cursor.close()
+
+    def upsert_poluentes(self, conn: psycopg2.connect, boletim: Boletim):
+        cursor = conn.cursor()
+        for poluente in boletim.poluentes:
+            try:
+                data = (poluente.codigo, poluente.nome, poluente.unidade_concentracao)
+                cursor.execute(self.upsert_command, data)
+            except (Exception, psycopg2.Error) as error:
+                logging.error(error.pgerror)
+        conn.commit()
+        cursor.close()
+
+
 class MedicoesDiariasTable():
 
     def __init__(self):
@@ -81,7 +124,7 @@ class MedicoesDiariasTable():
                 codigo_estacao VARCHAR(2),
                 classificacao VARCHAR(20),
                 IQAR DOUBLE PRECISION,
-                poluente VARCHAR(10),
+                codigo_poluente VARCHAR(10),
                 MP10 DOUBLE PRECISION,
                 MP2_5 DOUBLE PRECISION,
                 O3 DOUBLE PRECISION,
@@ -89,18 +132,19 @@ class MedicoesDiariasTable():
                 NO2 DOUBLE PRECISION,
                 SO2 DOUBLE PRECISION,
                 CONSTRAINT medicao_diaria PRIMARY KEY (data, codigo_estacao),
-                FOREIGN KEY (codigo_estacao) REFERENCES estacoes (codigo)
+                FOREIGN KEY (codigo_estacao) REFERENCES estacoes (codigo),
+                FOREIGN KEY (codigo_poluente) REFERENCES poluentes (codigo)
             );
         """
         self.create_hypertable_command = "SELECT create_hypertable('medicoes_diarias', by_range('data'));"
         self.upsert_command = """
-            INSERT INTO medicoes_diarias (data, codigo_estacao, classificacao, IQAR, poluente, MP10, MP2_5, O3, CO, NO2, SO2)
+            INSERT INTO medicoes_diarias (data, codigo_estacao, classificacao, IQAR, codigo_poluente, MP10, MP2_5, O3, CO, NO2, SO2)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT(data, codigo_estacao)
             DO UPDATE SET
                 classificacao = EXCLUDED.classificacao,
                 IQAR = EXCLUDED.IQAR,
-                poluente = EXCLUDED.poluente,
+                codigo_poluente = EXCLUDED.codigo_poluente,
                 MP10 = EXCLUDED.MP10,
                 MP2_5 = EXCLUDED.MP2_5,
                 O3 = EXCLUDED.O3,

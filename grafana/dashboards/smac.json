@@ -458,7 +458,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "rawQuery": true,
-          "rawSql": "SELECT\n  COUNT(*) AS \"value\",\n  md.poluente AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nGROUP BY\n  md.poluente",
+          "rawSql": "SELECT\n  COUNT(*) AS \"value\",\n  md.codigo_poluente AS \"metric\"\nFROM\n  medicoes_diarias AS md\n  JOIN estacoes AS e ON e.codigo = md.codigo_estacao\nWHERE\n  $__timeFilter(md.data)\n  AND md.codigo_estacao IN ($estacao)\n  AND e.orgao = 'SMAC'\nGROUP BY\n  md.codigo_poluente",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [

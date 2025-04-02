@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from apiclient import Boletim, BoletimRequestor
+from apiclient import Boletim, BoletimRequestor, IQArCalculator
 
 import datetime
 import json
@@ -33,3 +33,9 @@ def test_boletim_parse():
         medicao_poluente = next((mp for mp in medicao.medicaoPoluentes if mp.poluente.codigo == "O3"), None)
         assert medicao_poluente.concentracao == 29
         assert medicao_poluente.poluente.unidade_concentracao == "µg/m³"
+
+def test_iqar_calculator():
+    iqar_calculator = IQArCalculator()
+    assert iqar_calculator.calc("MP10", 210) == 168
+    assert iqar_calculator.calc("O3", 135) == 86
+    assert iqar_calculator.calc("NO2", 220) == 60

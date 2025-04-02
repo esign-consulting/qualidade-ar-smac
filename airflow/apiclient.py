@@ -129,3 +129,34 @@ class BoletimRequestor:
         except Exception as exception:
             logging.error(exception)
             return None 
+
+
+
+class IQArCalculator:
+
+    def __init__(self):
+        self.iqarTable = {
+            "qualidadeAr": ["Boa", "Moderada", "Ruim", "Muito Ruim", "Péssima"],
+            "indice": [range(0, 41), range(41, 81), range(81, 121), range(121, 201), range(201, 401)],
+            "MP10": [range(0, 51), range(51, 101), range(101, 151), range(151, 251), range(251, 601)],
+            "MP2,5": [range(0, 26), range(26, 51), range(51, 76), range(76, 126), range(126, 301)],
+            "O3": [range(0, 101), range(101, 131), range(131, 161), range(161, 201), range(201, 801)],
+            "CO": [range(0, 10), range(10, 12), range(12, 14), range(14, 16), range(16, 51)],
+            "NO2": [range(0, 201), range(201, 241), range(241, 321), range(321, 1131), range(1131, 3751)],
+            "SO2": [range(0, 21), range(21, 41), range(41, 366), range(366, 801), range(801, 2621)]
+        }
+
+    def calc(self, codigo, concentracao):
+        if codigo in self.iqarTable and concentracao:
+            for i, r in enumerate(self.iqarTable[codigo]):
+                if int(concentracao) in r:
+                    indiceRange = self.iqarTable["indice"][i]
+                    iIni = indiceRange[0]
+                    iFin = indiceRange[-1]
+                    cIni = r[0]
+                    cFin = r[-1]
+                    return int(iIni + (((iFin - iIni) / (cFin - cIni)) * (concentracao - cIni)))
+        return None
+
+    def calc_from_medicao_poluente(self, medicaoPoluente: MedicaoPoluente):
+        return self.calc(medicaoPoluente.poluente.codigo, medicaoPoluente.concentracao)

@@ -73,6 +73,10 @@ class Medicao:
                                  if codigo_poluente == mp.poluente.codigo), None)
         return medicao_poluente.concentracao if medicao_poluente else None
 
+    def validate(self) -> bool:
+        iqar_calculator = IQArCalculator()
+        return iqar_calculator.calc_from_medicao(self) == (self.poluente.codigo, self.classificacao, self.indice)
+
 
 class Boletim:
 
@@ -90,6 +94,12 @@ class Boletim:
         for m in self.medicoes:
             poluentes = list(set(poluentes + m.poluentes))
         return poluentes
+
+    def validate(self) -> bool:
+        for m in self.medicoes:
+            if not m.validate():
+                return False
+        return True
 
 
 class HealthcheckMaxRetriesExceededError(Exception):
@@ -155,8 +165,19 @@ class IQArCalculator:
                     iFin = indiceRange[-1]
                     cIni = r[0]
                     cFin = r[-1]
-                    return int(iIni + (((iFin - iIni) / (cFin - cIni)) * (concentracao - cIni)))
-        return None
+                    return self.iqarTable["qualidadeAr"][i], round(iIni + (((iFin - iIni) / (cFin - cIni)) * (concentracao - cIni)))
+        return None, None
 
     def calc_from_medicao_poluente(self, medicaoPoluente: MedicaoPoluente):
         return self.calc(medicaoPoluente.poluente.codigo, medicaoPoluente.concentracao)
+
+    def calc_from_medicao(self, medicao: Medicao):
+        calcs = []
+        for mp in medicao.medicaoPoluentes:
+            qualidadeAr, iqar = self.calc_from_medicao_poluente(mp)
+            if qualidadeAr and iqar:
+                calcs.append({"poluente": mp.poluente.codigo,
+                              "qualidadeAr": qualidadeAr,
+                              "iqar": iqar})
+        calc = max(calcs, key=lambda calc: calc["iqar"])
+        return calc["poluente"], calc["qualidadeAr"], calc["iqar"]

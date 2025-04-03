@@ -6,6 +6,13 @@ import requests
 import time
 
 
+class CustomEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Poluente):
+            return obj.poluente
+        return vars(obj)
+
+
 class MedicaoPoluente:
 
     def __init__(self, poluente, concentracao):
@@ -16,7 +23,7 @@ class MedicaoPoluente:
             self.concentracao = None
 
     def __str__(self):
-        return json.dumps(vars(self), default=str, ensure_ascii=False)
+        return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
 
 
 class Estacao:
@@ -83,7 +90,7 @@ class Medicao:
         return iqar_calculator.calc_from_medicao(self) == (self.poluente.codigo, self.classificacao, self.indice)
 
     def __str__(self):
-        return json.dumps(vars(self), default=str, ensure_ascii=False)
+        return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
 
 
 class Boletim:
@@ -110,7 +117,7 @@ class Boletim:
         return True
 
     def __str__(self):
-        return json.dumps(vars(self), default=str, ensure_ascii=False)
+        return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
 
 
 class HealthcheckMaxRetriesExceededError(Exception):

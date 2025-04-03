@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import json
 import logging
 import requests
 import time
@@ -14,6 +15,9 @@ class MedicaoPoluente:
         except ValueError:
             self.concentracao = None
 
+    def __str__(self):
+        return json.dumps(vars(self), default=str, ensure_ascii=False)
+
 
 class Estacao:
 
@@ -24,13 +28,13 @@ class Estacao:
         self.longitude = longitude
 
     def __str__(self):
-        return self.codigo
+        return json.dumps(vars(self), ensure_ascii=False)
 
     def __eq__(self, other):
-        return isinstance(other, Estacao) and self.codigo == other.codigo
+        return isinstance(other, Estacao) and vars(self) == vars(other)
 
     def __hash__(self):
-        return hash(f"Estacao {self.codigo}")
+        return hash({"estacao": vars(self)})
 
 
 class Poluente:
@@ -39,10 +43,11 @@ class Poluente:
         self.poluente = poluente
         self.nome = poluente[0 : poluente.find("(") - 1]
         self.codigo = poluente[poluente.find("(") + 1 : poluente.find(")")]
-        self.unidade_concentracao = poluente[poluente.find("[") + 1 : poluente.find("]")]
+        if "[" in poluente and "]" in poluente:
+            self.unidade_concentracao = poluente[poluente.find("[") + 1 : poluente.find("]")]
 
     def __str__(self):
-        return self.codigo
+        return self.poluente
 
     def __eq__(self, other):
         return isinstance(other, Poluente) and self.codigo == other.codigo
@@ -73,9 +78,12 @@ class Medicao:
                                  if codigo_poluente == mp.poluente.codigo), None)
         return medicao_poluente.concentracao if medicao_poluente else None
 
-    def validate(self) -> bool:
+    def is_valid(self) -> bool:
         iqar_calculator = IQArCalculator()
         return iqar_calculator.calc_from_medicao(self) == (self.poluente.codigo, self.classificacao, self.indice)
+
+    def __str__(self):
+        return json.dumps(vars(self), default=str, ensure_ascii=False)
 
 
 class Boletim:
@@ -95,11 +103,14 @@ class Boletim:
             poluentes = list(set(poluentes + m.poluentes))
         return poluentes
 
-    def validate(self) -> bool:
+    def is_valid(self) -> bool:
         for m in self.medicoes:
-            if not m.validate():
+            if not m.is_valid():
                 return False
         return True
+
+    def __str__(self):
+        return json.dumps(vars(self), default=str, ensure_ascii=False)
 
 
 class HealthcheckMaxRetriesExceededError(Exception):

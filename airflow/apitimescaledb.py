@@ -1,4 +1,4 @@
-from apiclient import Boletim, Estacao, Poluente, Medicao
+from apiclient import Boletim, Estacao, Poluente, MedicaoPoluente, Medicao
 from datetime import datetime, date
 from psycopg2 import extras
 
@@ -36,7 +36,7 @@ class TimescaleDB:
 
     def get_boletim(self, data: date) -> Boletim:
         medicoes = self.medicoes_diarias_table.get_medicoes(self.conn, data)
-        return Boletim(data, medicoes)
+        return Boletim(data.strftime("%d/%m/%Y"), medicoes)
 
     def get_last_boletim_data(self) -> date:
         return self.medicoes_diarias_table.get_max_data(self.conn)
@@ -257,7 +257,7 @@ class MedicoesDiariasTable():
             for col in [("MP10", "mp10"), ("MP2,5", "mp2_5"), ("O3", "o3"), ("CO", "co"), ("NO2", "no2"), ("SO2", "so2")]:
                 poluente = next((p for p in poluentes if p.codigo == col[0]), None)
                 if poluente and row[col[1]]:
-                    medicaoPoluente = {"poluente": poluente.poluente, "concentracao": str(row[col[1]])}
+                    medicaoPoluente = MedicaoPoluente(poluente.poluente, str(row[col[1]]))
                     medicaoPoluentes.append(medicaoPoluente)
 
             estacao = next((e for e in estacoes if e.codigo == row["codigo_estacao"]), None)

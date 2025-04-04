@@ -82,7 +82,14 @@ class Medicao:
         except ValueError:
             self.indice = None
         self.poluente = Poluente(poluente)
-        self.medicaoPoluentes = [MedicaoPoluente(**mp) for mp in medicaoPoluentes]
+        self.medicaoPoluentes = []
+        for mp in medicaoPoluentes:
+            if isinstance(mp, dict):
+                self.medicaoPoluentes.append(MedicaoPoluente(**mp))
+            elif isinstance(mp, MedicaoPoluente):
+                self.medicaoPoluentes.append(mp)
+            else:
+                raise TypeError(f"Invalid type {type(mp)} for MedicaoPoluente.")
 
     @property
     def poluentes(self) -> list[Poluente]:

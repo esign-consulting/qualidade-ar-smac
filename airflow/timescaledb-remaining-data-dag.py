@@ -25,7 +25,7 @@ with DAG(dag_id="smac_etl", start_date=days_ago(1), schedule="0 0 * * *") as dag
             if boletim and boletim.data == d_string:
                 timescaleDB.insert_boletim(boletim)
                 logging.info(f"Data from {boletim.data} stored.")
-            next_date = next_date + datetime.timedelta(1)
+            next_date += datetime.timedelta(1)
 
         logging.info("Done.")
 

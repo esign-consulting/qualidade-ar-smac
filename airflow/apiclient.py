@@ -134,7 +134,13 @@ class Medicao:
 
     def is_valid(self) -> bool:
         iqar_calculator = IQArCalculator()
-        return iqar_calculator.calc_from_medicao(self) == (self.poluente.codigo, self.classificacao, self.indice)
+        calculated = iqar_calculator.calc_from_medicao(self)
+        expected = (self.poluente.codigo, self.classificacao, self.indice)
+        if calculated != expected:
+            logging.warning(f"Calculated: {calculated}")
+            logging.warning(f"Expected: {expected}")
+            print(self)
+        return calculated == expected
 
     def __str__(self):
         return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
@@ -224,7 +230,7 @@ class IQArCalculator:
 
     def __init__(self):
         self.iqarTable = {
-            "qualidadeAr": ["Boa", "Moderada", "Ruim", "Muito Ruim", "Péssima"],
+            "qualidadeAr": ["Boa", "Moderada", "Ruim", "Muito ruim", "Péssima"],
             "indice": [range(0, 41), range(41, 81), range(81, 121), range(121, 201), range(201, 401)],
             "MP10": [range(0, 51), range(51, 101), range(101, 151), range(151, 251), range(251, 601)],
             "MP2,5": [range(0, 26), range(26, 51), range(51, 76), range(76, 126), range(126, 301)],

@@ -22,6 +22,6 @@ while next_date <= today:
     if boletim and boletim.data == d_string:
         timescaleDB.insert_boletim(boletim)
         logging.info(f"Data from {boletim.data} stored.")
-    next_date = next_date + datetime.timedelta(1)
+    next_date += datetime.timedelta(1)
 
 logging.info("Done.")

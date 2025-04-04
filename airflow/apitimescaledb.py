@@ -38,6 +38,9 @@ class TimescaleDB:
         medicoes = self.medicoes_diarias_table.get_medicoes(self.conn, data)
         return Boletim(data.strftime("%d/%m/%Y"), medicoes)
 
+    def get_first_boletim_data(self) -> date:
+        return self.medicoes_diarias_table.get_min_data(self.conn)
+
     def get_last_boletim_data(self) -> date:
         return self.medicoes_diarias_table.get_max_data(self.conn)
 
@@ -234,6 +237,13 @@ class MedicoesDiariasTable():
                 logging.error(error.pgerror)
         conn.commit()
         cursor.close()
+
+    def get_min_data(self, conn: psycopg2.connect) -> date:
+        cursor = conn.cursor(cursor_factory=extras.DictCursor)
+        cursor.execute("SELECT min(data) AS min_data FROM medicoes_diarias")
+        rows = cursor.fetchall()
+        cursor.close()
+        return rows[0]["min_data"] if len(rows) == 1 else None
 
     def get_max_data(self, conn: psycopg2.connect) -> date:
         cursor = conn.cursor(cursor_factory=extras.DictCursor)

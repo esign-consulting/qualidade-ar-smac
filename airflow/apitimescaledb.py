@@ -257,12 +257,12 @@ class MedicoesDiariasTable():
             for col in [("MP10", "mp10"), ("MP2,5", "mp2_5"), ("O3", "o3"), ("CO", "co"), ("NO2", "no2"), ("SO2", "so2")]:
                 poluente = next((p for p in poluentes if p.codigo == col[0]), None)
                 if poluente and row[col[1]]:
-                    medicaoPoluente = MedicaoPoluente(poluente.poluente, str(row[col[1]]))
+                    medicaoPoluente = MedicaoPoluente(poluente, row[col[1]])
                     medicaoPoluentes.append(medicaoPoluente)
 
             estacao = next((e for e in estacoes if e.codigo == row["codigo_estacao"]), None)
             poluente = next((p for p in poluentes if p.codigo == row["codigo_poluente"]), None)
             if estacao and poluente:
-                medicao = Medicao(vars(estacao), row["classificacao"], str(row["iqar"]), poluente.poluente, medicaoPoluentes)
+                medicao = Medicao(estacao, row["classificacao"], row["iqar"], poluente, medicaoPoluentes)
                 medicoes.append(medicao)
         return medicoes

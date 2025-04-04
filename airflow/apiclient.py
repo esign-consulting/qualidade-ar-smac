@@ -16,11 +16,23 @@ class CustomEncoder(json.JSONEncoder):
 class MedicaoPoluente:
 
     def __init__(self, poluente, concentracao):
-        self.poluente = Poluente(poluente)
-        try:
-            self.concentracao = float(concentracao.replace(',', '.'))
-        except ValueError:
-            self.concentracao = None
+        if isinstance(poluente, str):
+            self.poluente = Poluente(poluente)
+        elif isinstance(poluente, Poluente):
+            self.poluente = poluente
+        else:
+            raise TypeError(f"Invalid type {type(poluente)} for Poluente.")
+
+        if isinstance(concentracao, str):
+            try:
+                self.concentracao = float(concentracao.replace(',', '.'))
+            except ValueError:
+                self.concentracao = None
+        elif isinstance(concentracao, (int, float)):
+            self.concentracao = concentracao
+        else:
+            raise TypeError(f"Invalid type {type(concentracao)} for concentracao.")
+        
 
     def __str__(self):
         return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
@@ -75,13 +87,32 @@ class Poluente:
 class Medicao:
 
     def __init__(self, estacao, classificacao, indice, poluente, medicaoPoluentes):
-        self.estacao = Estacao(**estacao)
+        if isinstance(estacao, dict):
+            self.estacao = Estacao(**estacao)
+        elif isinstance(estacao, Estacao):
+            self.estacao = estacao
+        else:
+            raise TypeError(f"Invalid type {type(estacao)} for Estacao.")
+        
         self.classificacao = classificacao
-        try:
-            self.indice = float(indice.replace(',', '.'))
-        except ValueError:
-            self.indice = None
-        self.poluente = Poluente(poluente)
+
+        if isinstance(indice, str):
+            try:
+                self.indice = float(indice.replace(',', '.'))
+            except ValueError:
+                self.indice = None
+        elif isinstance(indice, (int, float)):
+            self.indice = indice
+        else:
+            raise TypeError(f"Invalid type {type(indice)} for indice.")
+
+        if isinstance(poluente, str):
+            self.poluente = Poluente(poluente)
+        elif isinstance(poluente, Poluente):
+            self.poluente = poluente
+        else:
+            raise TypeError(f"Invalid type {type(poluente)} for Poluente.")
+
         self.medicaoPoluentes = []
         for mp in medicaoPoluentes:
             if isinstance(mp, dict):

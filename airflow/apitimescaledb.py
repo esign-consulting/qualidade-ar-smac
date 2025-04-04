@@ -1,4 +1,4 @@
-from apiclient import Boletim
+from apiclient import Boletim, Estacao, Poluente, Medicao
 from datetime import datetime, date
 from psycopg2 import extras
 
@@ -34,8 +34,16 @@ class TimescaleDB:
         self.medicoes_diarias_table.upsert_medicoes(self.conn, boletim)
         logging.info("Medicoes loaded into table.")
 
+    def get_boletim(self, data: date) -> Boletim:
+        medicoes = self.medicoes_diarias_table.get_medicoes(self.conn, data)
+        return Boletim(data, medicoes)
+
     def get_last_boletim_data(self) -> date:
         return self.medicoes_diarias_table.get_max_data(self.conn)
+
+    def get_last_boletim(self) -> Boletim:
+        data = self.get_last_boletim_data()
+        return self.get_boletim(data)
 
 
 class EstacoesTable:
@@ -59,6 +67,12 @@ class EstacoesTable:
                 nome = EXCLUDED.nome,
                 coordenadas = EXCLUDED.coordenadas;
         """
+        self.select_command = """
+            SELECT codigo, nome, estado, cidade, orgao,
+                ST_Y(coordenadas :: geometry) AS "latitude",
+                ST_X(coordenadas :: geometry) AS "longitude"
+            FROM estacoes;
+        """
 
     def create(self, conn: psycopg2.connect):
         cursor = conn.cursor()
@@ -76,6 +90,18 @@ class EstacoesTable:
                 logging.error(error.pgerror)
         conn.commit()
         cursor.close()
+
+    def get_estacoes(self, conn: psycopg2.connect) -> list[Estacao]:
+        cursor = conn.cursor(cursor_factory=extras.DictCursor)
+        cursor.execute(self.select_command)
+        rows = cursor.fetchall()
+        cursor.close()
+
+        estacoes = []
+        for row in rows:
+            estacao = Estacao(row["nome"], row["codigo"], row["latitude"], row["longitude"])
+            estacoes.append(estacao)
+        return estacoes
 
 
 class PoluentesTable:
@@ -96,6 +122,10 @@ class PoluentesTable:
                 nome = EXCLUDED.nome,
                 unidade_concentracao = EXCLUDED.unidade_concentracao;
         """
+        self.select_command = """
+            SELECT nome || ' (' || codigo || ') [' || unidade_concentracao || ']' AS "poluente"
+            FROM poluentes;
+        """
 
     def create(self, conn: psycopg2.connect):
         cursor = conn.cursor()
@@ -113,6 +143,18 @@ class PoluentesTable:
                 logging.error(error.pgerror)
         conn.commit()
         cursor.close()
+
+    def get_poluentes(self, conn: psycopg2.connect) -> list[Poluente]:
+        cursor = conn.cursor(cursor_factory=extras.DictCursor)
+        cursor.execute(self.select_command)
+        rows = cursor.fetchall()
+        cursor.close()
+
+        poluentes = []
+        for row in rows:
+            poluente = Poluente(row["poluente"])
+            poluentes.append(poluente)
+        return poluentes
 
 
 class MedicoesDiariasTable():
@@ -151,6 +193,12 @@ class MedicoesDiariasTable():
                 CO = EXCLUDED.CO,
                 NO2 = EXCLUDED.NO2,
                 SO2 = EXCLUDED.SO2;
+        """
+        self.select_command = """
+            SELECT data, codigo_estacao, classificacao, IQAR, codigo_poluente,
+                MP10, MP2_5, O3, CO, NO2, SO2
+            FROM medicoes_diarias
+            WHERE data = %s;
         """
 
     def create(self, conn: psycopg2.connect):
@@ -193,3 +241,28 @@ class MedicoesDiariasTable():
         rows = cursor.fetchall()
         cursor.close()
         return rows[0]["max_data"] if len(rows) == 1 else None
+
+    def get_medicoes(self, conn: psycopg2.connect, data: date) -> list[Medicao]:
+        cursor = conn.cursor(cursor_factory=extras.DictCursor)
+        cursor.execute(self.select_command, (data,))
+        rows = cursor.fetchall()
+        cursor.close()
+
+        estacoes = EstacoesTable().get_estacoes(conn)
+        poluentes = PoluentesTable().get_poluentes(conn)
+
+        medicoes = []
+        for row in rows:
+            medicaoPoluentes = []
+            for col in [("MP10", "mp10"), ("MP2,5", "mp2_5"), ("O3", "o3"), ("CO", "co"), ("NO2", "no2"), ("SO2", "so2")]:
+                poluente = next((p for p in poluentes if p.codigo == col[0]), None)
+                if poluente and row[col[1]]:
+                    medicaoPoluente = {"poluente": poluente.poluente, "concentracao": str(row[col[1]])}
+                    medicaoPoluentes.append(medicaoPoluente)
+
+            estacao = next((e for e in estacoes if e.codigo == row["codigo_estacao"]), None)
+            poluente = next((p for p in poluentes if p.codigo == row["codigo_poluente"]), None)
+            if estacao and poluente:
+                medicao = Medicao(vars(estacao), row["classificacao"], str(row["iqar"]), poluente.poluente, medicaoPoluentes)
+                medicoes.append(medicao)
+        return medicoes

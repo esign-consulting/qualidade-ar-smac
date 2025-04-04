@@ -25,6 +25,9 @@ class MedicaoPoluente:
     def __str__(self):
         return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
 
+    def __repr__(self):
+        return str(self)
+
 
 class Estacao:
 
@@ -36,6 +39,9 @@ class Estacao:
 
     def __str__(self):
         return json.dumps(vars(self), ensure_ascii=False)
+
+    def __repr__(self):
+        return str(self)
 
     def __eq__(self, other):
         return isinstance(other, Estacao) and vars(self) == vars(other)
@@ -55,6 +61,9 @@ class Poluente:
 
     def __str__(self):
         return self.poluente
+
+    def __repr__(self):
+        return str(self)
 
     def __eq__(self, other):
         return isinstance(other, Poluente) and self.codigo == other.codigo
@@ -92,12 +101,22 @@ class Medicao:
     def __str__(self):
         return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
 
+    def __repr__(self):
+        return str(self)
+
 
 class Boletim:
 
     def __init__(self, data, medicoes):
         self.data = data
-        self.medicoes = [Medicao(**m) for m in medicoes]
+        self.medicoes = []
+        for m in medicoes:
+            if isinstance(m, dict):
+                self.medicoes.append(Medicao(**m))
+            elif isinstance(m, Medicao):
+                self.medicoes.append(m)
+            else:
+                raise TypeError(f"Invalid type {type(m)} for Medicao.")
 
     @property
     def estacoes(self) -> list[Estacao]:
@@ -118,6 +137,9 @@ class Boletim:
 
     def __str__(self):
         return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
+
+    def __repr__(self):
+        return str(self)
 
 
 class HealthcheckMaxRetriesExceededError(Exception):

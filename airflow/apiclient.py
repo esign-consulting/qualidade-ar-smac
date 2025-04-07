@@ -240,16 +240,28 @@ class IQArCalculator:
             "SO2": [range(0, 21), range(21, 41), range(41, 366), range(366, 801), range(801, 2621)]
         }
 
+    def custom_round(self, value):
+        if value % 1 < 0.5:
+            return int(value)
+        elif value % 1 > 0.5:
+            return int(value) + 1
+        elif value % 1 == 0.5:
+            if int(value) % 2 == 0:
+                return int(value)
+            else:
+                return int(value) + 1
+
     def calc(self, codigo, concentracao):
         if codigo in self.iqarTable and concentracao:
+            rounded_concentracao = self.custom_round(concentracao)
             for i, r in enumerate(self.iqarTable[codigo]):
-                if int(concentracao) in r:
+                if rounded_concentracao in r:
                     indiceRange = self.iqarTable["indice"][i]
                     iIni = indiceRange[0]
                     iFin = indiceRange[-1]
                     cIni = r[0]
                     cFin = r[-1]
-                    return self.iqarTable["qualidadeAr"][i], round(iIni + (((iFin - iIni) / (cFin - cIni)) * (concentracao - cIni)))
+                    return self.iqarTable["qualidadeAr"][i], self.custom_round(iIni + (((iFin - iIni) / (cFin - cIni)) * (rounded_concentracao - cIni)))
         return None, None
 
     def calc_from_medicao_poluente(self, medicaoPoluente: MedicaoPoluente):

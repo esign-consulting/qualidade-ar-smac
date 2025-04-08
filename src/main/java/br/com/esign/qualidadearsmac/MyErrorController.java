@@ -3,13 +3,14 @@ package br.com.esign.qualidadearsmac;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class MyErrorController implements ErrorController  {
 
-    @RequestMapping("/error")
+    @RequestMapping(path = "/error", method = RequestMethod.GET)
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         if (status != null) {

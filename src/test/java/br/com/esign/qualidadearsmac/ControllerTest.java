@@ -2,6 +2,7 @@ package br.com.esign.qualidadearsmac;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.HashMap;
 
 import org.assertj.core.util.Streams;
 import org.json.JSONException;
@@ -15,9 +16,12 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -44,6 +48,24 @@ public class ControllerTest {
         String url = String.format("http://localhost:%s/smac/boletim?data=26/12/2024", port);
         String actual = restTemplate.getForObject(url, String.class);
         JSONAssert.assertEquals(expected, actual, false);
+	}
+
+    @Test
+    public void invalidDataBoletimTest() throws IOException, JSONException {
+        String url = String.format("http://localhost:%s/smac/boletim?data=01/13/2016", port);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        HashMap<String, String> responseJsonFields = new ObjectMapper().readValue(response.getBody(), new TypeReference<HashMap<String, String>>() {});
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(responseJsonFields.get("message")).isEqualTo("Data inválida. O formato da data deve ser DD/MM/AAAA.");
+	}
+
+    @Test
+    public void boletimNaoEncontradoTest() throws IOException, JSONException {
+        String url = String.format("http://localhost:%s/smac/boletim?data=01/08/2016", port);
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        HashMap<String, String> responseJsonFields = new ObjectMapper().readValue(response.getBody(), new TypeReference<HashMap<String, String>>() {});
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        assertThat(responseJsonFields.get("message")).isEqualTo("Boletim não encontrado. A data do boletim deve ser posterior a 01/08/2016.");
 	}
 
     @Test

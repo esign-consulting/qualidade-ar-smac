@@ -152,7 +152,7 @@ class Medicao:
 class Boletim:
 
     def __init__(self, data, medicoes):
-        self.data = data
+        self.data = data.split(" ")[0]
         self.medicoes = []
         for m in medicoes:
             if isinstance(m, dict):
@@ -218,6 +218,7 @@ class BoletimRequestor:
     def request(self, data = datetime.today().strftime("%d/%m/%Y")) -> Boletim:
         try:
             self.healthcheck()
+            logging.info(f"Requesting data for {data}...")
             r = requests.get(f"{self.url}/boletim?data={data}")
             return Boletim(**r.json()) if r.status_code == 200 else None
         except Exception as exception:
@@ -271,7 +272,7 @@ class IQArCalculator:
         calcs = []
         for mp in medicao.medicaoPoluentes:
             qualidadeAr, iqar = self.calc_from_medicao_poluente(mp)
-            if qualidadeAr and iqar:
+            if qualidadeAr and iqar is not None:
                 calcs.append({"poluente": mp.poluente.codigo,
                               "qualidadeAr": qualidadeAr,
                               "iqar": iqar})

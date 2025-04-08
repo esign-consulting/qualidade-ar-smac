@@ -21,6 +21,7 @@ is_invalid_count = 0
 while boletim_date <= last_boletim_date:
     boletim = timescaleDB.get_boletim(boletim_date)
     if boletim:
+        logging.info(f"Checking boletim {boletim.data}...")
         if boletim.is_valid():
             is_valid_count += 1
             logging.info(f"Boletim {boletim.data} is valid.")

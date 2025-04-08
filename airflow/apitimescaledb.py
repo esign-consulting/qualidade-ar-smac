@@ -86,11 +86,12 @@ class EstacoesTable:
     def upsert_estacoes(self, conn: psycopg2.connect, boletim: Boletim):
         cursor = conn.cursor()
         for estacao in boletim.estacoes:
-            try:
-                data = (estacao.codigo, estacao.nome, estacao.longitude, estacao.latitude)
-                cursor.execute(self.upsert_command, data)
-            except (Exception, psycopg2.Error) as error:
-                logging.error(error.pgerror)
+            if estacao.codigo:
+                try:
+                    data = (estacao.codigo, estacao.nome, estacao.longitude, estacao.latitude)
+                    cursor.execute(self.upsert_command, data)
+                except (Exception, psycopg2.Error) as error:
+                    logging.error(error.pgerror)
         conn.commit()
         cursor.close()
 
@@ -168,7 +169,7 @@ class MedicoesDiariasTable():
                 data DATE NOT NULL,
                 codigo_estacao VARCHAR(2),
                 classificacao VARCHAR(20),
-                IQAR DOUBLE PRECISION,
+                IQAR INTEGER,
                 codigo_poluente VARCHAR(10),
                 MP10 DOUBLE PRECISION,
                 MP2_5 DOUBLE PRECISION,
@@ -220,21 +221,22 @@ class MedicoesDiariasTable():
     def upsert_medicoes(self, conn: psycopg2.connect, boletim: Boletim):
         cursor = conn.cursor()
         for medicao in boletim.medicoes:
-            try:
-                data = (datetime.strptime(boletim.data, "%d/%m/%Y").date(),
-                        medicao.estacao.codigo,
-                        medicao.classificacao,
-                        medicao.indice,
-                        medicao.poluente.codigo,
-                        medicao.get_concentracao_poluente("MP10"),
-                        medicao.get_concentracao_poluente("MP2,5"),
-                        medicao.get_concentracao_poluente("O3"),
-                        medicao.get_concentracao_poluente("CO"),
-                        medicao.get_concentracao_poluente("NO2"),
-                        medicao.get_concentracao_poluente("SO2"))
-                cursor.execute(self.upsert_command, data)
-            except (Exception, psycopg2.Error) as error:
-                logging.error(error.pgerror)
+            if medicao.estacao.codigo:
+                try:
+                    data = (datetime.strptime(boletim.data, "%d/%m/%Y").date(),
+                            medicao.estacao.codigo,
+                            medicao.classificacao,
+                            medicao.indice,
+                            medicao.poluente.codigo,
+                            medicao.get_concentracao_poluente("MP10"),
+                            medicao.get_concentracao_poluente("MP2,5"),
+                            medicao.get_concentracao_poluente("O3"),
+                            medicao.get_concentracao_poluente("CO"),
+                            medicao.get_concentracao_poluente("NO2"),
+                            medicao.get_concentracao_poluente("SO2"))
+                    cursor.execute(self.upsert_command, data)
+                except (Exception, psycopg2.Error) as error:
+                    logging.error(error.pgerror)
         conn.commit()
         cursor.close()
 

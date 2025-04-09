@@ -22,7 +22,7 @@ def test_boletim_parse():
     with open('src/test/resources/boletim.json') as f:
         boletim = Boletim(**json.load(f))
 
-        assert boletim.data == "26/12/2024"
+        assert boletim.data.strftime("%d/%m/%Y") == "26/12/2024"
         assert len(boletim.estacoes) == 7
         assert len(boletim.poluentes) == 6
         medicao = next((m for m in boletim.medicoes if m.estacao.nome == "Centro"), None)

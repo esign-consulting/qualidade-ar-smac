@@ -1,5 +1,4 @@
-from datetime import datetime
-
+import datetime
 import json
 import logging
 import requests
@@ -10,6 +9,8 @@ class CustomEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Poluente):
             return obj.poluente
+        elif isinstance(obj, datetime.date):
+            return obj.strftime("%d/%m/%Y")
         return vars(obj)
 
 
@@ -132,9 +133,9 @@ class Medicao:
                                  if codigo_poluente == mp.poluente.codigo), None)
         return medicao_poluente.concentracao if medicao_poluente else None
 
-    def is_valid(self) -> bool:
+    def is_valid(self, data: datetime.date) -> bool:
         iqar_calculator = IQArCalculator()
-        calculated = iqar_calculator.calc_from_medicao(self)
+        calculated = iqar_calculator.calc_from_medicao(data, self)
         expected = (self.poluente.codigo, self.classificacao, self.indice)
         if calculated != expected:
             logging.warning(f"Calculated: {calculated}")
@@ -152,7 +153,15 @@ class Medicao:
 class Boletim:
 
     def __init__(self, data, medicoes):
-        self.data = data.split(" ")[0]
+        if isinstance(data, str):
+            try:
+                self.data = datetime.datetime.strptime(data.split(" ")[0], "%d/%m/%Y").date()
+            except ValueError:
+                raise ValueError(f"Invalid date format: {data}")
+        elif isinstance(data, datetime.date):
+            self.data = data
+        else:
+            raise TypeError(f"Invalid type {type(data)} for data.")
         self.medicoes = []
         for m in medicoes:
             if isinstance(m, dict):
@@ -175,7 +184,7 @@ class Boletim:
 
     def is_valid(self) -> bool:
         for m in self.medicoes:
-            if not m.is_valid():
+            if not m.is_valid(self.data):
                 return False
         return True
 
@@ -215,7 +224,7 @@ class BoletimRequestor:
             time.sleep(self.healthcheck_retry_delay)
             i += 1
 
-    def request(self, data = datetime.today().strftime("%d/%m/%Y")) -> Boletim:
+    def request(self, data = datetime.date.today().strftime("%d/%m/%Y")) -> Boletim:
         try:
             self.healthcheck()
             logging.info(f"Requesting data for {data}...")
@@ -230,7 +239,16 @@ class BoletimRequestor:
 class IQArCalculator:
 
     def __init__(self):
-        self.iqarTable = {
+        self.old_iqar_table = {
+            "qualidadeAr": ["Boa", "Regular", "Inadequada", "Má", "Péssima"],
+            "indice": [range(0, 51), range(51, 101), range(101, 200), range(200, 300), range(300, 401)],
+            "MP10": [range(0, 51), range(51, 151), range(151, 251), range(251, 421), range(421, 501)],
+            "O3": [range(0, 81), range(81, 161), range(161, 201), range(201, 801), range(801, 1001)],
+            "CO": [[n / 10 for n in range(0, 41)], [n / 10 for n in range(41, 91)], [n / 10 for n in range(91, 151)], [n / 10 for n in range(151, 301)], [n / 10 for n in range(301, 401)]],
+            "NO2": [range(0, 101), range(101, 321), range(321, 1131), range(1131, 2261), range(2261, 3001)],
+            "SO2": [range(0, 81), range(81, 366), range(366, 801), range(801, 1601), range(1601, 2101)]
+        }
+        self.iqar_table = {
             "qualidadeAr": ["Boa", "Moderada", "Ruim", "Muito ruim", "Péssima"],
             "indice": [range(0, 41), range(41, 81), range(81, 121), range(121, 201), range(201, 401)],
             "MP10": [range(0, 51), range(51, 101), range(101, 151), range(151, 251), range(251, 601)],
@@ -252,26 +270,28 @@ class IQArCalculator:
             else:
                 return int(value) + 1
 
-    def calc(self, codigo, concentracao):
-        if codigo in self.iqarTable and concentracao:
+    def calc(self, data: datetime.date, codigo: str, concentracao: float) -> tuple[str, float]:
+        iqar_table_date = datetime.datetime.strptime("19/11/2019", "%d/%m/%Y").date()
+        table = self.iqar_table if data >= iqar_table_date else self.old_iqar_table
+        if codigo in table and concentracao:
             rounded_concentracao = self.custom_round(concentracao)
-            for i, r in enumerate(self.iqarTable[codigo]):
+            for i, r in enumerate(table[codigo]):
                 if rounded_concentracao in r:
-                    indiceRange = self.iqarTable["indice"][i]
+                    indiceRange = table["indice"][i]
                     iIni = indiceRange[0]
                     iFin = indiceRange[-1]
                     cIni = r[0]
                     cFin = r[-1]
-                    return self.iqarTable["qualidadeAr"][i], self.custom_round(iIni + (((iFin - iIni) / (cFin - cIni)) * (rounded_concentracao - cIni)))
+                    return table["qualidadeAr"][i], self.custom_round(iIni + (((iFin - iIni) / (cFin - cIni)) * (rounded_concentracao - cIni)))
         return None, None
 
-    def calc_from_medicao_poluente(self, medicaoPoluente: MedicaoPoluente):
-        return self.calc(medicaoPoluente.poluente.codigo, medicaoPoluente.concentracao)
+    def calc_from_medicao_poluente(self, data: datetime.date, medicaoPoluente: MedicaoPoluente) -> tuple[str, float]:
+        return self.calc(data, medicaoPoluente.poluente.codigo, medicaoPoluente.concentracao)
 
-    def calc_from_medicao(self, medicao: Medicao):
+    def calc_from_medicao(self, data: datetime.date, medicao: Medicao) -> tuple[str, str, float]:
         calcs = []
         for mp in medicao.medicaoPoluentes:
-            qualidadeAr, iqar = self.calc_from_medicao_poluente(mp)
+            qualidadeAr, iqar = self.calc_from_medicao_poluente(data, mp)
             if qualidadeAr and iqar is not None:
                 calcs.append({"poluente": mp.poluente.codigo,
                               "qualidadeAr": qualidadeAr,

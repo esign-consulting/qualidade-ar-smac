@@ -1,5 +1,5 @@
 from apiclient import Boletim, Estacao, Poluente, MedicaoPoluente, Medicao
-from datetime import datetime, date
+from datetime import date
 from psycopg2 import extras
 
 import logging
@@ -36,7 +36,7 @@ class TimescaleDB:
 
     def get_boletim(self, data: date) -> Boletim:
         medicoes = self.medicoes_diarias_table.get_medicoes(self.conn, data)
-        return Boletim(data.strftime("%d/%m/%Y"), medicoes)
+        return Boletim(data, medicoes)
 
     def get_first_boletim_data(self) -> date:
         return self.medicoes_diarias_table.get_min_data(self.conn)
@@ -223,7 +223,7 @@ class MedicoesDiariasTable():
         for medicao in boletim.medicoes:
             if medicao.estacao.codigo:
                 try:
-                    data = (datetime.strptime(boletim.data, "%d/%m/%Y").date(),
+                    data = (boletim.data,
                             medicao.estacao.codigo,
                             medicao.classificacao,
                             medicao.indice,

@@ -224,11 +224,12 @@ class BoletimRequestor:
             time.sleep(self.healthcheck_retry_delay)
             i += 1
 
-    def request(self, data = datetime.date.today().strftime("%d/%m/%Y")) -> Boletim:
+    def request(self, data: datetime.date = datetime.date.today()) -> Boletim:
         try:
             self.healthcheck()
-            logging.info(f"Requesting data for {data}...")
-            r = requests.get(f"{self.url}/boletim?data={data}")
+            d_string = data.strftime("%d/%m/%Y")
+            logging.info(f"Requesting data for {d_string}...")
+            r = requests.get(f"{self.url}/boletim?data={d_string}")
             return Boletim(**r.json()) if r.status_code == 200 else None
         except Exception as exception:
             logging.error(exception)

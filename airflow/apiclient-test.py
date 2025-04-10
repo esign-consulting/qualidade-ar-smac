@@ -8,10 +8,7 @@ import json
 
 def test_api_request():
     requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
-
-    today = datetime.date.today()
-    d_string = today.strftime("%d/%m/%Y")
-    boletim = requestor.request(d_string)
+    boletim = requestor.request()
 
     assert boletim
     assert len(boletim.estacoes) > 0

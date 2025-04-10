@@ -18,10 +18,8 @@ today = datetime.date.today()
 for x in reversed(range(int(sys.argv[1]) if len(sys.argv) == 2 else 30)):
     days = datetime.timedelta(x)
     past_date = today - days
-    d_string = past_date.strftime("%d/%m/%Y")
-
-    boletim = requestor.request(d_string)
-    if boletim and boletim.data == d_string:
+    boletim = requestor.request(past_date)
+    if boletim and boletim.data == past_date:
         timescaleDB.insert_boletim(boletim)
         logging.info(f"Data from {boletim.data} stored.")
 

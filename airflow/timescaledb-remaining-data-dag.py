@@ -20,9 +20,8 @@ with DAG(dag_id="smac_etl", start_date=days_ago(1), schedule="0 0 * * *") as dag
         next_date = last_date + datetime.timedelta(1)
         today = datetime.date.today()
         while next_date <= today:
-            d_string = next_date.strftime("%d/%m/%Y")
-            boletim = requestor.request(d_string)
-            if boletim and boletim.data == d_string:
+            boletim = requestor.request(next_date)
+            if boletim and boletim.data == next_date:
                 timescaleDB.insert_boletim(boletim)
                 logging.info(f"Data from {boletim.data} stored.")
             next_date += datetime.timedelta(1)

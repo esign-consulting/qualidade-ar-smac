@@ -36,9 +36,10 @@ def test_boletim_parse():
 
 def test_iqar_calculator():
     iqar_calculator = IQArCalculator()
-    assert iqar_calculator.calc("MP10", 210) == ("Muito ruim", 168)
-    assert iqar_calculator.calc("O3", 135) == ("Ruim", 86)
-    assert iqar_calculator.calc("NO2", 220) == ("Moderada", 60)
+    today = datetime.date.today()
+    assert iqar_calculator.calc(today, "MP10", 210) == ("Muito ruim", 168)
+    assert iqar_calculator.calc(today, "O3", 135) == ("Ruim", 86)
+    assert iqar_calculator.calc(today, "NO2", 220) == ("Moderada", 60)
 
     with open('src/test/resources/boletim.json') as f:
         boletim = Boletim(**json.load(f))

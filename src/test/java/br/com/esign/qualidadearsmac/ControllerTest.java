@@ -51,21 +51,21 @@ public class ControllerTest {
 	}
 
     @Test
-    public void invalidDataBoletimTest() throws IOException, JSONException {
+    public void invalidDataBoletimTest() throws IOException {
         String url = String.format("http://localhost:%s/smac/boletim?data=01/13/2016", port);
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         HashMap<String, String> responseJsonFields = new ObjectMapper().readValue(response.getBody(), new TypeReference<HashMap<String, String>>() {});
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(responseJsonFields.get("message")).isEqualTo("Data inválida. O formato da data deve ser DD/MM/AAAA.");
+        assertThat(responseJsonFields).containsEntry("message", "Data inválida. O formato da data deve ser DD/MM/AAAA.");
 	}
 
     @Test
-    public void boletimNaoEncontradoTest() throws IOException, JSONException {
+    public void boletimNaoEncontradoTest() throws IOException {
         String url = String.format("http://localhost:%s/smac/boletim?data=01/08/2016", port);
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         HashMap<String, String> responseJsonFields = new ObjectMapper().readValue(response.getBody(), new TypeReference<HashMap<String, String>>() {});
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        assertThat(responseJsonFields.get("message")).isEqualTo("Boletim não encontrado. A data do boletim deve ser posterior a 01/08/2016.");
+        assertThat(responseJsonFields).containsEntry("message", "Boletim não encontrado. A data do boletim deve ser posterior a 01/08/2016.");
 	}
 
     @Test

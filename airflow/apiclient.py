@@ -133,15 +133,17 @@ class Medicao:
                                  if codigo_poluente == mp.poluente.codigo), None)
         return medicao_poluente.concentracao if medicao_poluente else None
 
-    def is_valid(self, data: datetime.date) -> bool:
+    def is_valid(self, data: datetime.date, iqar_tolerance: int = 0) -> bool:
         iqar_calculator = IQArCalculator()
         calculated = iqar_calculator.calc_from_medicao(data, self)
         expected = (self.poluente.codigo, self.classificacao, self.indice)
-        if calculated != expected:
+        is_valid = calculated == expected or \
+            (calculated[0:1] == expected[0:1] and abs(calculated[2] - expected[2]) <= iqar_tolerance)
+        if not is_valid:
             logging.warning(f"Calculated: {calculated}")
             logging.warning(f"Expected: {expected}")
             print(self)
-        return calculated == expected
+        return is_valid
 
     def __str__(self):
         return json.dumps(vars(self), cls=CustomEncoder, ensure_ascii=False)
@@ -182,9 +184,9 @@ class Boletim:
             poluentes = list(set(poluentes + m.poluentes))
         return poluentes
 
-    def is_valid(self) -> bool:
+    def is_valid(self, iqar_tolerance: int = 0) -> bool:
         for m in self.medicoes:
-            if not m.is_valid(self.data):
+            if not m.is_valid(self.data, iqar_tolerance):
                 return False
         return True
 
@@ -283,6 +285,12 @@ class IQArCalculator:
                     iFin = indiceRange[-1]
                     cIni = r[0]
                     cFin = r[-1]
+                    # print(f"self.custom_round({iIni} + ((({iFin} - {iIni}) / ({cFin} - {cIni})) * ({rounded_concentracao} - {cIni})))")
+                    # print(f"self.custom_round({iIni} + (({(iFin - iIni)} / {(cFin - cIni)}) * {(rounded_concentracao - cIni)}))")
+                    # print(f"self.custom_round({iIni} + ({((iFin - iIni) / (cFin - cIni))} * {(rounded_concentracao - cIni)}))")
+                    # print(f"self.custom_round({iIni} + {(((iFin - iIni) / (cFin - cIni)) * (rounded_concentracao - cIni))})")
+                    # print(f"self.custom_round({iIni + (((iFin - iIni) / (cFin - cIni)) * (rounded_concentracao - cIni))})")
+                    # print(f"{self.custom_round(iIni + (((iFin - iIni) / (cFin - cIni)) * (rounded_concentracao - cIni)))}")
                     return table["qualidadeAr"][i], self.custom_round(iIni + (((iFin - iIni) / (cFin - cIni)) * (rounded_concentracao - cIni)))
         return None, None
 

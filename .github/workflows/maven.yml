@@ -26,32 +26,10 @@ jobs:
         run: mvn -Dmaven.test.skip=true deploy -s settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Prepare JAR file to upload
-        run: |
-          mkdir ./jar-upload
-          cp ./target/qualidadearsmac-0.0.1-SNAPSHOT.jar ./jar-upload
-      - name: Upload JAR file
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Login to Azure
+        uses: azure/login@v2
         with:
-          server: ${{ secrets.ESIGN_HOST }}
-          username: ${{ secrets.ESIGN_USERNAME }}
-          password: ${{ secrets.ESIGN_PASSWORD }}
-          local-dir: ./jar-upload/
-          server-dir: ~/appservers/standalone/
-      - name: Stop remote Sprint Boot
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.ESIGN_HOST }}
-          username: ${{ secrets.ESIGN_USERNAME }}
-          password: ${{ secrets.ESIGN_PASSWORD }}
-          script: appservers/tmp/qualidadearsmac-0.0.1-SNAPSHOT.sh stop
-      - name: Start remote Sprint Boot
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.ESIGN_HOST }}
-          username: ${{ secrets.ESIGN_USERNAME }}
-          password: ${{ secrets.ESIGN_PASSWORD }}
-          script: appservers/tmp/qualidadearsmac-0.0.1-SNAPSHOT.sh start
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
   python:
     needs: build

@@ -20,7 +20,7 @@ public class Boletim implements Function<String, br.com.esign.qualidadearsmac.mo
             DataRioEstacoesGeoJsonParser estacoesParser = new DataRioEstacoesGeoJsonParser(new DataRioEstacoesGeoJsonRequestor());
             return boletimParser.obterBoletim(estacoesParser.getDataRioEstacoesFeatureCollection());
         } catch (IOException e) {
-            throw new RuntimeException("Failed to process Boletim due to an IO error", e);
+            throw new FunctionException("Failed to process Boletim due to an IO error", e);
         }
     }
 

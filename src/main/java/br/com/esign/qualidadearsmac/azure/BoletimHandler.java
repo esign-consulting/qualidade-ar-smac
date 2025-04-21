@@ -20,8 +20,12 @@ import com.microsoft.azure.functions.annotation.HttpTrigger;
 @Component
 public class BoletimHandler {
 
-    @Autowired
     private Boletim boletim;
+
+    @Autowired
+    public BoletimHandler(Boletim boletim) {
+        this.boletim = boletim;
+    }
 
     @FunctionName("boletim")
     public HttpResponseMessage handleRequest(
@@ -39,32 +43,35 @@ public class BoletimHandler {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate initialDate = LocalDate.parse("02/08/2016", formatter);
                 LocalDate dataBoletim = LocalDate.parse(data, formatter);
-                if (dataBoletim.isBefore(initialDate)) {
-                    return request.createResponseBuilder(HttpStatus.NOT_FOUND)
-                            .body("Boletim não encontrado. A data do boletim deve ser posterior a 01/08/2016.")
-                            .header("Content-Type", "text/plain")
-                            .build();
-                }
+                if (dataBoletim.isBefore(initialDate))
+                    return createErrorResponseMessage(request, HttpStatus.NOT_FOUND,
+                        "Boletim não encontrado. A data do boletim deve ser posterior a 01/08/2016.");
             } catch (DateTimeParseException e) {
-                return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                        .body("Data inválida. O formato da data deve ser DD/MM/AAAA.")
-                        .header("Content-Type", "text/plain")
-                        .build();
+                return createErrorResponseMessage(request, HttpStatus.BAD_REQUEST,
+                    "Data inválida. O formato da data deve ser DD/MM/AAAA.");
             }
         }
         try {
-            return request.createResponseBuilder(HttpStatus.OK)
-                    .body(boletim.apply(data))
-                    .header("Content-Type", "application/json")
-                    .build();
+            return createSuccessResponseMessage(request, boletim.apply(data));
         } catch (Exception e) {
             context.getLogger().severe("Error processing request: " + e.getMessage());
-            e.printStackTrace();
-            return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error processing request: " + e.getMessage())
-                    .header("Content-Type", "text/plain")
-                    .build();
+            return createErrorResponseMessage(request, HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Error processing request: " + e.getMessage());
         }
+    }
+
+    private HttpResponseMessage createErrorResponseMessage(HttpRequestMessage<Optional<String>> request, HttpStatus status, String message) {
+        return request.createResponseBuilder(status)
+                .body(message)
+                .header("Content-Type", "text/plain")
+                .build();
+    }
+
+    private HttpResponseMessage createSuccessResponseMessage(HttpRequestMessage<Optional<String>> request, br.com.esign.qualidadearsmac.model.Boletim boletim) {
+        return request.createResponseBuilder(HttpStatus.OK)
+                .body(boletim)
+                .header("Content-Type", "application/json")
+                .build();
     }
 
 }

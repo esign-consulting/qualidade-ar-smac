@@ -4,12 +4,10 @@ from apiclient import Boletim, BoletimRequestor, IQArCalculator
 
 import datetime
 import json
-import pytest
 
 
-@pytest.mark.skip(reason="temporarily disabled")
 def test_api_requestor():
-    requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
+    requestor = BoletimRequestor("https://qualidadearsmac.azurewebsites.net/api")
     boletim = requestor.request()
 
     assert boletim

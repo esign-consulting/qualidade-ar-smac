@@ -9,7 +9,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s: %(levelname)s - %(message)s")
 
-requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
+requestor = BoletimRequestor("https://qualidadearsmac.azurewebsites.net/api")
 timescaleDB = TimescaleDB()
 
 logging.info("Storing into TimescaleDB...")

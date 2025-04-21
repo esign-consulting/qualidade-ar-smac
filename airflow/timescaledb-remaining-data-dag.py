@@ -12,7 +12,7 @@ with DAG(dag_id="smac_etl", start_date=days_ago(1), schedule="0 0 * * *") as dag
 
     @task
     def timescaledb_remaining_data():
-        requestor = BoletimRequestor("http://www.esign.com.br:13887/smac")
+        requestor = BoletimRequestor("https://qualidadearsmac.azurewebsites.net/api")
         timescaleDB = TimescaleDB(host="timescaledb")
 
         logging.info("Storing into TimescaleDB...")

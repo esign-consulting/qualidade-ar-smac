@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Optional;
+import java.util.logging.Level;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -37,7 +38,7 @@ public class BoletimHandler {
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
         String data = request.getQueryParameters().get("data");
-        context.getLogger().info("Data received: " + data);
+        context.getLogger().log(Level.INFO, "Data received: {0}", data);
         if (data != null && !data.isEmpty()) {
             try {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

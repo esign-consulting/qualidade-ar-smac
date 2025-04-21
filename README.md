@@ -1,6 +1,6 @@
 # qualidade-ar-smac
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=esign-consulting_qualidade-ar-smac&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=esign-consulting_qualidade-ar-smac) [![Docker Pulls](https://img.shields.io/docker/pulls/esignbr/qualidade-ar-smac.svg)](https://hub.docker.com/r/esignbr/qualidade-ar-smac) [![API](https://img.shields.io/website-up-down-green-red/http/www.esign.com.br:13887/smac/health.svg?label=API)](http://www.esign.com.br:13887/smac/boletim)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=esign-consulting_qualidade-ar-smac&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=esign-consulting_qualidade-ar-smac) [![Docker Pulls](https://img.shields.io/docker/pulls/esignbr/qualidade-ar-smac.svg)](https://hub.docker.com/r/esignbr/qualidade-ar-smac) [![API](https://img.shields.io/website-up-down-green-red/https/qualidadearsmac.azurewebsites.net/api/health.svg?label=API)](https://qualidadearsmac.azurewebsites.net/api/boletim)
 
 Dados de qualidade do ar coletados da [Prefeitura do RJ - Secretaria Municipal de Meio Ambiente (SMAC)](https://ambienteclima.prefeitura.rio). Os dados são publicados pela SMAC nos seguintes meios:
 

@@ -7,3 +7,5 @@ env/
 target/
 .classpath
 .project
+*terraform*
+tfplan.out

@@ -2,6 +2,7 @@ __pycache__/
 .github/
 .ipynb_checkpoints/
 .pytest_cache/
+.terraform/
 .settings/
 .vscode/
 airflow/
@@ -13,6 +14,7 @@ timescaledb/
 .classpath
 .gitignore
 .project
+.terraform.lock.hcl
 docker-compose.yml
 historical-data-analysis.ipynb
 last365d.png
@@ -20,3 +22,5 @@ LICENSE
 README.md
 requirements.txt
 settings.xml
+terraform.tfstate
+tfplan.out

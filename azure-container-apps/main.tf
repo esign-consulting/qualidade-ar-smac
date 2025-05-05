@@ -129,11 +129,14 @@ resource "azurerm_container_app" "timescaledb" {
   revision_mode                = "Single"
 
   template {
+
+    revision_suffix = "first-revision"
+
     container {
       name   = "timescaledb"
       image  = "timescale/timescaledb-ha:pg17.2-ts2.18.0-all"
-      cpu    = 0.5
-      memory = "1Gi"
+      cpu    = 2
+      memory = "4Gi"
       env {
         name  = "POSTGRES_PASSWORD"
         value = "SuperSecret"
@@ -163,9 +166,17 @@ resource "azurerm_container_app" "timescaledb" {
     }
   }
 
-  identity {
-    type = "SystemAssigned"
+  ingress {
+    external_enabled = false
+    exposed_port     = 5432
+    target_port      = 5432
+    transport        = "tcp"
+    traffic_weight {
+      latest_revision = true
+      percentage      = 100
+    }
   }
+
 }
 
 resource "azurerm_container_app" "pgadmin" {
@@ -175,11 +186,14 @@ resource "azurerm_container_app" "pgadmin" {
   revision_mode                = "Single"
 
   template {
+
+    revision_suffix = "first-revision"
+
     container {
       name   = "pgadmin"
       image  = "dpage/pgadmin4:8.14.0"
-      cpu    = 0.5
-      memory = "1Gi"
+      cpu    = 2
+      memory = "4Gi"
       env {
         name  = "PGADMIN_DEFAULT_EMAIL"
         value = "esign@esign.com.br"
@@ -203,12 +217,11 @@ resource "azurerm_container_app" "pgadmin" {
         sub_path = "pgpass"
       }
       command = [
-        "/bin/sh -c",
-        "mkdir /var/lib/pgadmin/storage;",
-        "mkdir /var/lib/pgadmin/storage/esign_esign.com.br;",
-        "cp /pgadmin4/pgpass /var/lib/pgadmin/storage/esign_esign.com.br/;",
-        "chmod 600 /var/lib/pgadmin/storage/esign_esign.com.br/pgpass;",
-        "/entrypoint.sh"
+        "/bin/sh"
+      ]
+      args = [
+        "-c",
+        "mkdir /var/lib/pgadmin/storage && mkdir /var/lib/pgadmin/storage/esign_esign.com.br && cp /pgadmin4/pgpass /var/lib/pgadmin/storage/esign_esign.com.br/ && chmod 600 /var/lib/pgadmin/storage/esign_esign.com.br/pgpass && /entrypoint.sh"
       ]
     }
 
@@ -225,9 +238,16 @@ resource "azurerm_container_app" "pgadmin" {
     }
   }
 
-  identity {
-    type = "SystemAssigned"
+  ingress {
+    external_enabled = true
+    target_port      = 80
+    transport        = "http2"
+    traffic_weight {
+      latest_revision = true
+      percentage      = 100
+    }
   }
+
 }
 
 resource "azurerm_container_app" "airflow" {
@@ -237,11 +257,14 @@ resource "azurerm_container_app" "airflow" {
   revision_mode                = "Single"
 
   template {
+
+    revision_suffix = "first-revision"
+
     container {
       name   = "airflow"
       image  = "apache/airflow:slim-2.10.4-python3.9"
-      cpu    = 1.0
-      memory = "2Gi"
+      cpu    = 2
+      memory = "4Gi"
       env {
         name  = "_AIRFLOW_DB_MIGRATE"
         value = "true"
@@ -272,23 +295,23 @@ resource "azurerm_container_app" "airflow" {
     }
   }
 
-  identity {
-    type = "SystemAssigned"
-  }
 }
 
 resource "azurerm_container_app" "grafana" {
-  name                = "grafana"
+  name                         = "grafana"
   container_app_environment_id = azurerm_container_app_environment.env.id
-  resource_group_name = azurerm_resource_group.rg.name
-  revision_mode       = "Single"
+  resource_group_name          = azurerm_resource_group.rg.name
+  revision_mode                = "Single"
 
   template {
+
+    revision_suffix = "first-revision"
+
     container {
       name   = "grafana"
       image  = "grafana/grafana:11.4.0"
-      cpu    = 0.5
-      memory = "1Gi"
+      cpu    = 2
+      memory = "4Gi"
       env {
         name  = "GF_SECURITY_ADMIN_PASSWORD"
         value = "S3cr3t"
@@ -330,7 +353,4 @@ resource "azurerm_container_app" "grafana" {
     }
   }
 
-  identity {
-    type = "SystemAssigned"
-  }
 }

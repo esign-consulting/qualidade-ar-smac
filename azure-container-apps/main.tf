@@ -206,6 +206,10 @@ resource "azurerm_container_app" "pgadmin" {
         name  = "PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED"
         value = "False"
       }
+      env {
+        name  = "PGADMIN_LISTEN_PORT"
+        value = "8080"
+      }
       volume_mounts {
         name = "servers-json-volume"
         path = "/pgadmin4/servers.json"
@@ -240,8 +244,8 @@ resource "azurerm_container_app" "pgadmin" {
 
   ingress {
     external_enabled = true
-    target_port      = 80
-    transport        = "http2"
+    target_port      = 8080
+    transport        = "http"
     traffic_weight {
       latest_revision = true
       percentage      = 100

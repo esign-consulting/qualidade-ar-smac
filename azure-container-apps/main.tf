@@ -252,6 +252,8 @@ resource "azurerm_container_app" "pgadmin" {
     }
   }
 
+  depends_on = [ azurerm_container_app.timescaledb ]
+
 }
 
 resource "azurerm_container_app" "airflow" {
@@ -285,6 +287,14 @@ resource "azurerm_container_app" "airflow" {
         name  = "_AIRFLOW_WWW_USER_PASSWORD"
         value = "airflow"
       }
+      env {
+        name  = "_PIP_ADDITIONAL_REQUIREMENTS"
+        value = "psycopg2-binary==2.9.10"
+      }
+      env {
+        name  = "AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION"
+        value = "false"
+      }
       volume_mounts {
         name = "airflow-dags-volume"
         path = "/opt/airflow/dags"
@@ -298,6 +308,18 @@ resource "azurerm_container_app" "airflow" {
       storage_type = "AzureFile"
     }
   }
+
+  ingress {
+    external_enabled = true
+    target_port      = 8080
+    transport        = "http"
+    traffic_weight {
+      latest_revision = true
+      percentage      = 100
+    }
+  }
+
+  depends_on = [ azurerm_container_app.timescaledb ]
 
 }
 
@@ -356,5 +378,17 @@ resource "azurerm_container_app" "grafana" {
       storage_type = "AzureFile"
     }
   }
+
+  ingress {
+    external_enabled = true
+    target_port      = 3000
+    transport        = "http"
+    traffic_weight {
+      latest_revision = true
+      percentage      = 100
+    }
+  }
+
+  depends_on = [ azurerm_container_app.timescaledb ]
 
 }

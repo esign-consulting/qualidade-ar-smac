@@ -28,6 +28,8 @@ Os dados de qualidade do ar dos últimos 365 dias, carregados para uma base de d
 
 ![SMAC dashboard](last365d.png)
 
+:white_check_mark: O Grafana também pode ser visualizado [aqui](https://grafana.ashycliff-8ff39973.brazilsouth.azurecontainerapps.io).
+
 ### Consultas aos dados
 
 Se preferir, obtenha diretamente todos os dados da SMAC, através da **Query Tool** do [pgAdmin](http://localhost:8085) (usuário `esign@esign.com.br` e senha `S3cr3t`):
@@ -76,6 +78,8 @@ WHERE e.orgao = 'SMAC'
 GROUP BY md.classificacao
 ORDER BY qtde DESC
 ```
+
+:white_check_mark: O pgAdmin pode ser usado [aqui](https://pgadmin.ashycliff-8ff39973.brazilsouth.azurecontainerapps.io).
 
 ### Dump da base de dados
 

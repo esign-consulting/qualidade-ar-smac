@@ -79,7 +79,7 @@ GROUP BY md.classificacao
 ORDER BY qtde DESC
 ```
 
-:white_check_mark: O pgAdmin pode ser usado [aqui](https://pgadmin.ashycliff-8ff39973.brazilsouth.azurecontainerapps.io).
+:white_check_mark: O pgAdmin também pode ser usado [aqui](https://pgadmin.ashycliff-8ff39973.brazilsouth.azurecontainerapps.io).
 
 ### Dump da base de dados
 

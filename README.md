@@ -60,11 +60,11 @@ WHERE e.orgao = 'SMAC'
 Poluentes que mais impactaram o índice de qualidade do ar no período:
 
 ```sql
-SELECT md.poluente, COUNT(*) AS "qtde"
+SELECT md.codigo_poluente, COUNT(*) AS "qtde"
 FROM medicoes_diarias AS md
 JOIN estacoes AS e ON e.codigo = md.codigo_estacao
 WHERE e.orgao = 'SMAC'
-GROUP BY md.poluente
+GROUP BY md.codigo_poluente
 ORDER BY qtde DESC
 ```
 

@@ -68,13 +68,14 @@ GROUP BY md.codigo_poluente
 ORDER BY qtde DESC
 ```
 
-Distribuição da classificação da qualidade do ar no período:
+Distribuição da classificação da qualidade do ar desde 19/11/2019, quando a nova tabela de qualidade do ar passou a ser utilizada:
 
 ```sql
 SELECT md.classificacao, COUNT(*) AS "qtde"
 FROM medicoes_diarias AS md
 JOIN estacoes AS e ON e.codigo = md.codigo_estacao
 WHERE e.orgao = 'SMAC'
+AND md.data >= '2019/11/19'
 GROUP BY md.classificacao
 ORDER BY qtde DESC
 ```

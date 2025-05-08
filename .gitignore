@@ -9,3 +9,5 @@ target/
 .project
 *terraform*
 tfplan.out
+dist/
+*.egg-info/

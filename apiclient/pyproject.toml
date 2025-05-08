@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qarsmac"
+version = "0.0.1"
+authors = [
+  { name="Gustavo Muniz do Carmo", email="gustavo@esign.com.br" },
+]
+maintainers = [
+  { name="Gustavo Muniz do Carmo", email="gustavo@esign.com.br" },
+]
+description = "Cliente Python da API de Qualidade do Ar da SMAC."
+dependencies = [
+  "requests",
+]
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+keywords = ["air-quality", "api-client"]
+
+[project.urls]
+Repository = "https://github.com/esign-consulting/qualidade-ar-smac/tree/main/apiclient"
+Issues = "https://github.com/esign-consulting/qualidade-ar-smac/issues"

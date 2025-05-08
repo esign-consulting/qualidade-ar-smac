@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from apiclient import BoletimRequestor
-from apitimescaledb import TimescaleDB
+from qarsmac.timescaledb import TimescaleDB
 
 import datetime
 import logging

@@ -2,8 +2,8 @@ from airflow import DAG
 from airflow.decorators import task
 from airflow.utils.dates import days_ago
 
-from apiclient import BoletimRequestor
-from apitimescaledb import TimescaleDB
+from qarsmac.requestor import BoletimRequestor
+from qarsmac.timescaledb import TimescaleDB
 
 import datetime
 import logging

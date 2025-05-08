@@ -289,7 +289,7 @@ resource "azurerm_container_app" "airflow" {
       }
       env {
         name  = "_PIP_ADDITIONAL_REQUIREMENTS"
-        value = "psycopg2-binary==2.9.10"
+        value = "qarsmac[timescaledb]"
       }
       env {
         name  = "AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION"

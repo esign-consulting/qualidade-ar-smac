@@ -1,4 +1,4 @@
-from apiclient import Boletim, Estacao, Poluente, MedicaoPoluente, Medicao
+from qarsmac.model import Boletim, Estacao, Poluente, MedicaoPoluente, Medicao
 from datetime import date
 from psycopg2 import extras
 

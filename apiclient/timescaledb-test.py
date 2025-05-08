@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from apitimescaledb import TimescaleDB
+from qarsmac.timescaledb import TimescaleDB
 
 import datetime
 import logging

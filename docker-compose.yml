@@ -55,7 +55,7 @@ services:
       _AIRFLOW_WWW_USER_CREATE: "true"
       _AIRFLOW_WWW_USER_USERNAME: "airflow"
       _AIRFLOW_WWW_USER_PASSWORD: "airflow"
-      _PIP_ADDITIONAL_REQUIREMENTS: "psycopg2-binary==2.9.10"
+      _PIP_ADDITIONAL_REQUIREMENTS: "qarsmac[timescaledb]"
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
     command: standalone
     ports:

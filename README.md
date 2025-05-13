@@ -31,7 +31,7 @@ Os dados de qualidade do ar dos últimos 365 dias, carregados para uma base de d
 
 ![SMAC dashboard](last365d.png)
 
-:white_check_mark: O Grafana também pode ser visualizado [aqui](https://grafana.ashycliff-8ff39973.brazilsouth.azurecontainerapps.io).
+:white_check_mark: O Grafana também pode ser visualizado [aqui](https://grafana.mangocliff-c2491b60.brazilsouth.azurecontainerapps.io).
 
 ### Consultas aos dados
 
@@ -83,7 +83,7 @@ GROUP BY md.classificacao
 ORDER BY qtde DESC
 ```
 
-:white_check_mark: O pgAdmin também pode ser usado [aqui](https://pgadmin.ashycliff-8ff39973.brazilsouth.azurecontainerapps.io).
+:white_check_mark: O pgAdmin também pode ser usado [aqui](https://pgadmin.mangocliff-c2491b60.brazilsouth.azurecontainerapps.io).
 
 ### Dump da base de dados
 

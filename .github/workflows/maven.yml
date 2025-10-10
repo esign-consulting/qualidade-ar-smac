@@ -7,9 +7,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,6 +24,19 @@ jobs:
         run: mvn -Dmaven.test.skip=true deploy -s settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21.0.2
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'microsoft'
+          java-version: 21.0.2
+          cache: 'maven'
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -35,11 +46,9 @@ jobs:
       - name: Deploy to Azure
         run: mvn azure-functions:deploy
 
-  python:
-    needs: build
-    
+  test:
+    needs: deploy
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
